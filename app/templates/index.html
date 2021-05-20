@@ -10,10 +10,12 @@
 
 <body>
     <div class="col-12 title">灾情信息查询</div>
-    <div class="row">
-
-        <div class="col-3 border">
-            <button id="btn-upload-file" class="btn btn-primary">上传灾情数据</button>
+    <div class="col-12">
+        <div class="col-3 border" style="text-align: center;">
+            <form action="/uploader" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" class="btn" style="display:inline;" />
+                <input type="submit" id="btn-upload-file" class="btn btn-primary">上传灾情数据</input>
+            </form>
         </div>
         <div class="col-9 table-responsive">
 
@@ -21,12 +23,12 @@
                 <thead>
                     <tr>
                         <td width="5%" class="font1">序号(I)</td>
-                        <td width="14%" class="font1">震级(M)</td>
-                        <td width="10%" class="font1">发震时刻(UTC+8)</td>
+                        <td width="10%" class="font1">震级(M)</td>
+                        <td width="15%" class="font1">发震时刻(UTC+8)</td>
                         <td width="10%" class="font1">纬度(°)</td>
                         <td width="10%" class="font1">经度(°)</td>
                         <td width="14%" class="font1">深度(千米)</td>
-                        <td width="15%" class="font1">参考位置</td>
+                        <td width="20%" class="font1">参考位置</td>
                     </tr>
                 </thead>
                 {% for eqs in earthquakes %}
@@ -73,13 +75,22 @@
                     {% endif %}
                     {% endfor %}
                     <li class="{{ " disabled" if current_page + 1>= total_page else "" }}">
-                        <a
-                            href="
+                        <a href="
                         {% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
                     </li>
             </ul>
         </div>
     </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <script>
+            var messages = {{ messages | safe }};
+            for (var i = 0; i < messages.length; i++) {
+                alert(messages[i]);
+            }
+        </script>
+        {% endif %}
+    {% endwith %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
