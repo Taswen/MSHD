@@ -24,7 +24,7 @@ class Earthquake(db.Model):
     Id = db.Column(db.Integer, primary_key=True)
     OccurrenceTime = db.Column(db.DateTime)
     # str for occurence time
-    Str_ot=""
+    Str_ot = ""
     Longitude = db.Column(db.Float)
     Latitude = db.Column(db.DateTime)
     Depth = db.Column(db.Float)
@@ -36,7 +36,7 @@ class Earthquake(db.Model):
         return f'<Earthquake> {self.Location}:{self.Level}'
 
     def enable_print(self):
-        self.Str_ot=str(self.OccurrenceTime)
+        self.Str_ot = str(self.OccurrenceTime)
         return self
     
     @classmethod

@@ -1,0 +1,32 @@
+{
+  "disasters": [
+    {
+      "category": 1,
+      "date": "2021-04-21 10:15:57",
+      "longitude": 116.63,
+      "latitude": 40.16,
+      "detail": {
+        "depth": 15,
+        "magnitude": 7.0,
+        "reportingUnit": "北京地震局"
+      },
+      "images": [
+        "example.jpg"
+      ]
+    },
+    {
+      "category": 1,
+      "date": "2022-04-21 10:15:57",
+      "longitude": 117.63,
+      "latitude": 41.16,
+      "detail": {
+        "depth": 16,
+        "magnitude": 8.0,
+        "reportingUnit": "北京地震局"
+      },
+      "images": [
+        "not_true.jpg"
+      ]
+    }
+  ]
+},
