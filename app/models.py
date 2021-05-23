@@ -1,4 +1,9 @@
+from sqlalchemy.orm import Query, query
+from sqlalchemy.sql import func
+from sqlalchemy.sql.expression import select
+from sqlalchemy import text
 from app.ext import db
+import csv
 
 
 # 灾情
@@ -33,3 +38,26 @@ class Earthquake(db.Model):
     def enable_print(self):
         self.Str_ot=str(self.OccurrenceTime)
         return self
+    
+    @classmethod
+    def get_max_id(cls):
+        query = Earthquake.query.order_by(Earthquake.Id.desc())
+        if len(query) == 0:
+            return 0
+        return query[-1]['Id']
+
+    def readCsv(file):
+        start_id = 1
+        ref_start_id = 1
+        with open("file", "r") as csv_file:
+            reader = csv.DictReader(csv_file)
+            for row in reader:
+                row['Id'] = str(start_id)
+                row['ReferenceId'] = str(ref_start_id)
+                obj = Earthquake(row)
+                print(obj.gen_sql())
+                start_id += 1
+                ref_start_id += 1
+
+
+# print(Earthquake.get_max_id())

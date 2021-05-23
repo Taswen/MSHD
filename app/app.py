@@ -38,6 +38,13 @@ def uploader():
     return redirect(url_for("earthquakesListPage"))
 
 
+@app.route('/test',methods=['POST','GET'])
+def test():
+    ## 测试
+
+    return redirect(url_for("earthquakesListPage"))
+
+
 #############  ##############
 if __name__ == '__main__':
     app.run(debug=True)

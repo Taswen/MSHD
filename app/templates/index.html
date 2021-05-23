@@ -81,6 +81,12 @@
             </ul>
         </div>
     </div>
+
+    <!-- 测试按钮 -->
+    <form action="/test" method="POST" >
+        <input type="submit" id="btn-upload-file" class="btn btn-primary">Test</input>
+    </form>
+
     {% with messages = get_flashed_messages() %}
         {% if messages %}
         <script>
