@@ -1,17 +1,55 @@
 name: GitHub Actions Demo
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  IMAGE_NAME: mshd
+  DOCKER_ACCOUNT: chivalryq
+
 jobs:
-  Explore-GitHub-Actions:
+  push:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v2
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
+
+      - name: Build image
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+
+      - name: Log into registry
+        run: echo "${{ secrets.DOCKER_ACCESS }}" | docker login -u $DOCKER_ACCOUNT --password-stdin
+
+      - name: Push image
         run: |
-          ls ${{ github.workspace }}
+            IMAGE_ID=$DOCKER_ACCOUNT/$IMAGE_NAME
+            VERSION=latest
+
+            echo IMAGE_ID=$IMAGE_ID
+            echo VERSION=$VERSION
+
+            docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+            # 进行 push
+            docker push $IMAGE_ID:$VERSION
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  deploy:
+    needs: [ push ]
+    name: Pull Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }} # 服务器ip
+          username: root
+          password: ${{ secrets.HOST_PASSWORD }} # 服务器登录密码
+          port: 22
+          script: |
+             docker stop $(docker ps -q)
+             docker rm -f $(docker ps -a -q)
+             docker rmi -f $(docker images -q)
+             docker pull $IMAGE_NAME:latest
+             # 运行最新latest版本镜像
+             docker run -d -p 80:80 $IMAGE_NAME:latest
