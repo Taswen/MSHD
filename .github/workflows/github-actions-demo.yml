@@ -47,9 +47,10 @@ jobs:
           password: ${{ secrets.HOST_PASSWORD }} # 服务器登录密码
           port: 22
           script: |
-             docker stop $(docker ps -q)
-             docker rm -f $(docker ps -a -q)
-             docker rmi -f $(docker images -q)
-             docker pull $IMAGE_NAME:latest
-             # 运行最新latest版本镜像
-             docker run -d -p 80:80 $IMAGE_NAME:latest
+            bash
+            docker stop $(docker ps -q)
+            docker rm -f $(docker ps -a -q)
+            docker rmi -f $(docker images -q)
+            docker pull $IMAGE_NAME:latest
+            # 运行最新latest版本镜像
+            docker run -d -p 80:80 $IMAGE_NAME:latest
