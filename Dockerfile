@@ -6,4 +6,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["gunicorn", "run:app", "-c", "./gunicorn.conf.py"]
+CMD ["gunicorn", "run:app", "-c", "./gunicorn.conf.py","--log-level","warning"]

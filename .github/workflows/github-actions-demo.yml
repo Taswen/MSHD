@@ -45,9 +45,7 @@ jobs:
           password: ${{ secrets.HOST_PASSWORD }} # 服务器登录密码
           port: 22
           script: |
-            bash
             docker stop $(docker ps -q)
             docker rm -f $(docker ps -a -q)
-            docker rmi -f $(docker images -q)
             docker pull chivalryq/mshd:latest
-            docker run -d -p 80:80 chivalryq/mshd:latest
+            docker run -d -p 80:80 -v /upload:/upload -v /scanned:/scanned -v /error:/error chivalryq/mshd:latest
