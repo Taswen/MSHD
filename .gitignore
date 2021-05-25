@@ -5,3 +5,6 @@ __pycache__/
 .idea
 
 venv/
+upload/
+scanned/
+error/
