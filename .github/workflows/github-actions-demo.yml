@@ -31,12 +31,10 @@ jobs:
             echo VERSION=$VERSION
 
             docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-            # 进行 push
             docker push $IMAGE_ID:$VERSION
-      - run: echo "🍏 This job's status is ${{ job.status }}."
   deploy:
     needs: [ push ]
-    name: Pull Docker Image
+    name: Deploy Docker Image
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
@@ -51,6 +49,5 @@ jobs:
             docker stop $(docker ps -q)
             docker rm -f $(docker ps -a -q)
             docker rmi -f $(docker images -q)
-            docker pull $IMAGE_NAME:latest
-            # 运行最新latest版本镜像
-            docker run -d -p 80:80 $IMAGE_NAME:latest
+            docker pull chivalryq/mshd:latest
+            docker run -d -p 80:80 chivalryq/mshd:latest
