@@ -1,4 +1,4 @@
-from base_validator import Validator
+from .base_validator import Validator
 
 
 class StupidValidator(Validator):

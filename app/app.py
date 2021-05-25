@@ -32,13 +32,12 @@ def earthquakesListPage():
 @app.route('/uploader', methods=['POST', 'GET'])
 def uploader():
     if request.method == 'POST':
-        print("IN")
+        pass
         f = request.files['file']
-        print(os.path)
         f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
         flash('file uploaded successfully')
     else:
-        print("IN GET")
+        pass
     return redirect(url_for("earthquakesListPage"))
 
 
