@@ -1,32 +1,28 @@
 {
   "disasters": [
     {
-      "category": 1,
-      "date": "2021-04-21 10:15:57",
-      "longitude": 116.63,
-      "latitude": 40.16,
-      "detail": {
-        "depth": 15,
-        "magnitude": 7.0,
-        "reportingUnit": "北京地震局"
-      },
-      "images": [
+      "Category": 1,
+      "Date": "2021-04-21 10:15:57",
+      "Longitude": 116.63,
+      "Latitude": 40.16,
+      "Depth": 15,
+      "Level": 7.0,
+      "ReportingUnit": "北京地震局",
+      "Images": [
         "example.jpg"
       ]
     },
     {
-      "category": 1,
-      "date": "2022-04-21 10:15:57",
-      "longitude": 117.63,
-      "latitude": 41.16,
-      "detail": {
-        "depth": 16,
-        "magnitude": 8.0,
-        "reportingUnit": "北京地震局"
-      },
-      "images": [
+      "Category": 1,
+      "Date": "2022-04-21 10:15:57",
+      "Longitude": 117.63,
+      "Latitude": 41.16,
+      "Depth": 16,
+      "Level": 8.0,
+      "ReportingUnit": "北京地震局",
+      "Images": [
         "not_true.jpg"
       ]
     }
   ]
-},
+}

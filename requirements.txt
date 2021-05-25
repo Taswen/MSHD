@@ -3,3 +3,4 @@ flask_sqlalchemy
 pymysql
 gunicorn
 gevent
+schedule==1.1.0
