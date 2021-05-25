@@ -47,5 +47,6 @@ jobs:
           script: |
             docker stop $(docker ps -q)
             docker rm -f $(docker ps -a -q)
+            docker rmi -f $(docker images -q)
             docker pull chivalryq/mshd:latest
             docker run -d -p 80:80 -v /upload:/upload -v /scanned:/scanned -v /error:/error chivalryq/mshd:latest
