@@ -4,14 +4,12 @@ from app.ext import db
 from app.db import *
 import os
 
-from scanner.scanner import Scanner
 
 
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile("config/settings.py")
     db.init_app(app)
-    # Scanner(app).run()
     return app
 
 
