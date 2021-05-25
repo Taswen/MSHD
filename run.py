@@ -1,5 +1,5 @@
 from app.app import app
 
-if __name__=="__main__":
+if __name__ == "__main__":
     print(app.url_map)
-    app.run(debug = True,port=5123)
+    app.run(debug=True, port=5123)

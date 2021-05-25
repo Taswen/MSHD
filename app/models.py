@@ -1,4 +1,12 @@
+from typing import Dict
+from enum import Enum
+
 from app.ext import db
+
+
+class DisasterTypeCode(Enum):
+    UNKNOWN = 0
+    EARTHQUAKE = 1
 
 
 # 灾情
@@ -26,6 +34,7 @@ class Earthquake(db.Model):
     Location = db.Column(db.String(100))
     Level = db.Column(db.Float)
     Earthcode = db.Column(db.String(200))
+    ReferenceId = db.Column(db.Integer, db.ForeignKey('Disaster.Id'))
 
     def __repr__(self):
         return f'<Earthquake> {self.Location}:{self.Level}'
@@ -33,3 +42,9 @@ class Earthquake(db.Model):
     def enable_print(self):
         self.Str_ot = str(self.OccurrenceTime)
         return self
+
+    def __init__(self, data: Dict):
+        for key, val in data.items():
+            if hasattr(self, key):
+                # setattr(self, key, type(getattr(self, key))(val))
+                setattr(self, key, val)
