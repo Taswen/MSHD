@@ -29,6 +29,7 @@ jobs:
       - name: Push image
         run: |
           IMAGE_ID=$DOCKER_ACCOUNT/$IMAGE_NAME
+          SC_IMAGE_ID=$DOCKER_ACCOUNT/$SC_IMAGE_NAME
           VERSION=latest
 
           echo IMAGE_ID=$IMAGE_ID
@@ -55,10 +56,11 @@ jobs:
           password: ${{ secrets.HOST_PASSWORD }} # 服务器登录密码
           port: 22
           script: |
+            ftp_dir=/var/ftp/data
             docker stop $(docker ps -q)
             docker rm -f $(docker ps -a -q)
             docker rmi -f $(docker images -q)
-            # TODO add scanner image
+            docker pull chivalryq/mshd-sc:latest
             docker pull chivalryq/mshd:latest
-            # TODO change volumn to actual ftp dir
-            docker run -d -p 80:80 -v /upload:/upload -v /scanned:/scanned -v /error:/error chivalryq/mshd:latest
+            docker run -d -v $ftp_dir/upload:/upload -v $ftp_dir/scanned:/scanned -v $ftp_dir/error:/error -p 80:80  chivalryq/mshd:latest
+            docker run -d -v $ftp_dir/upload:/upload -v $ftp_dir/scanned:/scanned -v $ftp_dir/error:/error chivalryq/mshd-sc:latest
