@@ -14,6 +14,9 @@ def get_earthquakes_data(limit=None, offset=None):
     process_eqs = [e.enable_print() for e in eqs]
     return process_eqs
 
+def get_one_earthquake_by_id(id):
+    return Earthquake.query.get(id).enable_print()
+
 
 def get_earthquakes_num():
     return Earthquake.query.count()

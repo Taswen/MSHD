@@ -1,3 +1,4 @@
+from importlib.machinery import SourceFileLoader
 from typing import Dict
 from enum import Enum
 
@@ -36,6 +37,7 @@ class Earthquake(db.Model):
     Level = db.Column(db.Float)
     Earthcode = db.Column(db.String(200))
     ReferenceId = db.Column(db.Integer, db.ForeignKey('Disaster.Id'))
+    Source = db.Column(db.String(100))
 
     def __repr__(self):
         return f'<Earthquake> {self.Location}:{self.Level}'
@@ -50,11 +52,6 @@ class Earthquake(db.Model):
         if len(query) == 0:
             return 0
         return query[-1]['Id']
-
-
-
-
-# print(Earthquake.get_max_id())
 
     def __init__(self, data: Dict):
         for key, val in data.items():

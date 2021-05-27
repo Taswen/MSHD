@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <!-- 导航条 -->
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
         <div class="navbar-header">
@@ -16,82 +17,16 @@
         </div>
         <div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">震情</a></li>
+                <li><a href="#">震情</a></li>
                 <li><a href="#">灾情</a></li>
             </ul>
         </div>
         </div>
     </nav>
+    <!-- 主页 -->
     <div class="col-12">
-        <div class="col-3 border" style="text-align: center;">
-            <form action="/uploader" method="POST" enctype="multipart/form-data">
-                <input type="file" name="file" class="btn" style="display:inline;" />
-                <input type="submit" id="btn-upload-file" class="btn btn-primary">上传震情数据</input>
-            </form>
-        </div>
-        <div class="col-9 table-responsive">
-
-            <table class="table-bordered table-hover" cellspacing="1" bgcolor="#f0f8ff" align="center">
-                <thead>
-                    <tr>
-                        <td width="5%" class="font1">序号(I)</td>
-                        <td width="10%" class="font1">震级(M)</td>
-                        <td width="15%" class="font1">发震时刻(UTC+8)</td>
-                        <td width="10%" class="font1">纬度(°)</td>
-                        <td width="10%" class="font1">经度(°)</td>
-                        <td width="14%" class="font1">深度(千米)</td>
-                        <td width="20%" class="font1">参考位置</td>
-                    </tr>
-                </thead>
-                {% for eqs in earthquakes %}
-                <tbody>
-                    <tr>
-                        <td>{{ eqs.Id }}</td>
-                        <td>{{ eqs.Level }}</td>
-                        <td>{{ eqs.Str_ot }}</td>
-                        <td>{{ eqs.Longitude }}</td>
-                        <td>{{ eqs.Latitude }}</td>
-                        <td>{{ eqs.Depth }}</td>
-                        <td>{{ eqs.Location }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div style="text-align: center;">
-            <ul class="pagination">
-                {% set offset = (offset)|int %}
-                {% set limit = (limit)|int %}
-                {% set count = (count)|int %}
-
-                {% set current_page = (offset/limit)|int + (1 if offset%limit else 0) %}
-                {% set total_page = (count/limit)|int + (1 if count%limit else 0) %}
-
-                <li class="{{ " disabled" if current_page - 1 <=0 else "" }}">
-                    <a
-                        href="
-                        {% if current_page>1 %}{{ url_for('earthquakesListPage',  result=result,offset=(current_page-1)*limit, limit=limit) }}{% endif %}">«</a>
-                </li>
-
-                {% set prev = 0 %}
-                {% for i in range(0, (total_page)|int) %}
-                {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %} {% set prev=i %} <li
-                    class="{% if i == current_page %}active{% endif %}">
-                    <a href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">{{ i + 1
-                        }}</a>
-                    </li>
-
-                    {% elif prev == i-1 %}
-                    <li class="disabled"><a>…</a></li>
-
-                    {% endif %}
-                    {% endfor %}
-                    <li class="{{ " disabled" if current_page + 1>= total_page else "" }}">
-                        <a href="
-                        {% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
-                    </li>
-            </ul>
-        </div>
+        
+        
     </div>
 
     <!-- 测试按钮 -->

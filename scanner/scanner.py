@@ -4,27 +4,15 @@ import csv
 import threading
 import time
 import schedule
-import json
-from typing import Dict, List
+
 from flask_sqlalchemy import SQLAlchemy
 
 from app.models import Disaster, Earthquake
 from app.config.settings import UPLOAD_FOLDER, SCANNED_FOLDER, ERROR_FOLDER
 from scanner.validator.earthquake_validator import EarthquakeValidator
 
+from scanner.converter.to_earthquake import *
 
-def json_reader(path: str) -> List[Dict]:
-    with open(path, "r") as file:
-        return json.loads(''.join(file.readlines()))['disasters']
-
-
-def csv_reader(path: str) -> List[Dict]:
-    with open(path, "r") as file:
-        res = []
-        reader = csv.DictReader(file)
-        for row in reader:
-            res.append(row)
-        return res
 
 
 class Scanner(threading.Thread):
@@ -54,7 +42,6 @@ class Scanner(threading.Thread):
                     if not self.validator.validate(disaster_dict):
                         logging.warning(f"Ignoring row {disaster_dict}.")
                         continue
-                    
 
                     earthquake = Earthquake(disaster_dict)
                     self.session.add(earthquake)
@@ -81,5 +68,6 @@ class Scanner(threading.Thread):
         while True:
             schedule.run_pending()
             time.sleep(1)
+
 
 
