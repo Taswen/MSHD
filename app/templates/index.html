@@ -3,18 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>灾情信息网</title>
+    <title>MSHD系统</title>
     <link rel="stylesheet" href="/static/index.css">
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div class="col-12 title">灾情信息查询</div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">MSHD</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">震情</a></li>
+                <li><a href="#">灾情</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
     <div class="col-12">
         <div class="col-3 border" style="text-align: center;">
             <form action="/uploader" method="POST" enctype="multipart/form-data">
                 <input type="file" name="file" class="btn" style="display:inline;" />
-                <input type="submit" id="btn-upload-file" class="btn btn-primary">上传灾情数据</input>
+                <input type="submit" id="btn-upload-file" class="btn btn-primary">上传震情数据</input>
             </form>
         </div>
         <div class="col-9 table-responsive">
