@@ -4,14 +4,12 @@ from app.ext import db
 from app.db import get_earthquakes_num,get_earthquakes_data
 import os
 
-from scanner.scanner import Scanner
 
 
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile("config/settings.py")
     db.init_app(app)
-    Scanner(app).run()
     return app
 
 
@@ -19,6 +17,7 @@ app = create_app()
 
 
 @app.route('/')
+@app.route('/earthquakes')
 def earthquakesListPage():
     result = request.args.get("result", 'ALL', str)
     offset = request.args.get('offset', 0, int)
@@ -26,7 +25,7 @@ def earthquakesListPage():
     count = get_earthquakes_num()
     earthquakes = get_earthquakes_data(limit=limit, offset=offset)
 
-    return render_template("index.html", count=count, result=result, earthquakes=earthquakes, offset=offset,
+    return render_template("earthquakes.html", count=count, result=result, earthquakes=earthquakes, offset=offset,
                            limit=limit)
 
 
