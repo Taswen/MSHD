@@ -27,8 +27,8 @@ jobs:
       - name: Build web image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
-      - name: Build scanner image
-        run: docker build . --file Dockerfile.sc --tag $SC_IMAGE_NAME
+#      - name: Build scanner image
+#        run: docker build . --file Dockerfile.sc --tag $SC_IMAGE_NAME
 
       - name: Log into registry
         run: echo "${{ secrets.DOCKER_ACCESS }}" | docker login -u $DOCKER_ACCOUNT --password-stdin
@@ -81,7 +81,7 @@ jobs:
             docker stop $(docker ps -q)
             docker rm -f $(docker ps -a -q)
             docker rmi -f $(docker images -q)
-            docker pull chivalryq/mshd-sc:$SHA
+            # docker pull chivalryq/mshd-sc:$SHA
             docker pull chivalryq/mshd:$SHA
             docker run -d -v $ftp_dir:/ftp -p 80:80  chivalryq/mshd:$SHA
-            docker run -d -v $ftp_dir:/ftp chivalryq/mshd-sc:$SHA
+            # docker run -d -v $ftp_dir:/ftp chivalryq/mshd-sc:$SHA
