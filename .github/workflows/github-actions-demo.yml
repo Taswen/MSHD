@@ -17,6 +17,13 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
 
+      - name: Set SHA
+        id: sha-var
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
+      - name: Check SHA
+        run: echo ${{ steps.sha-var.outputs.sha_short }}
+
       - name: Build web image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
@@ -30,7 +37,7 @@ jobs:
         run: |
           IMAGE_ID=$DOCKER_ACCOUNT/$IMAGE_NAME
           SC_IMAGE_ID=$DOCKER_ACCOUNT/$SC_IMAGE_NAME
-          VERSION=latest
+          VERSION=${{ steps.sha-var.outputs.sha_short }}
 
           echo IMAGE_ID=$IMAGE_ID
           echo SC_IMAGE_ID=$SC_IMAGE_ID
@@ -48,9 +55,23 @@ jobs:
     name: Deploy Docker Image
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Set SHA
+        id: sha-var
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
+      - name: Check SHA
+        run: echo ${{ steps.sha-var.outputs.sha_short }}
+
       - name: Deploy
         uses: appleboy/ssh-action@master
+        env:
+          SHA: ${{ steps.sha-var.outputs.sha_short }}
         with:
+          envs: IMANGE_NAME,SC_IMAGE_NAME,SHA
+
           host: ${{ secrets.HOST }} # 服务器ip
           username: root
           password: ${{ secrets.HOST_PASSWORD }} # 服务器登录密码
@@ -60,7 +81,7 @@ jobs:
             docker stop $(docker ps -q)
             docker rm -f $(docker ps -a -q)
             docker rmi -f $(docker images -q)
-            docker pull chivalryq/mshd-sc:latest
-            docker pull chivalryq/mshd:latest
-            docker run -d -v $ftp_dir:/ftp -p 80:80  chivalryq/mshd:latest
-            docker run -d -v $ftp_dir:/ftp chivalryq/mshd-sc:latest
+            docker pull chivalryq/mshd-sc:$SHA
+            docker pull chivalryq/mshd:$SHA
+            docker run -d -v $ftp_dir:/ftp -p 80:80  chivalryq/mshd:$SHA
+            docker run -d -v $ftp_dir:/ftp chivalryq/mshd-sc:$SHA
