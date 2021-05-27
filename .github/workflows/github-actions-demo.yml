@@ -36,18 +36,18 @@ jobs:
       - name: Push image
         run: |
           IMAGE_ID=$DOCKER_ACCOUNT/$IMAGE_NAME
-     #     SC_IMAGE_ID=$DOCKER_ACCOUNT/$SC_IMAGE_NAME
+          # SC_IMAGE_ID=$DOCKER_ACCOUNT/$SC_IMAGE_NAME
           VERSION=${{ steps.sha-var.outputs.sha_short }}
 
           echo IMAGE_ID=$IMAGE_ID
-     #     echo SC_IMAGE_ID=$SC_IMAGE_ID
+          # echo SC_IMAGE_ID=$SC_IMAGE_ID
           echo VERSION=$VERSION
 
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-    #      docker tag $SC_IMAGE_NAME $SC_IMAGE_ID:$VERSION
+          # docker tag $SC_IMAGE_NAME $SC_IMAGE_ID:$VERSION
 
           docker push $IMAGE_ID:$VERSION
-    #      docker push $SC_IMAGE_ID:$VERSION
+          # docker push $SC_IMAGE_ID:$VERSION
 
 
   deploy-web:
