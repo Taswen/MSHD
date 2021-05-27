@@ -10,7 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from app.models import Disaster, Earthquake
 from app.config.settings import UPLOAD_FOLDER, SCANNED_FOLDER, ERROR_FOLDER
-from validator.earthquake_validator import EarthquakeValidator
+from scanner.validator.earthquake_validator import EarthquakeValidator
 
 
 def json_reader(path: str) -> List[Dict]:
@@ -53,12 +53,9 @@ class Scanner(threading.Thread):
                     if not self.validator.validate(disaster_dict):
                         logging.warning(f"Ignoring row {disaster_dict}.")
                         continue
-                    disaster = Disaster()
-                    disaster.TypeCode = 1
-                    self.session.add(disaster)
-                    self.session.flush()
+                    
+
                     earthquake = Earthquake(disaster_dict)
-                    earthquake.ReferenceId = disaster.Id
                     self.session.add(earthquake)
                     valid_row_count += 1
                 if valid_row_count == 0:
@@ -83,3 +80,5 @@ class Scanner(threading.Thread):
         while True:
             schedule.run_pending()
             time.sleep(1)
+
+
