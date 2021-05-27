@@ -62,5 +62,5 @@ jobs:
             docker rmi -f $(docker images -q)
             docker pull chivalryq/mshd-sc:latest
             docker pull chivalryq/mshd:latest
-            docker run -d -v $ftp_dir/upload:/upload -v $ftp_dir/scanned:/scanned -v $ftp_dir/error:/error -p 80:80  chivalryq/mshd:latest
-            docker run -d -v $ftp_dir/upload:/upload -v $ftp_dir/scanned:/scanned -v $ftp_dir/error:/error chivalryq/mshd-sc:latest
+            docker run -d -v $ftp_dir:/ftp -p 80:80  chivalryq/mshd:latest
+            docker run -d -v $ftp_dir:/ftp chivalryq/mshd-sc:latest
