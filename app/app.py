@@ -1,22 +1,23 @@
 from flask import Flask, render_template, request, redirect
 from flask.helpers import flash, url_for
 from app.ext import db
-from app.db import *
+from app.db import get_earthquakes_num,get_earthquakes_data
 import os
 
+from scanner.scanner import Scanner
 
-############# INIT ##############
+
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile("config/settings.py")
     db.init_app(app)
+    Scanner(app).run()
     return app
 
 
 app = create_app()
 
 
-############# ROUTE ##############
 @app.route('/')
 def earthquakesListPage():
     result = request.args.get("result", 'ALL', str)
@@ -29,7 +30,7 @@ def earthquakesListPage():
                            limit=limit)
 
 
-@app.route('/uploader', methods=['POST', 'GET'])
+@app.route('/uplloader', methods=['POST', 'GET'])
 def uploader():
     if request.method == 'POST':
         pass
@@ -48,6 +49,5 @@ def test():
     return redirect(url_for("earthquakesListPage"))
 
 
-#############  ##############
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,9 +1,13 @@
-from sqlalchemy.orm import Query, query
-from sqlalchemy.sql import func
-from sqlalchemy.sql.expression import select
-from sqlalchemy import text
+from typing import Dict
+from enum import Enum
+
 from app.ext import db
 import csv
+
+
+class DisasterTypeCode(Enum):
+    UNKNOWN = 0
+    EARTHQUAKE = 1
 
 
 # 灾情
@@ -31,6 +35,7 @@ class Earthquake(db.Model):
     Location = db.Column(db.String(100))
     Level = db.Column(db.Float)
     Earthcode = db.Column(db.String(200))
+    ReferenceId = db.Column(db.Integer, db.ForeignKey('Disaster.Id'))
 
     def __repr__(self):
         return f'<Earthquake> {self.Location}:{self.Level}'
@@ -46,18 +51,13 @@ class Earthquake(db.Model):
             return 0
         return query[-1]['Id']
 
-    def readCsv(file):
-        start_id = 1
-        ref_start_id = 1
-        with open("file", "r") as csv_file:
-            reader = csv.DictReader(csv_file)
-            for row in reader:
-                row['Id'] = str(start_id)
-                row['ReferenceId'] = str(ref_start_id)
-                obj = Earthquake(row)
-                print(obj.gen_sql())
-                start_id += 1
-                ref_start_id += 1
+
 
 
 # print(Earthquake.get_max_id())
+
+    def __init__(self, data: Dict):
+        for key, val in data.items():
+            if hasattr(self, key):
+                # setattr(self, key, type(getattr(self, key))(val))
+                setattr(self, key, val)
