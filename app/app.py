@@ -1,10 +1,12 @@
-from app.models import Earthquake
+import os
+
 from flask import Flask, render_template, request, redirect
 from flask.helpers import flash, url_for
+
+from app.models import Earthquake
 from app.ext import db
 from app.db import get_earthquakes_num,get_earthquakes_data
 from app.custom.converter import RegexConverter
-import os
 
 # from scanner.scanner import Scanner
 

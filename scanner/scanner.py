@@ -8,6 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from app.config.settings import UPLOAD_FOLDER, SCANNED_FOLDER, ERROR_FOLDER
 from app.models import Earthquake
+
 from scanner.validator.earthquake_validator import EarthquakeValidator
 from scanner.converter.to_earthquake import *
 from scanner.encoder.encode_eq import eqEncode

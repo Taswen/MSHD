@@ -1,5 +1,8 @@
-from app.models import Earthquake
 import csv
+
+from app.models import Earthquake
+
+# 疑似废弃
 def csv2EarthQuakes(file):
     start_id = 1
     ref_start_id = 1

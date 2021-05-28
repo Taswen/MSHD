@@ -1,7 +1,6 @@
 import logging
 
 from app.app import app
-import os.path
 
 def init():
     # if not os.path.isdir(app.config['UPLOAD_FOLDER']):

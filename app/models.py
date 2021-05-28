@@ -3,7 +3,6 @@ from typing import Dict
 from enum import Enum
 
 from app.ext import db
-import csv
 
 
 class DisasterTypeCode(Enum):
