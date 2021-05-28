@@ -6,7 +6,7 @@ from app.db import get_earthquakes_num,get_earthquakes_data
 from app.custom.converter import RegexConverter
 import os
 
-from scanner.scanner import Scanner
+# from scanner.scanner import Scanner
 
 
 def create_app():

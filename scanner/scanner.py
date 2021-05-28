@@ -1,6 +1,5 @@
 import logging
 import os
-from scanner.encoder.encode_eq import eqEncode
 import threading
 import time
 import schedule
@@ -10,8 +9,8 @@ from flask_sqlalchemy import SQLAlchemy
 from app.config.settings import UPLOAD_FOLDER, SCANNED_FOLDER, ERROR_FOLDER
 from app.models import Earthquake
 from scanner.validator.earthquake_validator import EarthquakeValidator
-
 from scanner.converter.to_earthquake import *
+from scanner.encoder.encode_eq import eqEncode
 
 
 logger = logging.Logger("Scanner")
@@ -92,8 +91,11 @@ class Scanner(threading.Thread):
 
     @classmethod
     def init_path(cls) -> None:
+        print("Init....")
         for path in [ERROR_FOLDER, UPLOAD_FOLDER, SCANNED_FOLDER]:
             os.makedirs(path, exist_ok=True)
+            print(os.path.abspath(path))
+        print("Init Done")
 
     def run(self) -> None:
         self.init_path()
