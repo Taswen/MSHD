@@ -6,6 +6,7 @@ from app.db import get_earthquakes_num,get_earthquakes_data
 from app.custom.converter import RegexConverter
 import os
 
+from scanner.scanner import Scanner
 
 
 def create_app():
@@ -13,6 +14,7 @@ def create_app():
     app.config.from_pyfile("config/settings.py")
     app.url_map.converters['regex']=RegexConverter
     db.init_app(app)
+    # Scanner(app).run()
     return app
 
 
@@ -47,7 +49,7 @@ def earthquakesInfoPage(id):
                            limit=limit)
 
 
-@app.route('/uplloader', methods=['POST', 'GET'])
+@app.route('/uploader', methods=['POST', 'GET'])
 def uploader():
     if request.method == 'POST':
         pass

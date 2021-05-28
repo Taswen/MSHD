@@ -35,8 +35,9 @@ class Earthquake(db.Model):
     Depth = db.Column(db.Float)
     Location = db.Column(db.String(100))
     Level = db.Column(db.Float)
-    Earthcode = db.Column(db.String(200))
+    EarthquakeEncode = db.Column(db.String(200))
     ReferenceId = db.Column(db.Integer, db.ForeignKey('Disaster.Id'))
+    ReportingUnit = db.Column(db.String(100))
     Source = db.Column(db.String(100))
 
     def __repr__(self):
