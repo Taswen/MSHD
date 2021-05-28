@@ -59,8 +59,8 @@ class Scanner(threading.Thread):
                     # add source
                     earthquake.Source = filename
                     # encode
-                    eqCode = eqEncode("中国",(earthquake.Latitude,earthquake.Longitude),earthquake.OccurrenceTime,earthquake.Level)
-                    earthquake.EarthquakeEncode = eqCode
+                    # eqCode = eqEncode("中国",(earthquake.Latitude,earthquake.Longitude),earthquake.OccurrenceTime,earthquake.Level)
+                    # earthquake.EarthquakeEncode = eqCode
                     
                     self.session.add(earthquake)
                     self.session.flush()
