@@ -11,7 +11,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_pyfile("config/settings.py")
     db.init_app(app)
-    Scanner(app).run()
+    # Scanner(app).run()
     return app
 
 
