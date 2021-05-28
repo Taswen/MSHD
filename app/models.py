@@ -1,7 +1,9 @@
+from importlib.machinery import SourceFileLoader
 from typing import Dict
 from enum import Enum
 
 from app.ext import db
+import csv
 
 
 class DisasterTypeCode(Enum):
@@ -33,8 +35,10 @@ class Earthquake(db.Model):
     Depth = db.Column(db.Float)
     Location = db.Column(db.String(100))
     Level = db.Column(db.Float)
-    Earthcode = db.Column(db.String(200))
+    EarthquakeEncode = db.Column(db.String(200))
     ReferenceId = db.Column(db.Integer, db.ForeignKey('Disaster.Id'))
+    ReportingUnit = db.Column(db.String(100))
+    Source = db.Column(db.String(100))
 
     def __repr__(self):
         return f'<Earthquake> {self.Location}:{self.Level}'
@@ -42,6 +46,13 @@ class Earthquake(db.Model):
     def enable_print(self):
         self.Str_ot = str(self.OccurrenceTime)
         return self
+    
+    @classmethod
+    def get_max_id(cls):
+        query = Earthquake.query.order_by(Earthquake.Id.desc())
+        if len(query) == 0:
+            return 0
+        return query[-1]['Id']
 
     def __init__(self, data: Dict):
         for key, val in data.items():

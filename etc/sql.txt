@@ -1,0 +1,1068 @@
+
+        insert into data.Disaster (Id, TypeCode) values (1, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-14 17:54:04', 4.6, 39.46, 73.15, 9.0, '吉尔吉斯斯坦', 1, 1);
+
+        insert into data.Disaster (Id, TypeCode) values (2, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-14 01:25:49', 2.9, 32.57, 105.24, 9.0, '四川广元市青川县', 2, 2);
+
+        insert into data.Disaster (Id, TypeCode) values (3, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-13 21:31:33', 5.6, -16.05, -177.25, 420.0, '斐济群岛地区', 3, 3);
+
+        insert into data.Disaster (Id, TypeCode) values (4, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-13 17:42:11', 5.7, 6.8, -82.35, 10.0, '巴拿马以南海域', 4, 4);
+
+        insert into data.Disaster (Id, TypeCode) values (5, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-13 11:42:36', 4.7, 24.43, 99.24, 8.0, '云南保山市施甸县', 5, 5);
+
+        insert into data.Disaster (Id, TypeCode) values (6, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-12 22:37:06', 4.1, 37.12, 85.08, 10.0, '新疆巴音郭楞州且末县', 6, 6);
+
+        insert into data.Disaster (Id, TypeCode) values (7, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-12 22:05:15', 6.5, -17.3, 66.5, 10.0, '毛里求斯远海海域', 7, 7);
+
+        insert into data.Disaster (Id, TypeCode) values (8, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-12 16:45:47', 5.7, 13.4, -90.25, 60.0, '危地马拉沿岸近海', 8, 8);
+
+        insert into data.Disaster (Id, TypeCode) values (9, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-12 14:17:08', 5.3, 13.4, -90.35, 60.0, '危地马拉沿岸近海', 9, 9);
+
+        insert into data.Disaster (Id, TypeCode) values (10, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-12 09:09:25', 5.6, 13.6, 120.85, 100.0, '菲律宾', 10, 10);
+
+        insert into data.Disaster (Id, TypeCode) values (11, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-11 23:27:35', 5.2, -5.25, 151.1, 130.0, '新不列颠岛地区', 11, 11);
+
+        insert into data.Disaster (Id, TypeCode) values (12, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-11 06:14:38', 3.7, 32.5, 96.25, 10.0, '青海玉树州囊谦县', 12, 12);
+
+        insert into data.Disaster (Id, TypeCode) values (13, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-10 22:44:40', 3.2, 32.01, 102.7, 17.0, '四川阿坝州黑水县', 13, 13);
+
+        insert into data.Disaster (Id, TypeCode) values (14, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-08 22:07:34', 3.4, 41.24, 83.78, 10.0, '新疆阿克苏地区库车市', 14, 14);
+
+        insert into data.Disaster (Id, TypeCode) values (15, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-08 10:53:51', 3.2, 43.36, 80.81, 10.0, '新疆伊犁州察布查尔县', 15, 15);
+
+        insert into data.Disaster (Id, TypeCode) values (16, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-08 07:35:11', 6.1, -18.75, -177.3, 370.0, '斐济群岛地区', 16, 16);
+
+        insert into data.Disaster (Id, TypeCode) values (17, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-08 05:24:16', 4.3, 22.66, 120.85, 10.0, '台湾台东县', 17, 17);
+
+        insert into data.Disaster (Id, TypeCode) values (18, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-07 23:21:16', 5.8, -54.5, 144.0, 10.0, '麦夸里岛以西海域', 18, 18);
+
+        insert into data.Disaster (Id, TypeCode) values (19, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-07 19:45:25', 5.3, 14.1, -48.27, 10.0, '北大西洋', 19, 19);
+
+        insert into data.Disaster (Id, TypeCode) values (20, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-05 15:54:16', 3.0, 40.86, 78.17, 10.0, '新疆克孜勒苏州阿合奇县', 20, 20);
+
+        insert into data.Disaster (Id, TypeCode) values (21, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-05 09:51:05', 3.6, 32.4, 104.02, 10.0, '四川绵阳市平武县', 21, 21);
+
+        insert into data.Disaster (Id, TypeCode) values (22, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-05 09:24:31', 5.8, -2.25, 99.5, 10.0, '印尼苏门答腊岛南部海域', 22, 22);
+
+        insert into data.Disaster (Id, TypeCode) values (23, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-05 06:59:13', 5.1, 1.45, 127.2, 130.0, '印尼哈马黑拉岛附近海域', 23, 23);
+
+        insert into data.Disaster (Id, TypeCode) values (24, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-04 05:57:15', 3.2, 38.35, 75.7, 131.0, '新疆克孜勒苏州阿克陶县', 24, 24);
+
+        insert into data.Disaster (Id, TypeCode) values (25, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-03 19:42:39', 4.0, 36.62, 94.16, 10.0, '青海海西州格尔木市', 25, 25);
+
+        insert into data.Disaster (Id, TypeCode) values (26, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-03 13:07:29', 5.5, 25.65, 123.95, 200.0, '琉球群岛', 26, 26);
+
+        insert into data.Disaster (Id, TypeCode) values (27, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-02 14:57:39', 5.8, -30.1, -71.5, 50.0, '智利附近海域', 27, 27);
+
+        insert into data.Disaster (Id, TypeCode) values (28, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-01 21:17:03', 2.8, 25.97, 100.86, 10.0, '云南大理州宾川县', 28, 28);
+
+        insert into data.Disaster (Id, TypeCode) values (29, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-01 19:53:19', 3.1, 29.03, 95.54, 9.0, '西藏林芝市墨脱县', 29, 29);
+
+        insert into data.Disaster (Id, TypeCode) values (30, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-01 09:27:26', 6.6, 38.25, 141.9, 30.0, '日本本州东岸近海', 30, 30);
+
+        insert into data.Disaster (Id, TypeCode) values (31, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-05-01 04:19:33', 2.8, 23.74, 114.61, 6.0, '广东河源市源城区', 31, 31);
+
+        insert into data.Disaster (Id, TypeCode) values (32, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-30 14:00:38', 3.1, 30.65, 103.22, 9.0, '四川成都市大邑县', 32, 32);
+
+        insert into data.Disaster (Id, TypeCode) values (33, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-29 22:32:58', 4.2, 21.78, 121.72, 15.0, '台湾屏东县海域', 33, 33);
+
+        insert into data.Disaster (Id, TypeCode) values (34, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-29 17:40:31', 3.1, 22.57, 100.32, 10.0, '云南普洱市澜沧县', 34, 34);
+
+        insert into data.Disaster (Id, TypeCode) values (35, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-29 14:50:29', 6.1, -29.1, -176.8, 10.0, '新西兰克马德克群岛', 35, 35);
+
+        insert into data.Disaster (Id, TypeCode) values (36, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-29 09:43:07', 3.1, 30.06, 103.09, 28.0, '四川雅安市名山区', 36, 36);
+
+        insert into data.Disaster (Id, TypeCode) values (37, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-28 19:43:36', 3.9, 34.68, 90.95, 7.0, '青海海西州唐古拉地区', 37, 37);
+
+        insert into data.Disaster (Id, TypeCode) values (38, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-28 06:10:53', 4.2, 23.14, 120.95, 12.0, '台湾台东县', 38, 38);
+
+        insert into data.Disaster (Id, TypeCode) values (39, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-28 00:33:35', 5.9, -29.3, -176.75, 10.0, '新西兰克马德克群岛', 39, 39);
+
+        insert into data.Disaster (Id, TypeCode) values (40, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-27 19:43:17', 4.0, 35.59, 89.8, 8.0, '青海玉树州治多县', 40, 40);
+
+        insert into data.Disaster (Id, TypeCode) values (41, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-27 19:04:23', 5.3, -3.3, 145.6, 10.0, '巴布亚新几内亚附近海域', 41, 41);
+
+        insert into data.Disaster (Id, TypeCode) values (42, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-27 16:05:30', 6.0, -3.5, 145.55, 10.0, '巴布亚新几内亚附近海域', 42, 42);
+
+        insert into data.Disaster (Id, TypeCode) values (43, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-27 13:16:57', 3.9, 37.45, 75.78, 100.0, '新疆喀什地区塔什库尔干县', 43, 43);
+
+        insert into data.Disaster (Id, TypeCode) values (44, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-27 10:12:48', 5.3, -3.4, 145.6, 10.0, '巴布亚新几内亚附近海域', 44, 44);
+
+        insert into data.Disaster (Id, TypeCode) values (45, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-26 21:30:15', 3.2, 28.18, 104.97, 10.0, '四川宜宾市兴文县', 45, 45);
+
+        insert into data.Disaster (Id, TypeCode) values (46, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-26 06:28:00', 6.3, -21.6, -177.05, 240.0, '斐济群岛地区', 46, 46);
+
+        insert into data.Disaster (Id, TypeCode) values (47, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-26 04:00:26', 2.9, 28.09, 101.19, 15.0, '四川凉山州木里县', 47, 47);
+
+        insert into data.Disaster (Id, TypeCode) values (48, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-25 23:11:21', 3.0, 42.96, 125.64, 8.0, '吉林辽源市东丰县', 48, 48);
+
+        insert into data.Disaster (Id, TypeCode) values (49, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-25 10:44:43', 3.0, 41.2, 83.66, 8.0, '新疆阿克苏地区库车市', 49, 49);
+
+        insert into data.Disaster (Id, TypeCode) values (50, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-24 18:10:56', 3.1, 42.95, 85.95, 10.0, '新疆巴音郭楞州和静县', 50, 50);
+
+        insert into data.Disaster (Id, TypeCode) values (51, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-24 08:23:37', 6.2, -18.9, -175.95, 300.0, '斐济群岛地区', 51, 51);
+
+        insert into data.Disaster (Id, TypeCode) values (52, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-22 16:31:08', 2.9, 21.75, 111.81, 12.0, '广东阳江市江城区', 52, 52);
+
+        insert into data.Disaster (Id, TypeCode) values (53, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-22 08:17:17', 5.5, -34.0, -72.4, 10.0, '智利中部沿岸近海', 53, 53);
+
+        insert into data.Disaster (Id, TypeCode) values (54, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-22 06:36:06', 3.1, 37.61, 75.8, 98.0, '新疆喀什地区塔什库尔干县', 54, 54);
+
+        insert into data.Disaster (Id, TypeCode) values (55, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-21 21:28:23', 4.0, 29.8, 89.62, 24.0, '西藏日喀则市南木林县', 55, 55);
+
+        insert into data.Disaster (Id, TypeCode) values (56, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-20 07:58:22', 5.9, 0.25, 96.6, 10.0, '印尼苏门答腊岛西部海域', 56, 56);
+
+        insert into data.Disaster (Id, TypeCode) values (57, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-20 02:02:29', 3.2, 41.34, 83.69, 10.0, '新疆阿克苏地区库车市', 57, 57);
+
+        insert into data.Disaster (Id, TypeCode) values (58, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-19 19:13:22', 3.5, 34.69, 90.79, 10.0, '青海海西州唐古拉地区', 58, 58);
+
+        insert into data.Disaster (Id, TypeCode) values (59, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-18 22:14:38', 6.1, 23.94, 121.43, 5.0, '台湾花莲县', 59, 59);
+
+        insert into data.Disaster (Id, TypeCode) values (60, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-18 22:11:39', 5.6, 23.92, 121.53, 7.0, '台湾花莲县', 60, 60);
+
+        insert into data.Disaster (Id, TypeCode) values (61, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-18 14:41:50', 5.9, 29.7, 50.6, 10.0, '伊朗', 61, 61);
+
+        insert into data.Disaster (Id, TypeCode) values (62, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-18 11:35:39', 3.3, 26.14, 100.01, 9.0, '云南大理州洱源县', 62, 62);
+
+        insert into data.Disaster (Id, TypeCode) values (63, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-18 08:29:13', 5.3, 38.45, 141.8, 50.0, '日本本州东岸近海', 63, 63);
+
+        insert into data.Disaster (Id, TypeCode) values (64, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-18 08:11:57', 2.8, 30.37, 102.96, 15.0, '四川雅安市芦山县', 64, 64);
+
+        insert into data.Disaster (Id, TypeCode) values (65, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-16 16:06:06', 4.3, 39.75, 118.71, 9.0, '河北唐山市滦州市', 65, 65);
+
+        insert into data.Disaster (Id, TypeCode) values (66, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-16 06:26:23', 3.1, 32.48, 78.76, 10.0, '西藏阿里地区札达县', 66, 66);
+
+        insert into data.Disaster (Id, TypeCode) values (67, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-14 18:55:13', 5.4, 0.25, 96.5, 10.0, '印尼苏门答腊岛北部海域', 67, 67);
+
+        insert into data.Disaster (Id, TypeCode) values (68, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-13 17:07:36', 3.3, 23.84, 102.38, 10.0, '云南红河州石屏县', 68, 68);
+
+        insert into data.Disaster (Id, TypeCode) values (69, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-12 08:18:35', 3.1, 29.42, 104.53, 10.0, '四川自贡市贡井区', 69, 69);
+
+        insert into data.Disaster (Id, TypeCode) values (70, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-11 02:21:48', 3.5, 31.74, 90.6, 10.0, '西藏那曲市班戈县', 70, 70);
+
+        insert into data.Disaster (Id, TypeCode) values (71, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-10 19:38:34', 5.9, -3.55, 145.7, 10.0, '巴布亚新几内亚附近海域', 71, 71);
+
+        insert into data.Disaster (Id, TypeCode) values (72, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-10 17:30:43', 6.0, 4.15, 124.65, 300.0, '苏拉威西海', 72, 72);
+
+        insert into data.Disaster (Id, TypeCode) values (73, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-10 15:00:17', 6.0, -8.85, 112.5, 70.0, '印尼爪哇岛以南海域', 73, 73);
+
+        insert into data.Disaster (Id, TypeCode) values (74, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-09 01:10:19', 5.5, 63.2, -148.75, 80.0, '美国阿拉斯加', 74, 74);
+
+        insert into data.Disaster (Id, TypeCode) values (75, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-09 01:04:10', 3.1, 39.62, 95.35, 10.0, '甘肃酒泉市肃北县', 75, 75);
+
+        insert into data.Disaster (Id, TypeCode) values (76, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-08 03:25:47', 3.1, 36.28, 111.7, 10.0, '山西临汾市洪洞县', 76, 76);
+
+        insert into data.Disaster (Id, TypeCode) values (77, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-07 21:19:35', 4.2, 23.81, 121.6, 20.0, '台湾花莲县海域', 77, 77);
+
+        insert into data.Disaster (Id, TypeCode) values (78, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-07 17:53:27', 6.2, -29.25, -176.1, 10.0, '新西兰克马德克群岛', 78, 78);
+
+        insert into data.Disaster (Id, TypeCode) values (79, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-07 05:55:48', 4.0, 31.87, 92.85, 10.0, '西藏那曲市比如县', 79, 79);
+
+        insert into data.Disaster (Id, TypeCode) values (80, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-07 05:48:36', 4.7, 31.89, 92.84, 10.0, '西藏那曲市比如县', 80, 80);
+
+        insert into data.Disaster (Id, TypeCode) values (81, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-06 23:12:25', 5.2, 35.5, 46.1, 20.0, '伊朗', 81, 81);
+
+        insert into data.Disaster (Id, TypeCode) values (82, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-06 16:16:14', 5.5, -29.43, -176.8, 10.0, '新西兰克马德克群岛', 82, 82);
+
+        insert into data.Disaster (Id, TypeCode) values (83, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-05 23:20:01', 4.8, 27.15, 88.85, 28.0, '不丹', 83, 83);
+
+        insert into data.Disaster (Id, TypeCode) values (84, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-05 17:23:19', 3.7, 41.26, 91.23, 8.0, '新疆吐鲁番市鄯善县', 84, 84);
+
+        insert into data.Disaster (Id, TypeCode) values (85, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-05 15:37:49', 6.0, -37.55, 179.45, 10.0, '新西兰北岛附近海域', 85, 85);
+
+        insert into data.Disaster (Id, TypeCode) values (86, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-05 09:28:38', 3.4, 41.96, 81.24, 10.0, '新疆阿克苏地区拜城县', 86, 86);
+
+        insert into data.Disaster (Id, TypeCode) values (87, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-05 04:09:46', 3.8, 36.79, 75.89, 10.0, '新疆喀什地区塔什库尔干县', 87, 87);
+
+        insert into data.Disaster (Id, TypeCode) values (88, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-04 12:35:26', 3.7, 35.52, 89.35, 10.0, '西藏那曲市安多县', 88, 88);
+
+        insert into data.Disaster (Id, TypeCode) values (89, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-04 09:41:01', 5.6, -19.85, 14.6, 10.0, '纳米比亚', 89, 89);
+
+        insert into data.Disaster (Id, TypeCode) values (90, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-04 02:42:02', 5.9, -5.15, 128.2, 330.0, '班达海', 90, 90);
+
+        insert into data.Disaster (Id, TypeCode) values (91, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-03 19:21:30', 3.6, 34.34, 87.67, 10.0, '西藏那曲市双湖县', 91, 91);
+
+        insert into data.Disaster (Id, TypeCode) values (92, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-03 09:16:38', 6.6, -57.95, -7.75, 10.0, '南桑威奇群岛以东', 92, 92);
+
+        insert into data.Disaster (Id, TypeCode) values (93, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-03 00:19:28', 3.0, 35.91, 82.25, 10.0, '新疆和田地区于田县', 93, 93);
+
+        insert into data.Disaster (Id, TypeCode) values (94, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-02 19:39:39', 3.2, 35.53, 89.38, 10.0, '西藏那曲市安多县', 94, 94);
+
+        insert into data.Disaster (Id, TypeCode) values (95, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-02 16:58:35', 4.2, 34.47, 87.9, 10.0, '西藏那曲市双湖县', 95, 95);
+
+        insert into data.Disaster (Id, TypeCode) values (96, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-02 15:55:51', 4.4, 35.55, 89.51, 10.0, '西藏那曲市安多县', 96, 96);
+
+        insert into data.Disaster (Id, TypeCode) values (97, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-02 14:15:08', 3.1, 32.82, 101.15, 10.0, '青海果洛州班玛县', 97, 97);
+
+        insert into data.Disaster (Id, TypeCode) values (98, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-02 05:40:18', 3.7, 23.85, 114.5, 10.0, '广东河源市东源县', 98, 98);
+
+        insert into data.Disaster (Id, TypeCode) values (99, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-02 03:20:04', 4.3, 40.83, 79.0, 8.0, '新疆阿克苏地区柯坪县', 99, 99);
+
+        insert into data.Disaster (Id, TypeCode) values (100, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-01 23:11:17', 5.9, -21.84, -179.51, 600.0, '斐济群岛', 100, 100);
+
+        insert into data.Disaster (Id, TypeCode) values (101, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-01 17:56:37', 6.2, -29.8, -177.6, 10.0, '新西兰克马德克群岛', 101, 101);
+
+        insert into data.Disaster (Id, TypeCode) values (102, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-04-01 14:57:09', 3.9, 34.34, 87.76, 10.0, '西藏那曲市双湖县', 102, 102);
+
+        insert into data.Disaster (Id, TypeCode) values (103, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-31 18:03:22', 2.0, 39.65, 118.49, 17.0, '河北唐山市滦州市', 103, 103);
+
+        insert into data.Disaster (Id, TypeCode) values (104, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-30 01:27:24', 5.8, 34.38, 87.68, 10.0, '西藏那曲市双湖县', 104, 104);
+
+        insert into data.Disaster (Id, TypeCode) values (105, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-29 10:52:51', 3.1, 36.53, 76.91, 10.0, '新疆喀什地区叶城县', 105, 105);
+
+        insert into data.Disaster (Id, TypeCode) values (106, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-29 08:11:42', 3.3, 36.35, 77.62, 93.0, '新疆喀什地区叶城县', 106, 106);
+
+        insert into data.Disaster (Id, TypeCode) values (107, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-29 07:01:46', 5.7, 43.7, -28.72, 10.0, '中大西洋海岭北部', 107, 107);
+
+        insert into data.Disaster (Id, TypeCode) values (108, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-28 14:41:18', 4.6, 24.51, 122.76, 80.0, '台湾宜兰县海域', 108, 108);
+
+        insert into data.Disaster (Id, TypeCode) values (109, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-28 13:07:04', 3.0, 31.93, 92.86, 10.0, '西藏那曲市比如县', 109, 109);
+
+        insert into data.Disaster (Id, TypeCode) values (110, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-28 12:32:58', 3.0, 41.16, 83.3, 10.0, '新疆阿克苏地区库车市', 110, 110);
+
+        insert into data.Disaster (Id, TypeCode) values (111, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-28 08:26:54', 5.4, 33.55, 140.67, 60.0, '日本本州东岸远海', 111, 111);
+
+        insert into data.Disaster (Id, TypeCode) values (112, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-28 01:24:11', 4.1, 35.47, 89.75, 10.0, '青海玉树州治多县', 112, 112);
+
+        insert into data.Disaster (Id, TypeCode) values (113, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-27 21:47:55', 5.4, 42.46, 16.1, 10.0, '亚得里亚海', 113, 113);
+
+        insert into data.Disaster (Id, TypeCode) values (114, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-27 14:32:56', 3.2, 34.82, 91.08, 10.0, '青海玉树州治多县', 114, 114);
+
+        insert into data.Disaster (Id, TypeCode) values (115, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-27 07:08:30', 4.8, 40.77, 83.22, 10.0, '新疆阿克苏地区沙雅县', 115, 115);
+
+        insert into data.Disaster (Id, TypeCode) values (116, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-27 06:02:16', 6.1, 26.0, 125.1, 130.0, '琉球群岛西南部', 116, 116);
+
+        insert into data.Disaster (Id, TypeCode) values (117, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-27 03:02:03', 4.8, 27.54, 92.71, 25.0, '西藏山南市错那县', 117, 117);
+
+        insert into data.Disaster (Id, TypeCode) values (118, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-26 15:15:29', 3.1, 28.19, 104.78, 10.0, '四川宜宾市珙县', 118, 118);
+
+        insert into data.Disaster (Id, TypeCode) values (119, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-26 12:51:39', 5.8, 16.73, -60.73, 20.0, '背风群岛', 119, 119);
+
+        insert into data.Disaster (Id, TypeCode) values (120, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-26 09:28:55', 3.1, 43.97, 84.63, 9.0, '新疆塔城地区乌苏市', 120, 120);
+
+        insert into data.Disaster (Id, TypeCode) values (121, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-26 08:18:30', 4.0, 35.26, 91.23, 10.0, '青海玉树州治多县', 121, 121);
+
+        insert into data.Disaster (Id, TypeCode) values (122, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-25 00:57:57', 2.3, 40.16, 116.63, 10.0, '北京顺义区', 122, 122);
+
+        insert into data.Disaster (Id, TypeCode) values (123, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-24 21:14:13', 3.4, 41.8, 81.01, 15.0, '新疆阿克苏地区拜城县', 123, 123);
+
+        insert into data.Disaster (Id, TypeCode) values (124, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-24 08:04:35', 3.4, 41.79, 81.06, 11.0, '新疆阿克苏地区拜城县', 124, 124);
+
+        insert into data.Disaster (Id, TypeCode) values (125, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-24 05:14:16', 5.4, 41.7, 81.11, 10.0, '新疆阿克苏地区拜城县', 125, 125);
+
+        insert into data.Disaster (Id, TypeCode) values (126, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-23 23:31:15', 3.3, 36.08, 101.29, 8.0, '青海海南州贵德县', 126, 126);
+
+        insert into data.Disaster (Id, TypeCode) values (127, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-23 19:36:42', 2.4, 38.09, 100.13, 10.0, '青海海北州祁连县(有感)', 127, 127);
+
+        insert into data.Disaster (Id, TypeCode) values (128, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-23 03:21:11', 3.0, 28.44, 104.79, 10.0, '四川宜宾市长宁县', 128, 128);
+
+        insert into data.Disaster (Id, TypeCode) values (129, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-23 01:23:34', 4.2, 31.93, 92.89, 10.0, '西藏那曲市比如县', 129, 129);
+
+        insert into data.Disaster (Id, TypeCode) values (130, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-22 23:32:53', 2.9, 31.38, 103.44, 11.0, '四川阿坝州汶川县', 130, 130);
+
+        insert into data.Disaster (Id, TypeCode) values (131, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-22 22:51:50', 3.4, 31.64, 84.93, 10.0, '西藏阿里地区改则县', 131, 131);
+
+        insert into data.Disaster (Id, TypeCode) values (132, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-21 01:20:39', 3.0, 37.6, 90.16, 8.0, '新疆巴音郭楞州若羌县', 132, 132);
+
+        insert into data.Disaster (Id, TypeCode) values (133, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-20 23:30:24', 4.7, 34.7, 83.49, 10.0, '西藏阿里地区改则县', 133, 133);
+
+        insert into data.Disaster (Id, TypeCode) values (134, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-20 17:09:46', 7.0, 38.43, 141.84, 60.0, '日本本州东岸近海', 134, 134);
+
+        insert into data.Disaster (Id, TypeCode) values (135, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-20 15:25:40', 3.3, 28.06, 105.0, 12.0, '云南昭通市威信县', 135, 135);
+
+        insert into data.Disaster (Id, TypeCode) values (136, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-20 13:19:31', 5.8, -59.68, 150.37, 10.0, '麦夸里岛地区', 136, 136);
+
+        insert into data.Disaster (Id, TypeCode) values (137, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-20 11:06:32', 5.4, 16.71, -98.72, 10.0, '墨西哥', 137, 137);
+
+        insert into data.Disaster (Id, TypeCode) values (138, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-20 02:04:10', 3.2, 31.94, 92.89, 10.0, '西藏那曲市比如县', 138, 138);
+
+        insert into data.Disaster (Id, TypeCode) values (139, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-19 18:57:50', 3.9, 31.93, 104.2, 15.0, '四川绵阳市北川县', 139, 139);
+
+        insert into data.Disaster (Id, TypeCode) values (140, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-19 14:11:26', 6.1, 31.94, 92.74, 10.0, '西藏那曲市比如县', 140, 140);
+
+        insert into data.Disaster (Id, TypeCode) values (141, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-18 13:40:47', 3.0, 25.12, 105.21, 5.0, '贵州黔西南州安龙县', 141, 141);
+
+        insert into data.Disaster (Id, TypeCode) values (142, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-18 10:10:57', 3.1, 39.04, 110.62, 0.0, '陕西榆林市神木市(塌陷)', 142, 142);
+
+        insert into data.Disaster (Id, TypeCode) values (143, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-18 08:04:09', 5.8, 37.07, 5.18, 10.0, '阿尔及利亚北部海域', 143, 143);
+
+        insert into data.Disaster (Id, TypeCode) values (144, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-17 14:27:16', 4.2, 44.46, 80.85, 8.0, '新疆伊犁州霍城县', 144, 144);
+
+        insert into data.Disaster (Id, TypeCode) values (145, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-17 03:14:13', 2.5, 28.66, 105.79, 11.0, '四川泸州市合江县', 145, 145);
+
+        insert into data.Disaster (Id, TypeCode) values (146, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-17 02:38:22', 6.4, 54.67, 163.17, 10.0, '堪察加东海岸附近海域', 146, 146);
+
+        insert into data.Disaster (Id, TypeCode) values (147, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-16 21:16:08', 3.4, 30.11, 86.44, 10.0, '西藏日喀则市昂仁县', 147, 147);
+
+        insert into data.Disaster (Id, TypeCode) values (148, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-14 20:20:04', 3.7, 41.22, 83.35, 18.0, '新疆阿克苏地区库车市', 148, 148);
+
+        insert into data.Disaster (Id, TypeCode) values (149, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-14 18:26:00', 4.5, 41.95, 81.11, 22.0, '新疆阿克苏地区拜城县', 149, 149);
+
+        insert into data.Disaster (Id, TypeCode) values (150, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-14 05:21:56', 6.1, -28.3, -176.15, 10.0, '新西兰克马德克群岛', 150, 150);
+
+        insert into data.Disaster (Id, TypeCode) values (151, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-13 23:41:00', 3.5, 44.35, 81.84, 8.0, '新疆博尔塔拉州精河县', 151, 151);
+
+        insert into data.Disaster (Id, TypeCode) values (152, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-13 22:05:01', 5.5, -29.64, -177.41, 10.0, '新西兰克马德克群岛', 152, 152);
+
+        insert into data.Disaster (Id, TypeCode) values (153, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-13 21:56:49', 3.0, 28.13, 104.79, 10.0, '四川宜宾市珙县', 153, 153);
+
+        insert into data.Disaster (Id, TypeCode) values (154, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-11 04:12:39', 5.9, -19.95, -177.65, 500.0, '斐济群岛', 154, 154);
+
+        insert into data.Disaster (Id, TypeCode) values (155, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-11 02:18:06', 3.2, 39.08, 110.23, 0.0, '陕西榆林市神木市（塌陷）', 155, 155);
+
+        insert into data.Disaster (Id, TypeCode) values (156, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-10 07:07:54', 5.5, -1.0, 10.3, 10.0, '加蓬', 156, 156);
+
+        insert into data.Disaster (Id, TypeCode) values (157, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-09 22:53:57', 3.0, 39.49, 74.98, 11.0, '新疆克孜勒苏州乌恰县', 157, 157);
+
+        insert into data.Disaster (Id, TypeCode) values (158, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-08 20:48:07', 5.2, -32.25, -69.95, 100.0, '阿根廷', 158, 158);
+
+        insert into data.Disaster (Id, TypeCode) values (159, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-08 07:56:55', 5.9, -29.91, -176.75, 10.0, '新西兰克马德克群岛', 159, 159);
+
+        insert into data.Disaster (Id, TypeCode) values (160, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-07 19:13:31', 3.0, 33.42, 111.28, 7.0, '河南南阳市西峡县', 160, 160);
+
+        insert into data.Disaster (Id, TypeCode) values (161, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-07 09:10:42', 3.0, 25.76, 98.49, 8.0, '云南保山市腾冲市', 161, 161);
+
+        insert into data.Disaster (Id, TypeCode) values (162, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-06 21:12:05', 6.2, -28.05, -177.75, 10.0, '新西兰克马德克群岛', 162, 162);
+
+        insert into data.Disaster (Id, TypeCode) values (163, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-06 20:05:21', 6.1, -27.9, -177.7, 10.0, '新西兰克马德克群岛', 163, 163);
+
+        insert into data.Disaster (Id, TypeCode) values (164, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-06 18:34:50', 6.1, -28.12, -177.69, 10.0, '新西兰克马德克群岛', 164, 164);
+
+        insert into data.Disaster (Id, TypeCode) values (165, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-06 08:21:32', 3.0, 38.0, 120.41, 8.0, '山东烟台市蓬莱区海域', 165, 165);
+
+        insert into data.Disaster (Id, TypeCode) values (166, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-06 08:16:20', 6.4, -37.66, 179.55, 10.0, '新西兰北岛海域', 166, 166);
+
+        insert into data.Disaster (Id, TypeCode) values (167, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 22:24:50', 6.3, -29.1, -176.45, 10.0, '新西兰克马德克群岛', 167, 167);
+
+        insert into data.Disaster (Id, TypeCode) values (168, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 16:53:22', 3.1, 41.81, 127.87, 25.0, '吉林白山市抚松县', 168, 168);
+
+        insert into data.Disaster (Id, TypeCode) values (169, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 16:13:43', 5.8, -29.45, -176.34, 10.0, '新西兰克马德克群岛', 169, 169);
+
+        insert into data.Disaster (Id, TypeCode) values (170, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 15:32:53', 5.6, -1.85, 99.05, 20.0, '印尼苏门答腊岛南部海域', 170, 170);
+
+        insert into data.Disaster (Id, TypeCode) values (171, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 12:42:39', 3.0, 23.31, 100.83, 8.0, '云南普洱市景谷县', 171, 171);
+
+        insert into data.Disaster (Id, TypeCode) values (172, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 10:30:34', 6.0, -28.84, -176.32, 10.0, '新西兰克马德克群岛', 172, 172);
+
+        insert into data.Disaster (Id, TypeCode) values (173, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 08:28:20', 6.2, -29.09, -176.2, 10.0, '新西兰克马德克群岛海域', 173, 173);
+
+        insert into data.Disaster (Id, TypeCode) values (174, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 07:12:55', 6.7, -28.53, -176.36, 10.0, '新西兰克马德克群岛', 174, 174);
+
+        insert into data.Disaster (Id, TypeCode) values (175, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 04:59:32', 3.3, 42.1, 80.78, 7.0, '新疆阿克苏地区拜城县', 175, 175);
+
+        insert into data.Disaster (Id, TypeCode) values (176, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 03:28:32', 7.8, -29.51, -177.04, 10.0, '新西兰克马德克群岛', 176, 176);
+
+        insert into data.Disaster (Id, TypeCode) values (177, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 03:23:54', 5.6, 39.81, 21.92, 10.0, '希腊', 177, 177);
+
+        insert into data.Disaster (Id, TypeCode) values (178, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 02:38:20', 6.1, 39.78, 22.1, 10.0, '希腊', 178, 178);
+
+        insert into data.Disaster (Id, TypeCode) values (179, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 01:57:33', 4.2, 34.17, 80.32, 10.0, '西藏阿里地区日土县', 179, 179);
+
+        insert into data.Disaster (Id, TypeCode) values (180, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 01:41:20', 7.2, -29.73, -177.67, 10.0, '新西兰克马德克群岛', 180, 180);
+
+        insert into data.Disaster (Id, TypeCode) values (181, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-05 00:53:12', 5.9, -14.49, 167.27, 180.0, '瓦努阿图群岛', 181, 181);
+
+        insert into data.Disaster (Id, TypeCode) values (182, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-04 22:24:56', 4.3, 24.75, 122.36, 10.0, '台湾宜兰县海域', 182, 182);
+
+        insert into data.Disaster (Id, TypeCode) values (183, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-04 22:03:54', 3.0, 37.61, 75.86, 79.0, '新疆喀什地区塔什库尔干县', 183, 183);
+
+        insert into data.Disaster (Id, TypeCode) values (184, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-04 21:27:32', 7.3, -37.41, 179.5, 10.0, '新西兰北岛海域', 184, 184);
+
+        insert into data.Disaster (Id, TypeCode) values (185, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-04 03:47:16', 3.0, 40.75, 78.61, 10.0, '新疆阿克苏地区柯坪县', 185, 185);
+
+        insert into data.Disaster (Id, TypeCode) values (186, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-03 18:16:10', 6.2, 39.74, 22.11, 10.0, '希腊', 186, 186);
+
+        insert into data.Disaster (Id, TypeCode) values (187, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-03 05:22:47', 5.7, 43.85, 147.75, 20.0, '千岛群岛', 187, 187);
+
+        insert into data.Disaster (Id, TypeCode) values (188, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-02 17:23:00', 5.3, 21.92, 121.17, 20.0, '台湾屏东县海域', 188, 188);
+
+        insert into data.Disaster (Id, TypeCode) values (189, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-02 09:45:37', 3.1, 39.2, 75.13, 30.0, '新疆克孜勒苏州乌恰县', 189, 189);
+
+        insert into data.Disaster (Id, TypeCode) values (190, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-02 03:42:58', 2.9, 34.75, 114.7, 6.0, '河南开封市兰考县', 190, 190);
+
+        insert into data.Disaster (Id, TypeCode) values (191, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-02 01:44:36', 3.0, 32.14, 104.56, 14.0, '四川绵阳市平武县', 191, 191);
+
+        insert into data.Disaster (Id, TypeCode) values (192, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-01 18:13:13', 3.8, 26.0, 100.0, 10.0, '云南大理州洱源县', 192, 192);
+
+        insert into data.Disaster (Id, TypeCode) values (193, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-01 11:29:46', 5.5, -13.15, 166.5, 60.0, '瓦努阿图群岛', 193, 193);
+
+        insert into data.Disaster (Id, TypeCode) values (194, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-01 07:37:16', 5.8, -17.75, 167.65, 10.0, '瓦努阿图群岛', 194, 194);
+
+        insert into data.Disaster (Id, TypeCode) values (195, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-03-01 04:37:44', 5.6, -22.8, 172.39, 10.0, '洛亚蒂群岛', 195, 195);
+
+        insert into data.Disaster (Id, TypeCode) values (196, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-28 10:31:25', 3.0, 38.43, 76.26, 17.0, '新疆克孜勒苏州阿克陶县', 196, 196);
+
+        insert into data.Disaster (Id, TypeCode) values (197, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-28 09:12:49', 3.3, 32.8, 101.1, 10.0, '青海果洛州班玛县', 197, 197);
+
+        insert into data.Disaster (Id, TypeCode) values (198, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-28 04:03:43', 3.1, 29.07, 86.75, 10.0, '西藏日喀则市定日县', 198, 198);
+
+        insert into data.Disaster (Id, TypeCode) values (199, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-27 19:37:19', 3.1, 25.51, 98.44, 8.0, '云南保山市腾冲市', 199, 199);
+
+        insert into data.Disaster (Id, TypeCode) values (200, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-26 15:46:08', 5.2, 8.4, 137.96, 10.0, '加罗林群岛地区', 200, 200);
+
+        insert into data.Disaster (Id, TypeCode) values (201, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-25 12:18:20', 2.2, 37.3, 97.31, 10.0, '青海海西州德令哈市（有感）', 201, 201);
+
+        insert into data.Disaster (Id, TypeCode) values (202, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-25 11:55:32', 2.9, 22.59, 100.33, 11.0, '云南普洱市澜沧县', 202, 202);
+
+        insert into data.Disaster (Id, TypeCode) values (203, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-25 11:47:34', 3.2, 40.16, 76.46, 34.0, '新疆克孜勒苏州阿图什市', 203, 203);
+
+        insert into data.Disaster (Id, TypeCode) values (204, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-24 12:59:10', 3.2, 31.81, 104.11, 19.0, '四川阿坝州茂县', 204, 204);
+
+        insert into data.Disaster (Id, TypeCode) values (205, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-24 05:45:16', 3.2, 37.42, 75.36, 10.0, '新疆喀什地区塔什库尔干县', 205, 205);
+
+        insert into data.Disaster (Id, TypeCode) values (206, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-23 01:27:12', 2.7, 38.89, 113.99, 15.0, '河北保定市阜平县', 206, 206);
+
+        insert into data.Disaster (Id, TypeCode) values (207, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-22 22:57:24', 3.6, 41.21, 83.61, 10.0, '新疆阿克苏地区库车市', 207, 207);
+
+        insert into data.Disaster (Id, TypeCode) values (208, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-22 09:50:47', 4.5, 22.42, 121.89, 75.0, '台湾台东县海域', 208, 208);
+
+        insert into data.Disaster (Id, TypeCode) values (209, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-22 03:35:54', 3.0, 41.16, 114.47, 13.0, '河北张家口市张北县', 209, 209);
+
+        insert into data.Disaster (Id, TypeCode) values (210, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-21 22:23:09', 3.0, 28.36, 104.9, 10.0, '四川宜宾市长宁县', 210, 210);
+
+        insert into data.Disaster (Id, TypeCode) values (211, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-20 02:44:03', 3.2, 28.79, 87.47, 17.0, '西藏日喀则市定日县', 211, 211);
+
+        insert into data.Disaster (Id, TypeCode) values (212, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-18 23:30:51', 5.9, -14.9, -176.6, 10.0, '斐济群岛地区', 212, 212);
+
+        insert into data.Disaster (Id, TypeCode) values (213, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-18 14:37:33', 6.2, -19.0, 168.05, 30.0, '瓦努阿图群岛', 213, 213);
+
+        insert into data.Disaster (Id, TypeCode) values (214, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-18 06:49:37', 6.0, -23.25, 171.6, 10.0, '洛亚蒂群岛', 214, 214);
+
+        insert into data.Disaster (Id, TypeCode) values (215, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-18 02:38:47', 4.6, 22.23, 121.41, 16.0, '台湾台东县海域', 215, 215);
+
+        insert into data.Disaster (Id, TypeCode) values (216, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-18 02:35:33', 5.4, 30.8, 51.55, 10.0, '伊朗', 216, 216);
+
+        insert into data.Disaster (Id, TypeCode) values (217, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-17 19:37:25', 3.1, 24.6, 98.7, 8.0, '云南保山市龙陵县', 217, 217);
+
+        insert into data.Disaster (Id, TypeCode) values (218, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-17 18:29:37', 2.8, 23.43, 105.47, 8.0, '云南文山州富宁县', 218, 218);
+
+        insert into data.Disaster (Id, TypeCode) values (219, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-17 11:36:08', 5.3, 38.35, 21.95, 10.0, '希腊', 219, 219);
+
+        insert into data.Disaster (Id, TypeCode) values (220, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-17 01:40:37', 3.3, 23.04, 101.58, 8.0, '云南普洱市墨江县', 220, 220);
+
+        insert into data.Disaster (Id, TypeCode) values (221, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-16 12:22:47', 2.8, 28.13, 105.08, 9.0, '四川宜宾市兴文县', 221, 221);
+
+        insert into data.Disaster (Id, TypeCode) values (222, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-16 08:49:23', 6.3, -17.7, 167.8, 10.0, '瓦努阿图群岛', 222, 222);
+
+        insert into data.Disaster (Id, TypeCode) values (223, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-16 07:16:58', 3.2, 41.18, 83.31, 10.0, '新疆阿克苏地区库车市', 223, 223);
+
+        insert into data.Disaster (Id, TypeCode) values (224, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-15 16:23:11', 4.0, 28.12, 104.84, 10.0, '四川宜宾市珙县', 224, 224);
+
+        insert into data.Disaster (Id, TypeCode) values (225, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-15 08:21:16', 3.2, 36.94, 78.3, 21.0, '新疆和田地区皮山县', 225, 225);
+
+        insert into data.Disaster (Id, TypeCode) values (226, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-15 00:16:37', 3.7, 40.32, 76.37, 10.0, '新疆克孜勒苏州阿图什市', 226, 226);
+
+        insert into data.Disaster (Id, TypeCode) values (227, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-14 23:01:42', 5.7, -23.15, 171.65, 10.0, '洛亚蒂群岛', 227, 227);
+
+        insert into data.Disaster (Id, TypeCode) values (228, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-13 23:33:58', 5.3, -7.35, 149.4, 30.0, '新不列颠岛地区', 228, 228);
+
+        insert into data.Disaster (Id, TypeCode) values (229, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-13 22:07:50', 7.1, 37.7, 141.8, 50.0, '日本本州东岸近海', 229, 229);
+
+        insert into data.Disaster (Id, TypeCode) values (230, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-13 09:22:33', 3.0, 29.01, 100.92, 13.0, '四川凉山州木里县', 230, 230);
+
+        insert into data.Disaster (Id, TypeCode) values (231, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-13 01:01:35', 6.1, 38.15, 73.55, 100.0, '塔吉克斯坦', 231, 231);
+
+        insert into data.Disaster (Id, TypeCode) values (232, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-12 18:06:00', 5.6, -23.15, 171.75, 10.0, '洛亚蒂群岛', 232, 232);
+
+        insert into data.Disaster (Id, TypeCode) values (233, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 20:56:16', 3.1, 39.63, 77.35, 23.0, '新疆喀什地区伽师县', 233, 233);
+
+        insert into data.Disaster (Id, TypeCode) values (234, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 19:13:08', 3.1, 36.08, 79.58, 8.0, '新疆和田地区和田县', 234, 234);
+
+        insert into data.Disaster (Id, TypeCode) values (235, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 16:39:13', 5.5, -23.28, 171.71, 10.0, '洛亚蒂群岛', 235, 235);
+
+        insert into data.Disaster (Id, TypeCode) values (236, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 16:22:12', 5.9, -23.03, 171.23, 10.0, '洛亚蒂群岛', 236, 236);
+
+        insert into data.Disaster (Id, TypeCode) values (237, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 14:52:28', 5.8, -23.1, 171.4, 10.0, '洛亚蒂群岛', 237, 237);
+
+        insert into data.Disaster (Id, TypeCode) values (238, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 12:15:16', 5.7, -22.9, 170.65, 10.0, '洛亚蒂群岛', 238, 238);
+
+        insert into data.Disaster (Id, TypeCode) values (239, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 08:14:48', 5.8, -23.05, 171.6, 10.0, '洛亚蒂群岛', 239, 239);
+
+        insert into data.Disaster (Id, TypeCode) values (240, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 07:45:18', 5.9, -23.3, 171.75, 10.0, '洛亚蒂群岛', 240, 240);
+
+        insert into data.Disaster (Id, TypeCode) values (241, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 05:24:00', 6.3, -23.15, 171.45, 10.0, '洛亚蒂群岛', 241, 241);
+
+        insert into data.Disaster (Id, TypeCode) values (242, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 04:45:16', 5.5, -22.8, 171.05, 10.0, '洛亚蒂群岛', 242, 242);
+
+        insert into data.Disaster (Id, TypeCode) values (243, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 02:36:42', 6.1, -22.85, 171.2, 10.0, '洛亚蒂群岛', 243, 243);
+
+        insert into data.Disaster (Id, TypeCode) values (244, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-11 00:35:24', 6.1, -22.8, 171.05, 10.0, '洛亚蒂群岛', 244, 244);
+
+        insert into data.Disaster (Id, TypeCode) values (245, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-10 21:19:59', 7.4, -23.05, 171.5, 10.0, '洛亚蒂群岛', 245, 245);
+
+        insert into data.Disaster (Id, TypeCode) values (246, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-10 21:02:03', 5.9, -23.05, 171.7, 10.0, '洛亚蒂群岛', 246, 246);
+
+        insert into data.Disaster (Id, TypeCode) values (247, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-10 20:52:26', 6.2, -5.7, 101.6, 10.0, '印尼苏门答腊岛南部海域', 247, 247);
+
+        insert into data.Disaster (Id, TypeCode) values (248, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-10 20:24:24', 5.7, -22.95, 171.45, 10.0, '洛亚蒂群岛', 248, 248);
+
+        insert into data.Disaster (Id, TypeCode) values (249, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-10 13:12:27', 3.0, 29.44, 104.54, 9.0, '四川内江市威远县', 249, 249);
+
+        insert into data.Disaster (Id, TypeCode) values (250, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-10 06:40:30', 3.0, 44.4, 80.76, 22.0, '新疆伊犁州霍城县', 250, 250);
+
+        insert into data.Disaster (Id, TypeCode) values (251, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-09 10:55:48', 5.5, -5.2, 151.7, 50.0, '新不列颠岛地区', 251, 251);
+
+        insert into data.Disaster (Id, TypeCode) values (252, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-09 09:50:11', 3.3, 28.01, 87.9, 10.0, '西藏日喀则市定结县', 252, 252);
+
+        insert into data.Disaster (Id, TypeCode) values (253, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-09 00:58:01', 5.3, 24.32, 122.12, 20.0, '台湾宜兰县海域', 253, 253);
+
+        insert into data.Disaster (Id, TypeCode) values (254, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-09 00:56:31', 4.0, 24.32, 122.43, 20.0, '台湾宜兰县海域', 254, 254);
+
+        insert into data.Disaster (Id, TypeCode) values (255, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-08 23:34:00', 3.2, 24.29, 118.89, 19.0, '福建泉州市晋江市海域', 255, 255);
+
+        insert into data.Disaster (Id, TypeCode) values (256, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-07 23:38:02', 3.2, 39.41, 74.53, 8.0, '新疆克孜勒苏州乌恰县', 256, 256);
+
+        insert into data.Disaster (Id, TypeCode) values (257, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-07 13:45:53', 6.2, -3.5, 146.0, 10.0, '俾斯麦海', 257, 257);
+
+        insert into data.Disaster (Id, TypeCode) values (258, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-07 12:22:54', 5.9, 6.77, 125.21, 10.0, '菲律宾棉兰老岛', 258, 258);
+
+        insert into data.Disaster (Id, TypeCode) values (259, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-07 01:36:04', 5.2, 24.65, 122.5, 70.0, '台湾宜兰县海域', 259, 259);
+
+        insert into data.Disaster (Id, TypeCode) values (260, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-06 22:54:29', 4.2, 38.59, 93.8, 10.0, '青海海西州茫崖市', 260, 260);
+
+        insert into data.Disaster (Id, TypeCode) values (261, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-05 01:02:04', 4.3, 36.86, 77.02, 100.0, '新疆喀什地区叶城县', 261, 261);
+
+        insert into data.Disaster (Id, TypeCode) values (262, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-04 20:14:27', 5.4, -22.8, 172.0, 10.0, '洛亚蒂群岛', 262, 262);
+
+        insert into data.Disaster (Id, TypeCode) values (263, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-04 16:14:02', 5.1, 21.44, 121.92, 20.0, '巴坦群岛海域', 263, 263);
+
+        insert into data.Disaster (Id, TypeCode) values (264, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-04 14:58:26', 3.0, 42.11, 81.04, 11.0, '新疆阿克苏地区拜城县', 264, 264);
+
+        insert into data.Disaster (Id, TypeCode) values (265, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-04 13:06:23', 4.3, 28.64, 87.52, 28.0, '西藏日喀则市定日县', 265, 265);
+
+        insert into data.Disaster (Id, TypeCode) values (266, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-04 12:12:49', 3.4, 41.11, 83.41, 14.0, '新疆阿克苏地区沙雅县', 266, 266);
+
+        insert into data.Disaster (Id, TypeCode) values (267, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-03 07:58:37', 5.5, -22.78, 171.85, 10.0, '洛亚蒂群岛', 267, 267);
+
+        insert into data.Disaster (Id, TypeCode) values (268, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-03 04:49:27', 5.8, -16.24, 177.94, 10.0, '斐济群岛地区', 268, 268);
+
+        insert into data.Disaster (Id, TypeCode) values (269, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-03 01:34:11', 3.9, 36.15, 76.51, 10.0, '新疆喀什地区塔什库尔干县', 269, 269);
+
+        insert into data.Disaster (Id, TypeCode) values (270, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-02 22:42:12', 2.1, 39.84, 117.41, 16.0, '天津蓟州区', 270, 270);
+
+        insert into data.Disaster (Id, TypeCode) values (271, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-02 11:23:30', 3.0, 41.21, 83.61, 10.0, '新疆阿克苏地区库车市', 271, 271);
+
+        insert into data.Disaster (Id, TypeCode) values (272, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-02 10:31:15', 4.7, 28.55, 87.5, 10.0, '西藏日喀则市定日县', 272, 272);
+
+        insert into data.Disaster (Id, TypeCode) values (273, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-01 20:38:37', 3.2, 43.65, 84.49, 10.0, '新疆伊犁州尼勒克县', 273, 273);
+
+        insert into data.Disaster (Id, TypeCode) values (274, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-02-01 03:05:13', 5.9, 2.78, -59.54, 10.0, '圭亚那', 274, 274);
+
+        insert into data.Disaster (Id, TypeCode) values (275, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-31 22:40:19', 3.3, 43.68, 81.68, 16.0, '新疆伊犁州伊宁县', 275, 275);
+
+        insert into data.Disaster (Id, TypeCode) values (276, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-30 03:47:54', 5.7, -13.95, 121.75, 10.0, '澳大利亚西北部附近海域', 276, 276);
+
+        insert into data.Disaster (Id, TypeCode) values (277, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-29 20:41:39', 5.4, 8.0, -83.1, 10.0, '哥斯达黎加沿岸近海', 277, 277);
+
+        insert into data.Disaster (Id, TypeCode) values (278, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-28 15:29:31', 4.5, 22.49, 121.12, 10.0, '台湾台东县海域', 278, 278);
+
+        insert into data.Disaster (Id, TypeCode) values (279, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-28 13:15:58', 3.2, 40.48, 82.77, 20.0, '新疆阿克苏地区沙雅县', 279, 279);
+
+        insert into data.Disaster (Id, TypeCode) values (280, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-27 21:51:29', 3.6, 39.38, 94.74, 10.0, '甘肃酒泉市阿克塞县', 280, 280);
+
+        insert into data.Disaster (Id, TypeCode) values (281, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-26 12:17:56', 5.4, -7.05, 155.8, 100.0, '所罗门群岛', 281, 281);
+
+        insert into data.Disaster (Id, TypeCode) values (282, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-25 19:39:22', 4.0, 24.83, 122.27, 95.0, '台湾宜兰县海域', 282, 282);
+
+        insert into data.Disaster (Id, TypeCode) values (283, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-25 15:53:21', 5.0, -4.6, 152.3, 110.0, '新不列颠岛地区', 283, 283);
+
+        insert into data.Disaster (Id, TypeCode) values (284, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-25 03:01:22', 5.1, 37.05, 71.6, 150.0, '塔吉克斯坦', 284, 284);
+
+        insert into data.Disaster (Id, TypeCode) values (285, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-24 13:47:54', 5.7, -51.15, 161.93, 10.0, '麦夸里岛附近海域', 285, 285);
+
+        insert into data.Disaster (Id, TypeCode) values (286, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-24 09:53:07', 3.2, 40.65, 111.49, 13.0, '内蒙古呼和浩特市土默特左旗', 286, 286);
+
+        insert into data.Disaster (Id, TypeCode) values (287, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-24 07:36:52', 7.0, -61.7, -55.6, 10.0, '南设得兰群岛', 287, 287);
+
+        insert into data.Disaster (Id, TypeCode) values (288, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-24 03:38:51', 3.0, 48.72, 125.29, 10.0, '黑龙江齐齐哈尔市讷河市', 288, 288);
+
+        insert into data.Disaster (Id, TypeCode) values (289, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-24 00:58:50', 5.4, -6.31, 147.6, 30.0, '巴布亚新几内亚', 289, 289);
+
+        insert into data.Disaster (Id, TypeCode) values (290, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-23 22:28:44', 3.1, 18.38, 110.91, 10.0, '南海海域', 290, 290);
+
+        insert into data.Disaster (Id, TypeCode) values (291, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-23 11:19:50', 5.6, -6.45, 147.55, 30.0, '巴布亚新几内亚', 291, 291);
+
+        insert into data.Disaster (Id, TypeCode) values (292, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-23 10:59:00', 3.8, 40.44, 110.24, 10.0, '内蒙古鄂尔多斯市达拉特旗', 292, 292);
+
+        insert into data.Disaster (Id, TypeCode) values (293, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-23 09:59:10', 4.7, 28.18, 104.22, 10.0, '云南昭通市盐津县', 293, 293);
+
+        insert into data.Disaster (Id, TypeCode) values (294, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-22 03:34:25', 3.5, 28.09, 105.03, 8.0, '四川宜宾市兴文县', 294, 294);
+
+        insert into data.Disaster (Id, TypeCode) values (295, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-21 21:42:40', 4.6, 36.68, 76.94, 100.0, '新疆喀什地区叶城县', 295, 295);
+
+        insert into data.Disaster (Id, TypeCode) values (296, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-21 20:23:06', 6.9, 4.95, 127.55, 110.0, '印尼塔劳群岛', 296, 296);
+
+        insert into data.Disaster (Id, TypeCode) values (297, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-21 15:28:00', 2.4, 43.89, 87.84, 10.0, '新疆乌鲁木齐市米东区（有感）', 297, 297);
+
+        insert into data.Disaster (Id, TypeCode) values (298, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-21 06:43:44', 3.1, 47.05, 85.65, 19.0, '新疆塔城地区和布克赛尔县', 298, 298);
+
+        insert into data.Disaster (Id, TypeCode) values (299, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-21 00:00:41', 5.6, 49.71, 147.87, 580.0, '鄂霍次克海', 299, 299);
+
+        insert into data.Disaster (Id, TypeCode) values (300, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-20 21:42:29', 3.0, 44.51, 83.17, 17.0, '新疆博尔塔拉州精河县', 300, 300);
+
+        insert into data.Disaster (Id, TypeCode) values (301, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-19 13:01:04', 5.5, -7.41, 125.42, 430.0, '班达海', 301, 301);
+
+        insert into data.Disaster (Id, TypeCode) values (302, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-19 10:46:20', 6.6, -31.85, -68.7, 10.0, '阿根廷', 302, 302);
+
+        insert into data.Disaster (Id, TypeCode) values (303, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-19 02:21:28', 4.6, 35.79, 123.97, 12.0, '黄海海域', 303, 303);
+
+        insert into data.Disaster (Id, TypeCode) values (304, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-18 15:17:18', 5.3, -14.61, 167.19, 170.0, '瓦努阿图群岛', 304, 304);
+
+        insert into data.Disaster (Id, TypeCode) values (305, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-18 03:52:20', 3.3, 35.83, 82.36, 10.0, '新疆和田地区于田县', 305, 305);
+
+        insert into data.Disaster (Id, TypeCode) values (306, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-18 03:51:21', 3.4, 35.81, 82.33, 10.0, '新疆和田地区于田县', 306, 306);
+
+        insert into data.Disaster (Id, TypeCode) values (307, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-17 12:44:44', 4.1, 24.33, 99.36, 8.0, '云南保山市昌宁县', 307, 307);
+
+        insert into data.Disaster (Id, TypeCode) values (308, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-17 07:23:30', 3.2, 32.77, 105.66, 14.0, '陕西汉中市宁强县', 308, 308);
+
+        insert into data.Disaster (Id, TypeCode) values (309, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-17 07:10:56', 5.1, 22.44, 121.44, 20.0, '台湾台东县海域', 309, 309);
+
+        insert into data.Disaster (Id, TypeCode) values (310, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-17 04:02:46', 5.6, 36.45, 70.76, 200.0, '阿富汗', 310, 310);
+
+        insert into data.Disaster (Id, TypeCode) values (311, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-17 00:21:57', 2.8, 40.52, 123.05, 12.0, '辽宁鞍山市岫岩县', 311, 311);
+
+        insert into data.Disaster (Id, TypeCode) values (312, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-16 17:26:43', 5.2, -6.45, 103.72, 40.0, '印尼苏门答腊岛南部海域', 312, 312);
+
+        insert into data.Disaster (Id, TypeCode) values (313, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-16 05:31:05', 5.4, 26.83, 55.13, 10.0, '伊朗', 313, 313);
+
+        insert into data.Disaster (Id, TypeCode) values (314, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-16 00:10:52', 5.5, 13.92, -92.04, 30.0, '危地马拉沿岸近海', 314, 314);
+
+        insert into data.Disaster (Id, TypeCode) values (315, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-15 20:32:41', 3.8, 38.43, 97.35, 9.0, '青海海西州德令哈市', 315, 315);
+
+        insert into data.Disaster (Id, TypeCode) values (316, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-15 02:28:17', 6.2, -3.04, 118.99, 10.0, '印尼苏拉威西岛', 316, 316);
+
+        insert into data.Disaster (Id, TypeCode) values (317, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-15 00:28:10', 4.7, 25.21, 124.41, 140.0, '琉球群岛', 317, 317);
+
+        insert into data.Disaster (Id, TypeCode) values (318, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-14 17:21:59', 3.6, 36.06, 104.05, 16.0, '甘肃兰州市榆中县', 318, 318);
+
+        insert into data.Disaster (Id, TypeCode) values (319, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-14 14:35:49', 5.6, -3.04, 118.94, 10.0, '印尼苏拉威西岛', 319, 319);
+
+        insert into data.Disaster (Id, TypeCode) values (320, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-14 06:28:19', 2.6, 43.64, 88.15, 10.0, '新疆乌鲁木齐市达坂城区（有感）', 320, 320);
+
+        insert into data.Disaster (Id, TypeCode) values (321, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-13 02:17:36', 5.8, -3.05, 136.95, 10.0, '印尼巴布亚省', 321, 321);
+
+        insert into data.Disaster (Id, TypeCode) values (322, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-12 10:39:42', 5.6, 43.66, 140.16, 230.0, '日本北海道地区', 322, 322);
+
+        insert into data.Disaster (Id, TypeCode) values (323, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-12 05:32:59', 6.8, 51.28, 100.5, 10.0, '蒙古', 323, 323);
+
+        insert into data.Disaster (Id, TypeCode) values (324, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-11 09:20:40', 5.7, -7.4, 120.5, 600.0, '弗洛勒斯海', 324, 324);
+
+        insert into data.Disaster (Id, TypeCode) values (325, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-11 08:24:36', 5.0, 25.55, 124.5, 150.0, '琉球群岛', 325, 325);
+
+        insert into data.Disaster (Id, TypeCode) values (326, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-11 02:54:37', 3.4, 42.61, 123.13, 15.0, '辽宁沈阳市康平县', 326, 326);
+
+        insert into data.Disaster (Id, TypeCode) values (327, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-10 14:48:21', 5.9, -16.0, 167.85, 170.0, '瓦努阿图群岛', 327, 327);
+
+        insert into data.Disaster (Id, TypeCode) values (328, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-10 11:54:10', 6.0, -24.06, -66.69, 200.0, '阿根廷', 328, 328);
+
+        insert into data.Disaster (Id, TypeCode) values (329, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-10 11:23:29', 4.3, 23.77, 121.49, 11.0, '台湾花莲县', 329, 329);
+
+        insert into data.Disaster (Id, TypeCode) values (330, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-10 03:10:47', 3.1, 39.4, 93.75, 10.0, '甘肃酒泉市阿克塞县', 330, 330);
+
+        insert into data.Disaster (Id, TypeCode) values (331, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-09 19:35:50', 5.1, 24.7, 122.21, 80.0, '台湾宜兰县海域', 331, 331);
+
+        insert into data.Disaster (Id, TypeCode) values (332, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-09 14:44:43', 3.1, 39.72, 74.86, 10.0, '新疆克孜勒苏州乌恰县', 332, 332);
+
+        insert into data.Disaster (Id, TypeCode) values (333, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-08 13:01:05', 6.0, -20.89, 169.8, 120.0, '瓦努阿图群岛', 333, 333);
+
+        insert into data.Disaster (Id, TypeCode) values (334, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-08 11:54:41', 3.1, 42.12, 81.02, 10.0, '新疆阿克苏地区拜城县', 334, 334);
+
+        insert into data.Disaster (Id, TypeCode) values (335, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-08 11:48:56', 4.2, 42.11, 81.02, 10.0, '新疆阿克苏地区拜城县', 335, 335);
+
+        insert into data.Disaster (Id, TypeCode) values (336, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-08 11:39:03', 3.9, 42.03, 85.76, 14.0, '新疆巴音郭楞州库尔勒市', 336, 336);
+
+        insert into data.Disaster (Id, TypeCode) values (337, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-08 08:28:45', 6.1, -29.63, -178.4, 200.0, '新西兰克马德克群岛海域', 337, 337);
+
+        insert into data.Disaster (Id, TypeCode) values (338, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-07 04:59:36', 6.3, -0.03, 123.0, 130.0, '印尼苏拉威西岛附近海域', 338, 338);
+
+        insert into data.Disaster (Id, TypeCode) values (339, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-07 01:28:35', 5.6, -4.55, 102.5, 50.0, '印尼苏门答腊岛南部海域', 339, 339);
+
+        insert into data.Disaster (Id, TypeCode) values (340, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-07 00:52:19', 5.9, -7.02, 155.92, 80.0, '所罗门群岛', 340, 340);
+
+        insert into data.Disaster (Id, TypeCode) values (341, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-06 22:08:46', 3.4, 41.21, 78.78, 10.0, '新疆阿克苏地区乌什县', 341, 341);
+
+        insert into data.Disaster (Id, TypeCode) values (342, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-06 16:46:06', 3.8, 37.99, 120.41, 7.0, '山东烟台市蓬莱区海域', 342, 342);
+
+        insert into data.Disaster (Id, TypeCode) values (343, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-06 14:20:34', 6.1, -28.81, -177.1, 10.0, '新西兰克马德克群岛海域', 343, 343);
+
+        insert into data.Disaster (Id, TypeCode) values (344, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-05 18:48:25', 3.2, 39.18, 75.76, 10.0, '新疆喀什地区疏附县', 344, 344);
+
+        insert into data.Disaster (Id, TypeCode) values (345, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-05 11:49:26', 3.1, 42.31, 81.13, 10.0, '新疆伊犁州昭苏县', 345, 345);
+
+        insert into data.Disaster (Id, TypeCode) values (346, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-05 08:45:31', 3.1, 35.78, 82.49, 10.0, '新疆和田地区于田县', 346, 346);
+
+        insert into data.Disaster (Id, TypeCode) values (347, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-04 21:49:35', 3.3, 31.08, 119.51, 6.0, '安徽宣城市广德县', 347, 347);
+
+        insert into data.Disaster (Id, TypeCode) values (348, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-04 10:58:29', 4.2, 29.41, 104.02, 13.0, '四川乐山市犍为县', 348, 348);
+
+        insert into data.Disaster (Id, TypeCode) values (349, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-04 00:34:11', 3.2, 29.43, 104.52, 10.0, '四川自贡市荣县', 349, 349);
+
+        insert into data.Disaster (Id, TypeCode) values (350, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-03 20:38:48', 6.0, 51.11, -179.74, 20.0, '安德烈亚诺夫群岛海域', 350, 350);
+
+        insert into data.Disaster (Id, TypeCode) values (351, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-03 16:16:30', 3.6, 43.86, 91.48, 10.0, '新疆昌吉州木垒县', 351, 351);
+
+        insert into data.Disaster (Id, TypeCode) values (352, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-03 08:34:37', 3.0, 24.69, 117.7, 28.0, '福建漳州市长泰县', 352, 352);
+
+        insert into data.Disaster (Id, TypeCode) values (353, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-03 02:40:25', 3.2, 25.63, 99.92, 11.0, '云南大理州漾濞县', 353, 353);
+
+        insert into data.Disaster (Id, TypeCode) values (354, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-02 21:26:47', 4.4, 24.07, 122.24, 24.0, '台湾花莲县海域', 354, 354);
+
+        insert into data.Disaster (Id, TypeCode) values (355, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-02 04:24:34', 3.5, 36.86, 94.62, 9.0, '青海海西州格尔木市', 355, 355);
+
+        insert into data.Disaster (Id, TypeCode) values (356, 1);
+        insert into data.Earthquake (OccurrenceTime, Level, Latitude, Longitude, Depth, Location, Id, ReferenceId) values ('2021-01-01 06:07:08', 3.0, 26.24, 101.27, 16.0, '云南楚雄州大姚县', 356, 356);

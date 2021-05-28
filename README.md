@@ -4,5 +4,17 @@
 ## 数据上传
 
 ## 数据管理
+### API
+```python
+# 主页
+'http://{host}:{port}/,
 
+# 地震
+'http://{host}:{port}/earthquakes'
+# 地震信息详情页
+'http://{host}:{port}/earthquakes/<id>'
+
+
+
+```
 ## 数据展示

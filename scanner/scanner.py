@@ -1,17 +1,18 @@
-import csv
-import json
 import logging
 import os
+from scanner.encoder.encode_eq import eqEncode
 import threading
 import time
-from typing import Dict, List
-
 import schedule
+
 from flask_sqlalchemy import SQLAlchemy
 
 from app.config.settings import UPLOAD_FOLDER, SCANNED_FOLDER, ERROR_FOLDER
 from app.models import Earthquake
 from scanner.validator.earthquake_validator import EarthquakeValidator
+
+from scanner.converter.to_earthquake import *
+
 
 logger = logging.Logger("Scanner")
 
@@ -20,21 +21,6 @@ def move(src_path: str, src_filename: str, dst_path: str, dst_filename: str):
     os.makedirs(dst_path, exist_ok=True)
     os.rename(os.path.join(src_path, src_filename),
               os.path.join(dst_path, dst_filename))
-
-
-def json_reader(path: str) -> List[Dict]:
-    with open(path, "r") as file:
-        return json.loads(''.join(file.readlines()))['disasters']
-
-
-def csv_reader(path: str) -> List[Dict]:
-    with open(path, "r") as file:
-        res = []
-        reader = csv.DictReader(file)
-        for row in reader:
-            row['Images'] = row.get('Images', '').split(',')
-            res.append(row)
-        return res
 
 
 class Scanner(threading.Thread):
@@ -53,8 +39,10 @@ class Scanner(threading.Thread):
         logger.info("start reading")
         for filename in os.listdir(UPLOAD_FOLDER):
             try:
+
                 ext_name_split = filename.rsplit('.', maxsplit=1)
                 ext_name = ext_name_split[1] if len(ext_name_split) == 2 else ''
+                # type check
                 if ext_name not in self.type_func_map.keys():
                     if ext_name in ['png', 'jpg', 'jpeg']:
                         continue
@@ -68,6 +56,12 @@ class Scanner(threading.Thread):
                         logger.warning(f"Ignoring row {disaster_dict}.")
                         continue
                     earthquake = Earthquake(disaster_dict)
+                    # add source
+                    earthquake.Source = filename
+                    # encode
+                    eqCode = eqEncode("中国",(earthquake.Latitude,earthquake.Longitude),earthquake.OccurrenceTime,earthquake.Level)
+                    earthquake.EarthquakeEncode = eqCode
+                    
                     self.session.add(earthquake)
                     self.session.flush()
                     valid_disaster_map[earthquake.Id] = disaster_dict
@@ -79,6 +73,7 @@ class Scanner(threading.Thread):
                                            disaster_info_class.get(type_code // 10, 'other'),
                                            disaster_info_subclass.get(type_code, 'other'))
                 move(UPLOAD_FOLDER, filename, output_path, filename)
+
                 for disaster_id, disaster_dict in valid_disaster_map.items():
                     for i, image in enumerate(disaster_dict.get('Images', [])):
                         try:
