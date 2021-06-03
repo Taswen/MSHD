@@ -58,3 +58,36 @@ class Earthquake(db.Model):
             if hasattr(self, key):
                 # setattr(self, key, type(getattr(self, key))(val))
                 setattr(self, key, val)
+
+
+class HouseDamaged(db.Model):
+    __tablename__ = "HouseDamaged"
+
+    Id = db.Column(db.Integer, primary_key=True)
+    Category = db.Column(db.String(255))
+    Date = db.Column(db.DateTime)
+    Location = db.Column(db.String(255))
+    BasicallyIntactSquare = db.Column(db.Float)
+    DamagedSquare = db.Column(db.Float)
+    DestroyedSquare = db.Column(db.Float)
+    ReportingUnit = db.Column(db.String(255))
+    EarthquakeId = db.Column(db.Integer, db.ForeignKey("Earthquake.Id"))
+
+    # 一对多关系映射,
+    Earthqu = db.relationship("Earthquake", backref="HouseDamageds")
+
+
+class InjuredStatistics(db.Model):
+    __tablename__ = "InjuredStatistics"
+
+    Id = db.Column(db.Integer, primary_key=True)
+    Date = db.Column(db.DateTime)
+    Location = db.Column(db.String(255))
+    DeathNumber = db.Column(db.Integer)
+    InjuredNumber = db.Column(db.Integer)
+    MissingNumber = db.Column(db.Integer)
+    ReportingUnit = db.Column(db.String(255))
+    EarthquakeId = db.Column(db.Integer, db.ForeignKey("Earthquake.Id"))
+
+    # 一对多关系映射,
+    Earthqu = db.relationship("Earthquake", backref="InjuredStatistics")
