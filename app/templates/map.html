@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>根据城市设置城市中心点</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="/static/index.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <!-- <style>
+        body,
+        html,
+        #container {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style> -->
+    <!-- <script src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=OG2CIPVIGVPeLpdbufgGBvyTzRCjxjcY"></script> -->
+</head>
+
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">MSHD</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/earthquakes">震情</a></li>
+                    <li><a href="/disasters">灾情</a></li>
+                    <li><a href="ftp://47.93.229.92/">FTP系统</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="col-md-12">
+        <div class="col-md-2">
+            <div class="panel-group table-responsive" role="tablist">
+                <div class="panel  panel-default leftMenu">
+                    <!-- 利用data-target指定要折叠的分组列表 -->
+                    <div class="panel-heading " id="collapseListGroupHeading1" data-toggle="collapse"
+                        data-target="#collapseListGroup1" role="tab">
+                        <h4 class="panel-title ">
+                            数据视角
+                            <!-- <span class="glyphicon glyphicon-chevron-up right"></span> -->
+                        </h4>
+                    </div>
+                    <!-- .panel-collapse和.collapse标明折叠元素 .in表示要显示出来 -->
+                    <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"
+                        aria-labelledby="collapseListGroupHeading1">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <!-- 利用data-target指定URL -->
+                                <a href="/earthquakes">数据表格</a>
+                                <!-- <button class="menu-item-left" data-target="test2.html">
+                                    <span class="glyphicon glyphicon-triangle-right"></span>分组项1-1
+                                </button> -->
+                            </li>
+                            <li class="list-group-item">
+                                <!-- 利用data-target指定URL -->
+                                <a href="/earthquakes/map">地图可视化</a>
+                                <!-- <button class="menu-item-left" data-target="test2.html">
+                                    <span class="glyphicon glyphicon-triangle-right"></span>分组项1-1
+                                </button> -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--panel end-->
+            </div>
+        </div>
+        <div class="col-md-10">
+            <iframe id="container" src="/baiduMap" height="650" width="1000" frameborder="0" scrolling="0"></iframe>
+        </div>
+    </div>
+    <script src="/static/js/jquery-3.6.0.min.js"></script>
+    <script src="/static/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+</body>
+
+</html>
