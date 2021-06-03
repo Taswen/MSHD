@@ -3,7 +3,6 @@ from typing import Dict
 from enum import Enum
 
 from app.ext import db
-import csv
 
 
 class DisasterTypeCode(Enum):
@@ -36,7 +35,6 @@ class Earthquake(db.Model):
     Location = db.Column(db.String(100))
     Level = db.Column(db.Float)
     EarthquakeEncode = db.Column(db.String(200))
-    ReferenceId = db.Column(db.Integer, db.ForeignKey('Disaster.Id'))
     ReportingUnit = db.Column(db.String(100))
     Source = db.Column(db.String(100))
 

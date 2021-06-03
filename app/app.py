@@ -1,10 +1,12 @@
-from app.models import Earthquake
+import os
+
 from flask import Flask, render_template, request, redirect
 from flask.helpers import flash, url_for
+
+from app.models import Earthquake,InjuredStatistics,HouseDamaged
 from app.ext import db
 from app.db import get_earthquakes_num,get_earthquakes_data
 from app.custom.converter import RegexConverter
-import os
 
 # from scanner.scanner import Scanner
 
@@ -22,6 +24,10 @@ app = create_app()
 
 
 @app.route('/')
+def mainPage():
+    return render_template("index.html")
+
+
 @app.route('/earthquakes')
 def earthquakesListPage():
     result = request.args.get("result", 'ALL', str)
@@ -37,16 +43,16 @@ def earthquakesListPage():
 def earthquakesInfoPage(id):
     if request.method == 'GET':
         eq = Earthquake.query.get(id)
+    # 房屋损害情况
+    HoD = HouseDamaged.query.filter_by(EarthquakeId=id).all()
+    IjS = InjuredStatistics.query.filter_by(EarthquakeId=id).all()
+    # result = request.args.get("result", 'ALL', str)
+    # offset = request.args.get('offset', 0, int)
+    # limit = request.args.get('limit', 20, int)
+    # count = get_earthquakes_num()
+    # earthquakes = get_earthquakes_data(limit=limit, offset=offset)
 
-    
-    result = request.args.get("result", 'ALL', str)
-    offset = request.args.get('offset', 0, int)
-    limit = request.args.get('limit', 20, int)
-    count = get_earthquakes_num()
-    earthquakes = get_earthquakes_data(limit=limit, offset=offset)
-
-    return render_template("earthquakes.html", count=count, result=result, earthquakes=earthquakes, offset=offset,
-                           limit=limit)
+    return render_template("earthquakeInfo.html", eq=eq, hoDs=HoD,ijSs=IjS)
 
 
 @app.route('/uploader', methods=['POST', 'GET'])
