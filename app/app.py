@@ -5,7 +5,7 @@ from flask.helpers import flash, url_for
 
 from app.models import Earthquake,InjuredStatistics,HouseDamaged
 from app.ext import db
-from app.db import get_earthquakes_num,get_earthquakes_data
+from app.db import *
 from app.custom.converter import RegexConverter
 
 # from scanner.scanner import Scanner
@@ -23,8 +23,10 @@ def create_app():
 app = create_app()
 
 
+
+
 @app.route('/')
-def mainPage():
+def mapPage():
     return render_template("index.html")
 
 
@@ -65,6 +67,41 @@ def uploader():
     else:
         pass
     return redirect(url_for("earthquakesListPage"))
+
+
+@app.route('/earthquakes/map')
+def mainPage():
+    return render_template("map.html")
+
+
+@app.route('/baiduMap')
+def baiduMapPage():
+    data = {}
+    data.update({"eqs":get_all_earthquakes_data()}) 
+    return render_template("baidu.html",data=data)
+
+@app.route('/baiduMap/<int:id>')
+def earthMapPage(id):
+    eq = None
+    if request.method == 'GET':
+        eq = Earthquake.query.get(id)
+    data = {}
+    data.update({"eqs":[eq]}) 
+    return render_template("baidu.html",data=data)
+
+
+@app.route('/disasters')
+def disasterListPage():
+    result = request.args.get("result", 'ALL', str)
+    offset = request.args.get('offset', 0, int)
+    limit = request.args.get('limit', 20, int)
+    count = get_earthquakes_num()
+    earthquakes = get_earthquakes_data(limit=limit, offset=offset)
+
+    return render_template("disasters.html", count=count, result=result, earthquakes=earthquakes, offset=offset,
+                           limit=limit)
+                    
+
 
 
 @app.route('/test',methods=['POST','GET'])
