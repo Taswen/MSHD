@@ -1,12 +1,13 @@
 import os
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 from flask.helpers import flash, url_for
 
-from app.models import Earthquake,InjuredStatistics,HouseDamaged
-from app.ext import db
-from app.db import get_earthquakes_num,get_earthquakes_data
 from app.custom.converter import RegexConverter
+from app.db import get_earthquakes_num, get_earthquakes_data
+from app.ext import db
+from app.models import Earthquake, InjuredStatistics, HouseDamaged
+
 
 # from scanner.scanner import Scanner
 
@@ -14,7 +15,7 @@ from app.custom.converter import RegexConverter
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile("config/settings.py")
-    app.url_map.converters['regex']=RegexConverter
+    app.url_map.converters['regex'] = RegexConverter
     db.init_app(app)
     # Scanner(app).run()
     return app
@@ -39,7 +40,8 @@ def earthquakesListPage():
     return render_template("earthquakes.html", count=count, result=result, earthquakes=earthquakes, offset=offset,
                            limit=limit)
 
-@app.route('/earthquakes/<int:id>', methods=['GET','PUT', 'DELETE', 'POST', 'DELETE'])
+
+@app.route('/earthquakes/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST', 'DELETE'])
 def earthquakesInfoPage(id):
     if request.method == 'GET':
         eq = Earthquake.query.get(id)
@@ -52,7 +54,13 @@ def earthquakesInfoPage(id):
     # count = get_earthquakes_num()
     # earthquakes = get_earthquakes_data(limit=limit, offset=offset)
 
-    return render_template("earthquakeInfo.html", eq=eq, hoDs=HoD,ijSs=IjS)
+    return render_template("earthquakeInfo.html", eq=eq, hoDs=HoD, ijSs=IjS)
+
+
+@app.route("/earthquakes/info/<int:id>", methods=['GET'])
+def earthquakeInfo(id):
+    eq = Earthquake.query.get(id)
+    return jsonify({'code': 0, "info": eq})
 
 
 @app.route('/uploader', methods=['POST', 'GET'])
@@ -67,7 +75,7 @@ def uploader():
     return redirect(url_for("earthquakesListPage"))
 
 
-@app.route('/test',methods=['POST','GET'])
+@app.route('/test', methods=['POST', 'GET'])
 def test():
     ## 测试
 
