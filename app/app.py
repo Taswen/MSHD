@@ -24,6 +24,10 @@ app = create_app()
 
 
 @app.route('/')
+def mainPage():
+    return render_template("index.html")
+
+
 @app.route('/earthquakes')
 def earthquakesListPage():
     result = request.args.get("result", 'ALL', str)
@@ -40,15 +44,14 @@ def earthquakesInfoPage(id):
     if request.method == 'GET':
         eq = Earthquake.query.get(id)
 
-    
-    result = request.args.get("result", 'ALL', str)
-    offset = request.args.get('offset', 0, int)
-    limit = request.args.get('limit', 20, int)
+
+    # result = request.args.get("result", 'ALL', str)
+    # offset = request.args.get('offset', 0, int)
+    # limit = request.args.get('limit', 20, int)
     count = get_earthquakes_num()
     earthquakes = get_earthquakes_data(limit=limit, offset=offset)
 
-    return render_template("earthquakes.html", count=count, result=result, earthquakes=earthquakes, offset=offset,
-                           limit=limit)
+    return render_template("earthquakesInfo.html", eq=eq, disasters=dis)
 
 
 @app.route('/uploader', methods=['POST', 'GET'])

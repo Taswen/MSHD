@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/static/index.css">
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <script>
-        function click_tb(id){
-            window.location.href="/earthquakes/"+id   
+        function click_tb(id) {
+            window.location.href = "/earthquakes/" + id
         }
     </script>
 </head>
@@ -30,18 +30,20 @@
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2"  >
+            <div class="col-md-2">
                 <div class="panel-group table-responsive" role="tablist">
                     <div class="panel  panel-default leftMenu">
                         <!-- 利用data-target指定要折叠的分组列表 -->
-                        <div class="panel-heading " id="collapseListGroupHeading1" data-toggle="collapse" data-target="#collapseListGroup1" role="tab" >
+                        <div class="panel-heading " id="collapseListGroupHeading1" data-toggle="collapse"
+                            data-target="#collapseListGroup1" role="tab">
                             <h4 class="panel-title ">
                                 数据视角
                                 <!-- <span class="glyphicon glyphicon-chevron-up right"></span> -->
                             </h4>
                         </div>
                         <!-- .panel-collapse和.collapse标明折叠元素 .in表示要显示出来 -->
-                        <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading1">
+                        <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"
+                            aria-labelledby="collapseListGroupHeading1">
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <!-- 利用data-target指定URL -->
@@ -59,7 +61,8 @@
                                 </li>
                             </ul>
                         </div>
-                    </div><!--panel end-->
+                    </div>
+                    <!--panel end-->
                 </div>
             </div>
             <div class="col-md-10">
@@ -70,8 +73,9 @@
                     </form>
                 </div>
                 <div class="col-9 table-responsive">
-        
-                    <table class="table-bordered table-hover table-effect" cellspacing="1" bgcolor="#f0f8ff" align="center">
+
+                    <table class="table table-hover table-effect" cellspacing="1" bgcolor="#f0f8ff"
+                        align="center">
                         <thead>
                             <tr>
                                 <td width="5%" class="font1">序号(I)</td>
@@ -86,13 +90,13 @@
                         {% for eqs in earthquakes %}
                         <tbody>
                             <tr onclick="click_tb({{eqs.Id}});">
-                                    <td>{{ eqs.Id }}</td>
-                                    <td>{{ eqs.Level }}</td>
-                                    <td>{{ eqs.Str_ot }}</td>
-                                    <td>{{ eqs.Longitude }}</td>
-                                    <td>{{ eqs.Latitude }}</td>
-                                    <td>{{ eqs.Depth }}</td>
-                                    <td>{{ eqs.Location }}</td>
+                                <td>{{ eqs.Id }}</td>
+                                <td>{{ eqs.Level }}</td>
+                                <td>{{ eqs.Str_ot }}</td>
+                                <td>{{ eqs.Longitude }}</td>
+                                <td>{{ eqs.Latitude }}</td>
+                                <td>{{ eqs.Depth }}</td>
+                                <td>{{ eqs.Location }}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -103,32 +107,33 @@
                         {% set offset = (offset)|int %}
                         {% set limit = (limit)|int %}
                         {% set count = (count)|int %}
-        
+
                         {% set current_page = (offset/limit)|int + (1 if offset%limit else 0) %}
                         {% set total_page = (count/limit)|int + (1 if count%limit else 0) %}
-        
+
                         <li class="{{ 'disabled' if current_page - 1 <=0 else '' }}">
-                            <a href="
+                            <a
+                                href="
                                 {% if current_page>1 %}{{ url_for('earthquakesListPage',  result=result,offset=(current_page-1)*limit, limit=limit) }}{% endif %}">«</a>
                         </li>
-        
+
                         {% set prev = 0 %}
                         {% for i in range(0, (total_page)|int) %}
-                            {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %} 
-                                {% set prev=i %} 
-                                <li class="{% if i == current_page %}active{% endif %}">
-                                    <a href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
-                                        {{ i + 1}}
-                                    </a>
-                                </li>
-        
+                        {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %} {% set prev=i %} <li
+                            class="{% if i == current_page %}active{% endif %}">
+                            <a href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
+                                {{ i + 1}}
+                            </a>
+                            </li>
+
                             {% elif prev == i-1 %}
-                                <li class="disabled"><a href="">...</a></li>
-        
+                            <li class="disabled"><a href="">...</a></li>
+
                             {% endif %}
-                        {% endfor %}
+                            {% endfor %}
                             <li class="{{ ' disabled' if current_page + 1>= total_page else '' }}">
-                                <a href=" {% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
+                                <a
+                                    href=" {% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
                             </li>
                     </ul>
                 </div>
@@ -137,14 +142,14 @@
     </div>
 
     {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <script>
-            var messages = {{ messages | safe }};
-            for (var i = 0; i < messages.length; i++) {
-                alert(messages[i]);
-            }
-        </script>
-        {% endif %}
+    {% if messages %}
+    <script>
+        var messages = {{ messages | safe }};
+        for (var i = 0; i < messages.length; i++) {
+            alert(messages[i]);
+        }
+    </script>
+    {% endif %}
     {% endwith %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

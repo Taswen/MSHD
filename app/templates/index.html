@@ -12,41 +12,108 @@
     <!-- 导航条 -->
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">MSHD</a>
-        </div>
-        <div>
-            <ul class="nav navbar-nav">
-                <li><a href="#">震情</a></li>
-                <li><a href="#">灾情</a></li>
-            </ul>
-        </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">MSHD</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/earthquakes">震情</a></li>
+                    <li><a href="#">灾情</a></li>
+                    <li><a href="ftp://47.93.229.92/">FTP系统</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     <!-- 主页 -->
-    <div class="col-12">
-        
-        
+    <div class="col-md-12">
+        <div class="col-md-2">
+            <div class="panel-group table-responsive" role="tablist">
+                <div class="panel  panel-default leftMenu">
+                    <!-- 利用data-target指定要折叠的分组列表 -->
+                    <div class="panel-heading " id="collapseListGroupHeading1" data-toggle="collapse"
+                        data-target="#collapseListGroup1" role="tab">
+                        <h4 class="panel-title ">
+                            网站导航
+                            <!-- <span class="glyphicon glyphicon-chevron-up right"></span> -->
+                        </h4>
+                    </div>
+                    <!-- .panel-collapse和.collapse标明折叠元素 .in表示要显示出来 -->
+                    <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"
+                        aria-labelledby="collapseListGroupHeading1">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="/earthquakes">震情数据</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/earthquakes">灾情数据</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                <div class="panel  panel-default leftMenu">
+                    <!-- 利用data-target指定要折叠的分组列表 -->
+                    <div class="panel-heading " id="collapseListGroupHeading2" data-toggle="collapse"
+                        data-target="#collapseListGroup2" role="tab">
+                        <h4 class="panel-title ">
+                            网站导航
+                            <!-- <span class="glyphicon glyphicon-chevron-up right"></span> -->
+                        </h4>
+                    </div>
+                    <!-- .panel-collapse和.collapse标明折叠元素 .in表示要显示出来 -->
+                    <div id="collapseListGroup2" class="panel-collapse collapse in" role="tabpanel"
+                        aria-labelledby="collapseListGroupHeading2">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="/earthquakes">API文档</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/earthquakes">数据上传说明</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                <!--panel end-->
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="jumbotron">
+                            <h1>
+                                欢迎使用
+                            </h1>
+                            <p>
+                                本网站为《多源异构灾情数据》站，旨在收集灾情数据并统一编码储存，以及对外提供灾情数据服务。
+                            </p>
+                            <p>
+                                <a class="btn btn-primary btn-large" href="#">上传数据 »</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- 测试按钮 -->
-    <form action="/test" method="POST" >
+    <form action="/test" method="POST">
         <input type="submit" id="btn-upload-file" class="btn btn-primary">Test</input>
     </form>
 
     {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <script>
-            var messages = {{ messages | safe }};
-            for (var i = 0; i < messages.length; i++) {
-                alert(messages[i]);
-            }
-        </script>
-        {% endif %}
+    {% if messages %}
+    <script>
+        var messages = {{ messages | safe }};
+        for (var i = 0; i < messages.length; i++) {
+            alert(messages[i]);
+        }
+    </script>
+    {% endif %}
     {% endwith %}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="/static/js/jquery-3.6.0.min.js"></script>
     <script src="/static/popper.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
 </body>
