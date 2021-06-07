@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>MSHD系统</title>
-    <link rel="stylesheet" href="/static/index.css">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="icon" type="image/x-icon" href="../static/ico/earth.ico"/>
     <script>
         function click_tb(id) {
             window.location.href = "/earthquakes/" + id
@@ -26,19 +27,14 @@
         </div>
     </div>
 </nav>
-<div class="container-fluid">
+<div class="container-fluid mt-3">
     <div class="row">
         <div class="col-md-2">
-            <div class="panel  panel-default leftMenu">
-                <!-- 利用data-target指定要折叠的分组列表 -->
-                <div class="panel-heading " id="collapseListGroupHeading1" data-toggle="collapse"
-                     data-target="#collapseListGroup1" role="tab">
-                    <h4 class="panel-title ">
+            <div class="panel">
+                <div class="card">
+                    <h4 class="card-header">
                         数据视角
                     </h4>
-                </div>
-                <div id="collapseListGroup1" class="collapse show" role="tabpanel"
-                     aria-labelledby="collapseListGroupHeading1">
                     <ul class="list-group">
                         <li class="list-group-item">
                             <a href="/earthquakes">数据表格</a>
@@ -52,7 +48,7 @@
             <!--panel end-->
         </div>
         <div class="col-md-10">
-            <div class="col-9 table-responsive">
+            <div class="col-10 table-responsive">
 
                     <table class="table table-hover table-effect" cellspacing="1" bgcolor="#f0f8ff"
                         align="center">
@@ -82,7 +78,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div style="text-align: center;">
+                <nav style="text-align: center;">
                     <ul class="pagination">
                         {% set offset = (offset)|int %}
                         {% set limit = (limit)|int %}
@@ -91,8 +87,8 @@
                         {% set current_page = (offset/limit)|int + (1 if offset%limit else 0) %}
                         {% set total_page = (count/limit)|int + (1 if count%limit else 0) %}
 
-                        <li class="{{ 'disabled' if current_page - 1 <=0 else '' }}">
-                            <a
+                        <li class="page-item {{ 'disabled' if current_page - 1 <0 else '' }}">
+                            <a  class="page-link"
                                 href="
                                 {% if current_page>1 %}{{ url_for('earthquakesListPage',  result=result,offset=(current_page-1)*limit, limit=limit) }}{% endif %}">«</a>
                         </li>
@@ -100,23 +96,23 @@
                         {% set prev = 0 %}
                         {% for i in range(0, (total_page)|int) %}
                         {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %} {% set prev=i %} <li
-                            class="{% if i == current_page %}active{% endif %}">
-                            <a href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
+                            class="page-item {% if i == current_page %}active{% endif %}">
+                            <a class="page-link" href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
                                 {{ i + 1}}
                             </a>
                             </li>
 
                             {% elif prev == i-1 %}
-                            <li class="disabled"><a href="">...</a></li>
+                            <li class="page-item disabled"><a class="page-link" href="">...</a></li>
 
                             {% endif %}
                             {% endfor %}
-                            <li class="{{ ' disabled' if current_page + 1>= total_page else '' }}">
-                                <a
+                            <li class="page-item {{ ' disabled' if current_page + 1>= total_page else '' }}">
+                                <a class="page-link"
                                     href=" {% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
                             </li>
                     </ul>
-                </div>
+                </nav>
             </div>
         </div>
     </div>
@@ -131,11 +127,9 @@
     </script>
     {% endif %}
     {% endwith %}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="/static/popper.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="../static/js/jquery-3.6.0.min.js"></script>
+    <script src="../static/popper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
 </body>
 
 </html>
