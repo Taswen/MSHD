@@ -24,7 +24,7 @@
         <div>
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="/earthquakes">震情</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">灾情</a></li>
+                <li class="nav-item"><a class="nav-link" href="/disasters">灾情</a></li>
                 <li class="nav-item"><a class="nav-link" href="ftp://47.93.229.92/">FTP系统</a></li>
             </ul>
         </div>
@@ -57,7 +57,7 @@
         </div>
         <div class="col-md-10">
             <div class="row-fluid">
-                <div class="span12">
+                <div class="col-md-8">
                     <h2>ID为{{ eq.Id }}的震情详细信息 </h2>
                     <dl class="dl-horizontal">
                         <dt> 灾情编号</dt>
@@ -77,6 +77,12 @@
                         <dt> 数据上传文件</dt>
                         <dd> {{ eq.Source }} </dd>
                     </dl>
+                </div>
+                <div class="col-md-4">
+                    <iframe src="/baiduMap/{{eq.Id}}" style="width:100%;height:250px" frameborder="0"></iframe>
+                </div>
+            </div>
+            <div class="col-md-10">
                     <h2> 与之联系的灾情记录 </h2>
                     <h4> 房屋损坏记录 </h4>
                     <table class="table table-hover table-condensed">
@@ -88,37 +94,35 @@
                         </thead>
                         {% for hoD in hoDs %}
                             <tbody>
-                            <tr>
-                                <td>{{ loop.index - 1 }} </td>
-                                <td>{{ hoD.Id }}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{loop.index - 1}} </td>
+                                    <td>{{hoD.Id}}</td>
+                                </tr>
                             </tbody>
-                        {% endfor %}
-                    </table>
-                    <h4> 人员伤亡记录 </h4>
-                    <table class="table table-hover table-condensed">
-                        <thead>
-                        <tr>
-                            <th> 序号</th>
-                            <th> 人员伤亡记录ID</th>
-                        </tr>
-                        </thead>
-                        {% for ijS in ijSs %}
+                            {% endfor %}
+                        </table>
+                        <h4> 人员伤亡记录 </h4>
+                        <table class="table table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th> 序号 </th>
+                                    <th> 人员伤亡记录ID </th>
+                                </tr>
+                            </thead>
+                            {% for ijS in ijSs %}
                             <tbody>
-                            <tr>
-                                <td>{{ loop.index - 1 }} </td>
-                                <td>{{ ijS.Id }}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{loop.index - 1}} </td>
+                                    <td>{{ijS.Id}}</td>
+                                </tr>
                             </tbody>
-                        {% endfor %}
-                    </table>
+                            {% endfor %}
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=2abc04fa7704c402f2271645acc5b6b0"></script>
-    <script type="text/javascript" src="../static/js/self/earthquakeinfo.js"></script>
-</div>
 </body>
 
 </html>

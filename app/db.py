@@ -33,3 +33,27 @@ def readCsv(file):
             print(obj.gen_sql())
             start_id += 1
             ref_start_id += 1
+
+
+def get_all_HouseDamaged_data():
+    hds = HouseDamaged.query.all()
+    house_damaged = [hd.enable_print() for hd in hds]
+    return house_damaged
+
+
+def get_all_InjuredStatistics_data():
+    ists = InjuredStatistics.query.all()
+    injured_data = [ist.enable_print() for ist in ists]
+    return injured_data
+
+
+def delete_one_HouseDamaged_by_id(id):
+    house_damaged = HouseDamaged.query.filter(HouseDamaged.Id == id).first()
+    db.session.delete(house_damaged)
+    db.session.commit()
+
+
+def delete_one_InjuredStatistics_by_id(id):
+    injured_data = InjuredStatistics.query.filter(InjuredStatistics.Id == id).first()
+    db.session.delete(injured_data)
+    db.session.commit()

@@ -76,6 +76,10 @@ class HouseDamaged(db.Model):
     # 一对多关系映射,
     Earthqu = db.relationship("Earthquake", backref="HouseDamageds")
 
+    def enable_print(self):
+        self.Str_ot = str(self.Date)
+        return self
+
 
 class InjuredStatistics(db.Model):
     __tablename__ = "InjuredStatistics"
@@ -91,3 +95,7 @@ class InjuredStatistics(db.Model):
 
     # 一对多关系映射,
     Earthqu = db.relationship("Earthquake", backref="InjuredStatistics")
+
+    def enable_print(self):
+        self.Str_ot = str(self.Date)
+        return self
