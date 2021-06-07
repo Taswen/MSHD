@@ -1,36 +1,42 @@
-body {
-  background-color: #77DDFF;
+.font1 {
+    background: #e9faff !important;
+    font-family: 微软雅黑;
+    font-size: 16px;
+    font-weight: bold;
+    color: #255e95;
 }
 
-.title{
-	height: 60px;
-	font-family: 微软雅黑;
-	font-size: 26px;
-	font-weight: bold;
-	border-bottom:1px dashed #000000;
-	color: #255e95;
-	text-align: center;
+.table-effect {
+    cursor: hand;
 }
-.left{
-    float: left;
-	width: 20%;
+
+header {
+    position: relative;
+    height: 600px;
+    background-image: linear-gradient(#2fc4ff, #26e6ff);
 }
-.right{
-	float: right;
-	width: 80%;
+
+header a {
+    font-size: large;
+    color: white;
 }
-.form1 {
-	margin-top: 13px;
+
+svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vw;
+    /* set height to pixels if you want angle to change with screen width */
 }
-.form1 td{
-	background-color:#ffffff;
-	height:40px;
-	text-align:center;
+
+header .jumbotron {
+    background-color: transparent;
 }
-.font1 {
-	background:#e9faff !important;
-	font-family: 微软雅黑;
-	font-size: 16px;
-	font-weight: bold;
-	color: #255e95;
+
+header {
+    color: rgba(38, 35, 30, 0.89)
+}
+
+.card-img-top {
+    height: 200px;
 }

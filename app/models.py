@@ -1,8 +1,8 @@
-from importlib.machinery import SourceFileLoader
 from typing import Dict
 from enum import Enum
 
 from app.ext import db
+from app.encoder.encode_eq import eq_encode
 
 
 class DisasterTypeCode(Enum):
@@ -44,7 +44,7 @@ class Earthquake(db.Model):
     def enable_print(self):
         self.Str_ot = str(self.OccurrenceTime)
         return self
-    
+
     @classmethod
     def get_max_id(cls):
         query = Earthquake.query.order_by(Earthquake.Id.desc())
@@ -57,6 +57,7 @@ class Earthquake(db.Model):
             if hasattr(self, key):
                 # setattr(self, key, type(getattr(self, key))(val))
                 setattr(self, key, val)
+        self.EarthquakeEncode = eq_encode("中国", (self.Latitude, self.Longitude), self.OccurrenceTime, self.Level)
 
 
 class HouseDamaged(db.Model):
