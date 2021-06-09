@@ -1,37 +1,21 @@
-<!DOCTYPE html>
-<html lang="en-US">
+{% extends 'base.html' %}
+{% from 'nav.html' import nav %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>MSHD系统</title>
-    <link rel="stylesheet" href="../static/css/index.css">
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/earthquakeinfo.css">
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="icon" type="image/x-icon" href="../static/ico/earth.ico" />
+{% block other_head %}
+    <link rel="stylesheet" href="../static/css/common.css">
     <script>
         function click_tb(id) {
             window.location.href = "/earthquakes/" + id
         }
     </script>
-</head>
+{% endblock %}
 
-<body>
+{% block header %}
+    {{ nav() }}
+{% endblock %}
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
-        <div class="collapse navbar-collapse">
-            <a class="navbar-brand" href="/">MSHD</a>
-            <div>
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/earthquakes">震情</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/disasters">灾情</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ftp://47.93.229.92/">FTP系统</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container-fluid mt-3">
+{% block content %}
+<div class="container-fluid mt-3">
         <div class="row">
             <div class="col-md-2">
                 <div class="panel-group table-responsive" role="tablist">
@@ -122,6 +106,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+{% endblock %}

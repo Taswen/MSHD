@@ -1,134 +1,116 @@
-<!DOCTYPE html>
-<html lang="en-US">
+{% extends 'base.html' %}
+{% from 'nav.html' import nav %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>MSHD系统</title>
+{% block other_head %}
     <link rel="stylesheet" href="../static/css/common.css">
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <script>
         function click_tb(id) {
             window.location.href = "/earthquakes/" + id
         }
     </script>
-</head>
+{% endblock %}
 
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
-    <div class="collapse navbar-collapse">
-        <a class="navbar-brand" href="/">MSHD</a>
-        <div>
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="/earthquakes">震情</a></li>
-                <li class="nav-item"><a class="nav-link" href="/disasters">灾情</a></li>
-                <li class="nav-item"><a class="nav-link" href="ftp://47.93.229.92/">FTP系统</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="row col-md-12 mt-3">
-    <div class="col-md-2">
-        <div class="panel">
-            <div class="card">
-                <h4 class="card-header">
-                    各灾情表
-                </h4>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="/earthquakes">房屋破坏表</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/earthquakes/map">人员伤亡表</a>
-                    </li>
-                </ul>
+{% block header %}
+    {{ nav() }}
+{% endblock %}
+
+{% block content %}
+    <div class="row col-md-12 mt-3">
+        <div class="col-md-2">
+            <div class="panel">
+                <div class="card">
+                    <h4 class="card-header">
+                        各灾情表
+                    </h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="/earthquakes">房屋破坏表</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="/earthquakes/map">人员伤亡表</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-10">
-        <div class="col-md-12 table-responsive">
-            <table class="table table-hover table-effect" cellspacing="1" bgcolor="#f0f8ff"
-                   align="center">
-                <thead>
-                <tr>
-                    <td width="10%" class="font1">序号(I)</td>
-                    <td width="10%" class="font1">震级(M)</td>
-                    <td width="15%" class="font1">发震时刻(UTC+8)</td>
-                    <td width="10%" class="font1">纬度(°)</td>
-                    <td width="10%" class="font1">经度(°)</td>
-                    <td width="14%" class="font1">深度(千米)</td>
-                    <td width="20%" class="font1">参考位置</td>
-                </tr>
-                </thead>
-                {% for eqs in earthquakes %}
-                    <tbody>
-                    <tr onclick="click_tb({{ eqs.Id }});">
-                        <td>{{ eqs.Id }}</td>
-                        <td>{{ eqs.Level }}</td>
-                        <td>{{ eqs.Str_ot }}</td>
-                        <td>{{ eqs.Longitude }}</td>
-                        <td>{{ eqs.Latitude }}</td>
-                        <td>{{ eqs.Depth }}</td>
-                        <td>{{ eqs.Location }}</td>
+        <div class="col-md-10">
+            <div class="col-md-12 table-responsive">
+                <table class="table table-hover table-effect" cellspacing="1" bgcolor="#f0f8ff"
+                       align="center">
+                    <thead>
+                    <tr>
+                        <td width="10%" class="font1">序号(I)</td>
+                        <td width="10%" class="font1">震级(M)</td>
+                        <td width="15%" class="font1">发震时刻(UTC+8)</td>
+                        <td width="10%" class="font1">纬度(°)</td>
+                        <td width="10%" class="font1">经度(°)</td>
+                        <td width="14%" class="font1">深度(千米)</td>
+                        <td width="20%" class="font1">参考位置</td>
                     </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <nav class="text-center" style="text-align: center;">
-            <ul class="pagination">
-                {% set offset = (offset)|int %}
-                {% set limit = (limit)|int %}
-                {% set count = (count)|int %}
+                    </thead>
+                    {% for eqs in earthquakes %}
+                        <tbody>
+                        <tr onclick="click_tb({{ eqs.Id }});">
+                            <td>{{ eqs.Id }}</td>
+                            <td>{{ eqs.Level }}</td>
+                            <td>{{ eqs.Str_ot }}</td>
+                            <td>{{ eqs.Longitude }}</td>
+                            <td>{{ eqs.Latitude }}</td>
+                            <td>{{ eqs.Depth }}</td>
+                            <td>{{ eqs.Location }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <nav class="text-center" style="text-align: center;">
+                <ul class="pagination">
+                    {% set offset = (offset)|int %}
+                    {% set limit = (limit)|int %}
+                    {% set count = (count)|int %}
 
-                {% set current_page = (offset/limit)|int + (1 if offset%limit else 0) %}
-                {% set total_page = (count/limit)|int + (1 if count%limit else 0) %}
+                    {% set current_page = (offset/limit)|int + (1 if offset%limit else 0) %}
+                    {% set total_page = (count/limit)|int + (1 if count%limit else 0) %}
 
-                <li class="page-item {{ 'disabled' if current_page - 1 <0 else '' }}">
-                    <a class="page-link"
-                       href="
+                    <li class="page-item {{ 'disabled' if current_page - 1 <0 else '' }}">
+                        <a class="page-link"
+                           href="
 
                                {% if current_page>1 %}{{ url_for('earthquakesListPage',  result=result,offset=(current_page-1)*limit, limit=limit) }}{% endif %}">«</a>
-                </li>
+                    </li>
 
-                {% set prev = 0 %}
-                {% for i in range(0, (total_page)|int) %}
-                    {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %}{% set prev=i %}
-                        <li
-                                class="page-item {% if i == current_page %}active{% endif %}">
-                            <a class="page-link"
-                               href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
-                                {{ i + 1 }}
-                            </a>
-                        </li>
+                    {% set prev = 0 %}
+                    {% for i in range(0, (total_page)|int) %}
+                        {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %}{% set prev=i %}
+                            <li
+                                    class="page-item {% if i == current_page %}active{% endif %}">
+                                <a class="page-link"
+                                   href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
+                                    {{ i + 1 }}
+                                </a>
+                            </li>
 
-                    {% elif prev == i-1 %}
-                        <li class="page-item disabled"><a class="page-link" href="">...</a></li>
+                        {% elif prev == i-1 %}
+                            <li class="page-item disabled"><a class="page-link" href="">...</a></li>
 
-                    {% endif %}
-                {% endfor %}
-                <li class="page-item {{ ' disabled' if current_page + 1>= total_page else '' }}">
-                    <a class="page-link"
-                       href="
-                               {% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
-                </li>
-            </ul>
-        </nav>
+                        {% endif %}
+                    {% endfor %}
+                    <li class="page-item {{ ' disabled' if current_page + 1>= total_page else '' }}">
+                        <a class="page-link"
+                           href="{% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-</div>
-
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <script>
-            var messages = {{ messages | safe }};
-            for (var i = 0; i < messages.length; i++) {
-                alert(messages[i]);
-            }
-        </script>
-    {% endif %}
-{% endwith %}
-<script src="../static/js/jquery-3.6.0.min.js"></script>
-<script src="../static/js/popper.min.js"></script>
-<script src="../static/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <script>
+                var messages = {{ messages | safe }};
+                for (var i = 0; i < messages.length; i++) {
+                    alert(messages[i]);
+                }
+            </script>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
