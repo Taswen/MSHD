@@ -1,28 +1,12 @@
-<!DOCTYPE html>
-<html lang="en-US">
+{% extends 'base.html' %}
+{% from 'nav.html' import nav %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>MSHD系统</title>
+{% block css %}
     <link rel="stylesheet" href="../static/css/index.css">
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="icon" type="image/x-icon" href="../static/ico/earth.ico"/>
-</head>
+{% endblock %}
 
-<body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light" role="navigation">
-        <div class="collapse navbar-collapse">
-            <a class="navbar-brand" href="/">MSHD</a>
-            <div>
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/earthquakes">震情</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/disasters">灾情</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ftp://47.93.229.92/">FTP系统</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+{% block header %}
+    {{ nav(bg_light=False) }}
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
         <polygon class="svg--sm" fill="white" points="0,0 30,100 65,21 90,100 100,75 100,100 0,100"></polygon>
         <polygon class="svg--lg" fill="white"
@@ -45,76 +29,72 @@
         </div>
 
     </svg>
-</header>
-<!-- 主页 -->
-<div class="col-md-12">
-    <div class="container col-lg-12">
-        <div class="text-center">
-            <h2>
-                也许你想️
-            </h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-2">
-                <div class="card">
-                    <img class="card-img-top" src="../static/ico/4.webp" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">上传数据</h5>
-                        <p class="card-text">向FTP服务器上传最新震情与灾情数据，包括多种数据格式以及图片</p>
-                        <a class="btn btn-primary btn-lg" href="ftp://47.93.229.92">上传数据 »</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card">
-                    <img class="card-img-top" src="../static/ico/1.webp" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">查看震情</h5>
-                        <p class="card-text">通过网页方便地在线查看已整理妥当的、结构化的震情数据</p>
-                        <a class="btn btn-primary btn-lg" href="/earthquakes">查看震情 »</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card">
-                    <img class="card-img-top" src="../static/ico/2.webp" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">查看灾情</h5>
-                        <p class="card-text">通过网页方便地在线查看与每一次震情相关联的灾情数据</p>
-                        <a class="btn btn-primary btn-lg" href="/disasters">查看灾情 »</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card">
-                    <img class="card-img-top" src="../static/ico/3.webp" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">学习使用</h5>
-                        <p class="card-text">学习使用本站的最佳实践，包括提交数据的规范与方法，查看数据的方式</p>
-                        <a class="btn btn-primary btn-lg" href="#">学习使用 »</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
+{% endblock %}
 
+{% block content %}
+    <div class="col-md-12">
+        <div class="container col-lg-12">
+            <div class="text-center">
+                <h2>
+                    也许你想️
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-2">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/ico/4.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">上传数据</h5>
+                            <p class="card-text">向FTP服务器上传最新震情与灾情数据，包括多种数据格式以及图片</p>
+                            <a class="btn btn-primary btn-lg" href="ftp://47.93.229.92">上传数据 »</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/ico/1.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">查看震情</h5>
+                            <p class="card-text">通过网页方便地在线查看已整理妥当的、结构化的震情数据</p>
+                            <a class="btn btn-primary btn-lg" href="/earthquakes">查看震情 »</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/ico/2.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">查看灾情</h5>
+                            <p class="card-text">通过网页方便地在线查看与每一次震情相关联的灾情数据</p>
+                            <a class="btn btn-primary btn-lg" href="/disasters">查看灾情 »</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="card">
+                        <img class="card-img-top" src="../static/ico/3.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">学习使用</h5>
+                            <p class="card-text">学习使用本站的最佳实践，包括提交数据的规范与方法，查看数据的方式</p>
+                            <a class="btn btn-primary btn-lg" href="#">学习使用 »</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+
+        </div>
     </div>
-</div>
 
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <script>
-            var messages = {{ messages | safe }};
-            for (var i = 0; i < messages.length; i++) {
-                alert(messages[i]);
-            }
-        </script>
-    {% endif %}
-{% endwith %}
-<script src="../static/js/jquery-3.6.0.min.js"></script>
-<script src="../static/js/popper.min.js"></script>
-<script src="../static/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <script>
+                var messages = {{ messages | safe }};
+                for (var i = 0; i < messages.length; i++) {
+                    alert(messages[i]);
+                }
+            </script>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
