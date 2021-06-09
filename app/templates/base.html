@@ -8,16 +8,21 @@
     <link rel="icon" type="image/x-icon" href="../static/ico/earth.ico" />
 </head>
     <!-- 导航条 -->
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+        <div class="collapse navbar-collapse">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">MSHD</a>
             </div>
             <div>
-                <ul class="nav navbar-nav">
+                <!-- <ul class="nav navbar-nav" id="navOptions">
                     <li><a href="/earthquakes">震情</a></li>
                     <li><a href="#">灾情</a></li>
                     <li><a href="ftp://47.93.229.92/">FTP系统</a></li>
+                </ul> -->
+                <ul class="nav navbar-nav" id="navOptions">
+                    <li class="nav-item"><a class="nav-link" href="/earthquakes">震情</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/disasters">灾情</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ftp://47.93.229.92/">FTP系统</a></li>
                 </ul>
             </div>
         </div>

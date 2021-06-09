@@ -68,6 +68,12 @@ def uploader():
     return redirect(url_for("earthquakesListPage"))
 
 
+@app.route('/docs', methods=['POST', 'GET'])
+def getDocs():
+    return render_template("docs.html")
+
+
+
 @app.route('/earthquakes/map')
 def mainPage():
     return render_template("map.html")

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/earthquakeinfo.css">
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="icon" type="image/x-icon" href="../static/ico/earth.ico"/>
+    <link rel="icon" type="image/x-icon" href="../static/ico/earth.ico" />
     <script>
         function click_tb(id) {
             window.location.href = "/earthquakes/" + id
@@ -18,107 +18,106 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
-    <div class="collapse navbar-collapse">
-        <a class="navbar-brand" href="/">MSHD</a>
-        <div>
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="/earthquakes">震情</a></li>
-                <li class="nav-item"><a class="nav-link" href="/disasters">灾情</a></li>
-                <li class="nav-item"><a class="nav-link" href="ftp://47.93.229.92/">FTP系统</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-md-2">
-            <div class="panel-group table-responsive" role="tablist">
-                <div class="panel  panel-default leftMenu">
-                    <!-- 利用data-target指定要折叠的分组列表 -->
-                    <div class="panel-heading " id="collapseListGroupHeading1" data-toggle="collapse"
-                         data-target="#collapseListGroup1" role="tab">
-                        <h4 class="panel-title ">
-                            快捷操作
-                        </h4>
-                    </div>
-                    <div id="collapseListGroup1" class="collapse show" role="tabpanel"
-                         aria-labelledby="collapseListGroupHeading1">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <a href="/earthquakes">返回</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!--panel end-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+        <div class="collapse navbar-collapse">
+            <a class="navbar-brand" href="/">MSHD</a>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/earthquakes">震情</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/disasters">灾情</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ftp://47.93.229.92/">FTP系统</a></li>
+                </ul>
             </div>
         </div>
-        <div class="col-md-10">
-            <div class="row-fluid">
-                <div class="col-md-8">
-                    <h2>ID为{{ eq.Id }}的震情详细信息 </h2>
-                    <dl class="dl-horizontal">
-                        <dt> 灾情编号</dt>
-                        <dd> {{ eq.EarthquakeEncode }}</dd>
-                        <dt> 经纬度</dt>
-                        <dd> {{ eq.Longitude }} &nbsp;&nbsp;,&nbsp;&nbsp; {{ eq.Latitude }}</dd>
-                        <dt> 震级</dt>
-                        <dd> {{ eq.Level }} </dd>
-                        <dt> 地理位置</dt>
-                        <dd> {{ eq.Location }} </dd>
-                        <dt> 深度</dt>
-                        <dd> {{ eq.Depth }} </dd>
-                        <dt> 发震时间</dt>
-                        <dd> {{ eq.OccurrenceTime }} </dd>
-                        <dt> 数据上传单位</dt>
-                        <dd> {{ eq.ReportingUnit }} </dd>
-                        <dt> 数据上传文件</dt>
-                        <dd> {{ eq.Source }} </dd>
-                    </dl>
-                </div>
-                <div class="col-md-4">
-                    <iframe src="/baiduMap/{{eq.Id}}" style="width:100%;height:250px" frameborder="0"></iframe>
+    </nav>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel-group table-responsive" role="tablist">
+                    <div class="panel  panel-default leftMenu">
+                        <!-- 利用data-target指定要折叠的分组列表 -->
+                        <div class="panel-heading " id="collapseListGroupHeading1" data-toggle="collapse"
+                            data-target="#collapseListGroup1" role="tab">
+                            <h4 class="panel-title ">
+                                快捷操作
+                            </h4>
+                        </div>
+                        <div id="collapseListGroup1" class="collapse show" role="tabpanel"
+                            aria-labelledby="collapseListGroupHeading1">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="/earthquakes">返回</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--panel end-->
                 </div>
             </div>
             <div class="col-md-10">
+                <div class="row-fluid">
+                    <div class="col-md-8">
+                        <h2>ID为{{ eq.Id }}的震情详细信息 </h2>
+                        <dl class="dl-horizontal">
+                            <dt> 灾情编号</dt>
+                            <dd> {{ eq.EarthquakeEncode }}</dd>
+                            <dt> 经纬度</dt>
+                            <dd> {{ eq.Longitude }} &nbsp;&nbsp;,&nbsp;&nbsp; {{ eq.Latitude }}</dd>
+                            <dt> 震级</dt>
+                            <dd> {{ eq.Level }} </dd>
+                            <dt> 地理位置</dt>
+                            <dd> {{ eq.Location }} </dd>
+                            <dt> 深度</dt>
+                            <dd> {{ eq.Depth }} </dd>
+                            <dt> 发震时间</dt>
+                            <dd> {{ eq.OccurrenceTime }} </dd>
+                            <dt> 数据上传单位</dt>
+                            <dd> {{ eq.ReportingUnit }} </dd>
+                            <dt> 数据上传文件</dt>
+                            <dd> {{ eq.Source }} </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-4">
+                        <iframe src="/baiduMap/{{eq.Id}}" style="width:100%;height:250px" frameborder="0"></iframe>
+                    </div>
+                </div>
+                <div class="col-md-10">
                     <h2> 与之联系的灾情记录 </h2>
                     <h4> 房屋损坏记录 </h4>
                     <table class="table table-hover table-condensed">
                         <thead>
-                        <tr>
-                            <th> 序号</th>
-                            <th> 房屋损坏数据ID</th>
-                        </tr>
+                            <tr>
+                                <th> 序号</th>
+                                <th> 房屋损坏数据ID</th>
+                            </tr>
                         </thead>
                         {% for hoD in hoDs %}
-                            <tbody>
-                                <tr>
-                                    <td>{{loop.index - 1}} </td>
-                                    <td>{{hoD.Id}}</td>
-                                </tr>
-                            </tbody>
-                            {% endfor %}
-                        </table>
-                        <h4> 人员伤亡记录 </h4>
-                        <table class="table table-hover table-condensed">
-                            <thead>
-                                <tr>
-                                    <th> 序号 </th>
-                                    <th> 人员伤亡记录ID </th>
-                                </tr>
-                            </thead>
-                            {% for ijS in ijSs %}
-                            <tbody>
-                                <tr>
-                                    <td>{{loop.index - 1}} </td>
-                                    <td>{{ijS.Id}}</td>
-                                </tr>
-                            </tbody>
-                            {% endfor %}
-                        </table>
-                    </div>
+                        <tbody>
+                            <tr>
+                                <td>{{loop.index - 1}} </td>
+                                <td>{{hoD.Id}}</td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                    <h4> 人员伤亡记录 </h4>
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th> 序号 </th>
+                                <th> 人员伤亡记录ID </th>
+                            </tr>
+                        </thead>
+                        {% for ijS in ijSs %}
+                        <tbody>
+                            <tr>
+                                <td>{{loop.index - 1}} </td>
+                                <td>{{ijS.Id}}</td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
                 </div>
             </div>
         </div>
