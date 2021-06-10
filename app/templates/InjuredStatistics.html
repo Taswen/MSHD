@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% from 'nav.html' import nav %}
+
+{% block other_head %}
+    <link rel="stylesheet" href="../static/css/common.css">
+    <script>
+        function click_tb(id) {
+            window.location.href = "/earthquakes/" + id
+        }
+    </script>
+{% endblock %}
+
+{% block header %}
+    {{ nav() }}
+{% endblock %}
+
+{% block content %}
+    <div class="row col-md-12 mt-3">
+        <div class="col-md-2">
+            <div class="panel">
+                <div class="card">
+                    <h4 class="card-header">
+                        各灾情表
+                    </h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="/houseDamaged">房屋破坏表</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="/injuredStatistics">人员伤亡表</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="col-md-12 table-responsive">
+                <table class="table table-hover table-effect" cellspacing="1" bgcolor="#f0f8ff"
+                       align="center">
+                    <thead>
+                    <tr>
+                        <td width="8%" class="font1">序号</td>
+                        <td width="10%" class="font1">时间</td>
+                        <td width="10%" class="font1">位置</td>
+                        <td width="15%" class="font1">死亡人数</td>
+                        <td width="10%" class="font1">受伤人数</td>
+                        <td width="10%" class="font1">失踪人数</td>
+                        <td width="15%" class="font1">上报单位</td>
+                        <td width="12%" class="font1">对应的震情序号</td>
+                    </tr>
+                    </thead>
+                    {% for iss in injuredStatistics %}
+                        <tbody>
+{#                        <tr onclick="click_tb({{ eqs.Id }});">#}
+                            <td>{{ iss.Id }}</td>
+                            <td>{{ iss.Date }}</td>
+                            <td>{{ iss.Location }}</td>
+                            <td>{{ iss.DeathNumber }}</td>
+                            <td>{{ iss.InjuredNumber }}</td>
+                            <td>{{ iss.MissingNumber }}</td>
+                            <td>{{ iss.ReportingUnit }}</td>
+                            <td>{{ iss.EarthquakeId }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <nav class="text-center" style="text-align: center;">
+                <ul class="pagination">
+                    {% set offset = (offset)|int %}
+                    {% set limit = (limit)|int %}
+                    {% set count = (count)|int %}
+
+                    {% set current_page = (offset/limit)|int + (1 if offset%limit else 0) %}
+                    {% set total_page = (count/limit)|int + (1 if count%limit else 0) %}
+
+                    <li class="page-item {{ 'disabled' if current_page - 1 <0 else '' }}">
+                        <a class="page-link"
+                           href="
+
+                               {% if current_page>1 %}{{ url_for('earthquakesListPage',  result=result,offset=(current_page-1)*limit, limit=limit) }}{% endif %}">«</a>
+                    </li>
+
+                    {% set prev = 0 %}
+                    {% for i in range(0, (total_page)|int) %}
+                        {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %}{% set prev=i %}
+                            <li
+                                    class="page-item {% if i == current_page %}active{% endif %}">
+                                <a class="page-link"
+                                   href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
+                                    {{ i + 1 }}
+                                </a>
+                            </li>
+
+                        {% elif prev == i-1 %}
+                            <li class="page-item disabled"><a class="page-link" href="">...</a></li>
+
+                        {% endif %}
+                    {% endfor %}
+                    <li class="page-item {{ ' disabled' if current_page + 1>= total_page else '' }}">
+                        <a class="page-link"
+                           href="{% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <script>
+                var messages = {{ messages | safe }};
+                for (var i = 0; i < messages.length; i++) {
+                    alert(messages[i]);
+                }
+            </script>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
