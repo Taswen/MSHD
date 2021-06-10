@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block other_head %}
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
 <script src="../static/js/marked.min.js"></script>
 {% endblock %}
 
@@ -31,22 +31,16 @@
         </div>
         <div class="col-md-10 tab-content">
             <div role="tabpanel" class="tab-pane in active " id="DataDescription">
+                <h2>数据说明</h2>
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        数据说明
-                    </div>
                     <div class="panel-body" id="description">
                     </div>
                 </div>
-
             </div>
             <div role="tabpanel" class="tab-pane " id="AboutUpdload">
+                <h2>数据上传</h2>
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        数据上传
-                    </div>
-                    <div class="panel-body" id="updload">
-                        sdfsd
+                    <div class="panel-body" id="upload">
                     </div>
                 </div>
             </div>
@@ -68,40 +62,31 @@
     });
 </script>
 <script>
-    hljs.highlightAll();
-	var rendererMD = new marked.Renderer();
-    marked.setOptions({
-      renderer: rendererMD,
-      gfm: true,
-      tables: true,
-      breaks: false,
-      pedantic: false,
-      sanitize: false,
-      smartLists: true,
-      smartypants: false,
-      highlight: function (code) {
-        return hljs.highlightAuto(code).value;
-      }
-    });//基本设置
     function showFile(element, filename, type = "md") {
         var httpRequest = new XMLHttpRequest();
         httpRequest.open("POST", "/docs", true);
         httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         httpRequest.send("docName=" + filename + "&type=" + type);
         httpRequest.onreadystatechange = () => {
-            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                 // var data = JSON.parse(httpRequest.responseText);
                 element.innerHTML = marked(
                     httpRequest.responseText
                 );
-                return
+                const code_elements = element.getElementsByTagName('code');
+
+                for (let i = 0; i < code_elements.length; i++) {
+
+                    const code_block=code_elements[i]
+                    hljs.highlightElement(code_block)
+                }
                 // console.log();
             }
         }
     }
     window.onload = function () {
-        // showFile(document.getElementById('description'), "aboutData.md")
-        // showFile(document.getElementById('updload'), "aboutUpload.md")
+        showFile(document.getElementById('description'), "aboutData.md")
+        showFile(document.getElementById('upload'), "aboutUpload.md")
     }
 </script>
 {% endblock %}
