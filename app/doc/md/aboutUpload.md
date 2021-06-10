@@ -7,7 +7,7 @@
 FTP地址：`ftp://47.93.229.92/`
 
 
-账户名：
+账户名：`dataput` 密码：`114514`
 
 
 
@@ -16,6 +16,7 @@ FTP地址：`ftp://47.93.229.92/`
 用户能够登录
 
 ```bash
+$ ftp 47.93.229.92
 ```
 
 
@@ -26,7 +27,7 @@ FTP地址：`ftp://47.93.229.92/`
 
 
 
-数据库
+
 
 
 
@@ -67,16 +68,15 @@ FTP地址：`ftp://47.93.229.92/`
                 "4.png"
             ]
         }
-        ...
     ]
 }
 ```
 
-```csv
+或者选择如下格式的CSV文件
+
 TypeCode, Category, OccurrenceTime, Longitude, Latitude, Depth, Level, Location, ReportingUnit, Images
+
 25, 1, 2021-04-21 10:15:57, 116.63, 40.16, 15, 7.0, China, 北京地震局, 1.png;2.png
-...
-```
 
 
 ## 灾情数据
@@ -101,17 +101,17 @@ TypeCode, Category, OccurrenceTime, Longitude, Latitude, Depth, Level, Location,
                 "2.png"
             ]
         }
-        ...
     ]
 }
 
 ```
 
 
-```csv
+或者选择如下格式的CSV文件
+
 TypeCode, Category, Date, Location, BasicallyIntactSquare, DamagedSquare, DestroyedSquare,Level, ReportingUnit, EarthquakeId, Images
+
 21, "房屋损伤", 2021-04-21 10:15:57, 北京市东城区东华门街道多福巷社区居委会, 40.16, 15, 7.0, 严重, 多福巷社区居委会,CHN0102000055002021042110155734, 1.png;2.png
-```
 
 
 
@@ -135,14 +135,14 @@ TypeCode, Category, Date, Location, BasicallyIntactSquare, DamagedSquare, Destro
                 "2.png"
             ]
         }
-        ...
     ]
 }
 
 ```
 
 
-```csv
+或者选择如下格式的CSV文件
+
 TypeCode, Category, Date, Location, DeathNumber, InjuredNumber, MissingNumber, ReportingUnit, EarthquakeEncode, Images
+
 11, 人员伤亡, 2021-04-21 10:15:57, 北京市东城区东华门街道多福巷社区居委会, 0, 150, 0, 多福巷社区居委会,CHN0102000055002021042110155734, 1.png;2.png
-```
