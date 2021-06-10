@@ -62,12 +62,18 @@ def earthquakesInfoPage(id):
 @app.route('/upload', methods=['POST', 'GET'])
 def uploader():
     if request.method == 'POST':
-        f = request.files['file']
-        f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
-        flash('file uploaded successfully')
+        if not request.data is None:
+            print("Not QE")
+            return redirect(url_for("mainPage"))
+        print(type(request.date))
+        # f = request.files['file']
+        # f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
+        # flash('file uploaded successfully')
     else:
+        print("GET")
         pass
-    return redirect(url_for("earthquakesListPage"))
+    print("OUT ")
+    # return redirect(url_for("earthquakesListPage"))
 
 
 @app.route('/docs', methods=['POST', 'GET'])
@@ -150,7 +156,7 @@ def HouseDamagedListPage():
 def test():
     ## 测试
 
-    return redirect(url_for("earthquakesListPage"))
+    return  render_template("indexP.html")
 
 
 if __name__ == '__main__':

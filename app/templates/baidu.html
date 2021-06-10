@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <title>根据城市设置城市中心点</title>
+    <title>MAP</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -41,7 +41,7 @@
     {% for eq in data["eqs"] %}
     var point = new BMapGL.Point(parseFloat({{ eq.Longitude }}), parseFloat({{ eq.Latitude }}));
     // var l = 
-    var marker = new BMapGL.Marker(point,{title:"{{ eq.Location }}" });        // 创建标注    
+    var marker = new BMapGL.Marker(point,{title:"{{ eq.Location }}\n({{eq.Longitude}}, {{eq.Latitude}})\nL/D: {{eq.Level}}/{{eq.Depth}}" });        // 创建标注    
     map.addOverlay(marker);                     // 将标注添加到地图中 
     {% endfor %}
  

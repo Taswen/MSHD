@@ -47,7 +47,7 @@
                         <div class="card-body">
                             <h5 class="card-title">上传数据</h5>
                             <p class="card-text">向FTP服务器上传最新震情与灾情数据，包括多种数据格式以及图片</p>
-                            <a class="btn btn-primary btn-lg" href="#"  onclick="Upload()" >上传数据 »</a>
+                            <a class="btn btn-primary btn-lg" href="ftp://47.93.229.92/"  >上传数据 »</a>
                         </div>
                     </div>
 
@@ -115,5 +115,8 @@
 
 {% block moreScript %}
 <script src="../static/js/fileinput.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.1/themes/fa/theme.js"></script>
+<!-- optionally if you need translation for your language then include  locale file as mentioned below (replace LANG.js with your locale file) -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.1/js/locales/LANG.js"></script>
 <script src="../static/js/input.js"></script>
 {% endblock %}
