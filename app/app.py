@@ -59,7 +59,7 @@ def earthquakesInfoPage(id):
 
 
 
-@app.route('/uploader', methods=['POST', 'GET'])
+@app.route('/upload', methods=['POST', 'GET'])
 def uploader():
     if request.method == 'POST':
         pass

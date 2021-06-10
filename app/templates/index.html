@@ -2,6 +2,7 @@
 
 {% block other_head %}
 <link rel="stylesheet" href="../static/css/index.css">
+<link rel="stylesheet" href="../static/css/fileinput.min.css">
 {% endblock %}
 
 {% block header %}
@@ -46,7 +47,7 @@
                         <div class="card-body">
                             <h5 class="card-title">上传数据</h5>
                             <p class="card-text">向FTP服务器上传最新震情与灾情数据，包括多种数据格式以及图片</p>
-                            <a class="btn btn-primary btn-lg" href="ftp://47.93.229.92">上传数据 »</a>
+                            <a class="btn btn-primary btn-lg" href="#"  onclick="Upload()" >上传数据 »</a>
                         </div>
                     </div>
 
@@ -81,6 +82,25 @@
     </div>
 </div>
 
+
+
+<!-- 文件上传 -->
+<form>
+    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">请选择想要上传的文件</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <a href="/templates" class="form-control" style="border:none;">下载文件模板</a>
+                    <input type="file" name="txt_file" id="txt_file" multiple class="file-loading" />
+                <!-- </div></div> -->
+        </div>
+    </div>
+</form>
+
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 <script>
@@ -91,4 +111,9 @@
 </script>
 {% endif %}
 {% endwith %}
+{% endblock %}
+
+{% block moreScript %}
+<script src="../static/js/fileinput.min.js"></script>
+<script src="../static/js/input.js"></script>
 {% endblock %}

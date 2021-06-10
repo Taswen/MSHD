@@ -11,20 +11,20 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid mt-3">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
             <div class="panel">
-                <div class="card">
-                    <h4 class="card-header">
-                        数据视角
+                <div class="card" >
+                    <h4 class="card-header" style="cursor: default;" data-toggle="collapse"  data-target="#tables">
+                        各灾情表
                     </h4>
-                    <ul class="list-group">
+                    <ul class="list-group" id="tables">
                         <li class="list-group-item">
-                            <a href="/earthquakes">数据表格</a>
+                            <a href="/earthquakes">房屋破坏表</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="/earthquakes/map">地图可视化</a>
+                            <a href="/earthquakes/map">人员伤亡表</a>
                         </li>
                     </ul>
                 </div>
