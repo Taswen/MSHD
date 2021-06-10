@@ -1,8 +1,8 @@
-from typing import Dict
 from enum import Enum
+from typing import Dict
 
-from app.ext import db
 from app.encoder.encode_eq import eq_encode
+from app.ext import db
 
 
 class DisasterTypeCode(Enum):
@@ -55,9 +55,15 @@ class Earthquake(db.Model):
     def __init__(self, data: Dict):
         for key, val in data.items():
             if hasattr(self, key):
-                # setattr(self, key, type(getattr(self, key))(val))
                 setattr(self, key, val)
         self.EarthquakeEncode = eq_encode("中国", (self.Latitude, self.Longitude), self.OccurrenceTime, self.Level)
+
+    def validate(self) -> bool:
+        earthquake_minimal_attr = ['Longitude', 'Latitude', 'Level', 'OccurrenceTime']
+        for attr in earthquake_minimal_attr:
+            if not getattr(self, attr, ''):
+                return False
+        return True
 
 
 class HouseDamaged(db.Model):
@@ -81,6 +87,18 @@ class HouseDamaged(db.Model):
         self.Str_ot = str(self.Date)
         return self
 
+    def __init__(self, data: Dict):
+        for key, val in data.items():
+            if hasattr(self, key):
+                setattr(self, key, val)
+
+    def validate(self) -> bool:
+        earthquake_minimal_attr = ['Location']
+        for attr in earthquake_minimal_attr:
+            if not getattr(self, attr, ''):
+                return False
+        return True
+
 
 class InjuredStatistics(db.Model):
     __tablename__ = "InjuredStatistics"
@@ -100,3 +118,15 @@ class InjuredStatistics(db.Model):
     def enable_print(self):
         self.Str_ot = str(self.Date)
         return self
+
+    def __init__(self, data: Dict):
+        for key, val in data.items():
+            if hasattr(self, key):
+                setattr(self, key, val)
+
+    def validate(self) -> bool:
+        earthquake_minimal_attr = ['Location']
+        for attr in earthquake_minimal_attr:
+            if not getattr(self, attr, ''):
+                return False
+        return True

@@ -1,21 +1,35 @@
+import csv
+import json
 import logging
 import os
 import threading
 import time
-import schedule
+from typing import Dict, List
 
+import schedule
 from flask_sqlalchemy import SQLAlchemy
 
-from app.main_app import app
+from app.app import app
 from app.config.settings import UPLOAD_FOLDER, SCANNED_FOLDER, ERROR_FOLDER
-from app.models import Earthquake
-
-from scanner.validator.earthquake_validator import EarthquakeValidator
-from scanner.converter.to_earthquake import *
+from app.models import Earthquake, HouseDamaged, InjuredStatistics
 
 logging.basicConfig(level=logging.DEBUG)
 logger = app.logger
 move_queue = {}
+
+
+def json_reader(path: str) -> List[Dict]:
+    with open(path, "r", encoding="utf-8") as file:
+        return json.loads(''.join(file.readlines()))['disasters']
+
+
+def csv_reader(path: str) -> List[Dict]:
+    with open(path, "r", encoding="utf-8") as file:
+        res = []
+        reader = csv.DictReader(file)
+        for row in reader:
+            res.append(row)
+        return res
 
 
 def move(src_path: str, src_filename: str, dst_path: str, dst_filename: str):
@@ -47,7 +61,6 @@ class Scanner(threading.Thread):
             'csv': csv_reader,
             'json': json_reader,
         }
-        self.validator = EarthquakeValidator()
 
     def start_reading(self):
         logger.info("start reading")
@@ -61,26 +74,25 @@ class Scanner(threading.Thread):
                         continue
                     raise TypeError('Not a accepted file type')
 
-                # validate
                 func = self.type_func_map[ext_name]
                 valid_disaster_map = {}
                 disaster_list = func(os.path.join(UPLOAD_FOLDER, filename))
-                validated_disaster_list = []
-                for disaster_dict in disaster_list:
-                    if self.validator.validate(disaster_dict):
-                        validated_disaster_list.append(disaster_dict)
-                    else:
-                        logger.warning(f"Ignoring row {disaster_dict}.")
-                if len(validated_disaster_list) == 0:
-                    raise Exception('No valid rows.')
 
                 # save to database
-                for disaster_dict in validated_disaster_list:
-                    earthquake = Earthquake(disaster_dict)
-                    earthquake.Source = filename  # add source
-                    self.session.add(earthquake)
+                for disaster_dict in disaster_list:
+                    type_code = disaster_dict['TypeCode']
+                    if type_code // 10 == 2:
+                        disaster = HouseDamaged(disaster_dict)
+                    elif type_code // 10 == 1:
+                        disaster = InjuredStatistics(disaster_dict)
+                    else:
+                        disaster = Earthquake(disaster_dict)
+                        disaster.Source = filename  # add source
+                    if not disaster.validate():
+                        continue
+                    self.session.add(disaster)
                     self.session.flush()
-                    valid_disaster_map[earthquake.Id] = disaster_dict
+                    valid_disaster_map[disaster.Id] = disaster_dict
 
                 # move input files to SCANNED_FOLDER
                 type_code = int(list(valid_disaster_map.values())[0]['TypeCode'])
