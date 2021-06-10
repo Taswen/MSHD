@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
-{% from 'nav.html' import nav %}
 
 {% block other_head %}
-    <link rel="stylesheet" href="../static/css/common.css">
-    <script>
-        function click_tb(id) {
-            window.location.href = "/earthquakes/" + id
-        }
-    </script>
+<link rel="stylesheet" href="../static/css/common.css">
+<script>
+    function click_tb(id) {
+        window.location.href = "/earthquakes/" + id
+    }
+</script>
 {% endblock %}
 
 {% block header %}
-    {{ nav() }}
+{{ nav() }}
 {% endblock %}
 
 {% block content %}
-    <div class="row col-md-12 mt-3">
+<div class="container-fluid">
+    <div class="row">
         <div class="col-md-2">
             <div class="panel">
                 <div class="card">
@@ -35,21 +35,20 @@
         </div>
         <div class="col-md-10">
             <div class="col-md-12 table-responsive">
-                <table class="table table-hover table-effect" cellspacing="1" bgcolor="#f0f8ff"
-                       align="center">
+                <table class="table table-hover table-effect" cellspacing="1" align="center">
                     <thead>
-                    <tr>
-                        <td width="10%" class="font1">序号(I)</td>
-                        <td width="10%" class="font1">震级(M)</td>
-                        <td width="15%" class="font1">发震时刻(UTC+8)</td>
-                        <td width="10%" class="font1">纬度(°)</td>
-                        <td width="10%" class="font1">经度(°)</td>
-                        <td width="14%" class="font1">深度(千米)</td>
-                        <td width="20%" class="font1">参考位置</td>
-                    </tr>
+                        <tr>
+                            <td width="10%" class="font1">序号(I)</td>
+                            <td width="10%" class="font1">震级(M)</td>
+                            <td width="15%" class="font1">发震时刻(UTC+8)</td>
+                            <td width="10%" class="font1">纬度(°)</td>
+                            <td width="10%" class="font1">经度(°)</td>
+                            <td width="14%" class="font1">深度(千米)</td>
+                            <td width="20%" class="font1">参考位置</td>
+                        </tr>
                     </thead>
                     {% for eqs in earthquakes %}
-                        <tbody>
+                    <tbody>
                         <tr onclick="click_tb({{ eqs.Id }});">
                             <td>{{ eqs.Id }}</td>
                             <td>{{ eqs.Level }}</td>
@@ -59,7 +58,7 @@
                             <td>{{ eqs.Depth }}</td>
                             <td>{{ eqs.Location }}</td>
                         </tr>
-                    {% endfor %}
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
@@ -74,43 +73,43 @@
 
                     <li class="page-item {{ 'disabled' if current_page - 1 <0 else '' }}">
                         <a class="page-link"
-                           href="
+                            href="
 
                                {% if current_page>1 %}{{ url_for('earthquakesListPage',  result=result,offset=(current_page-1)*limit, limit=limit) }}{% endif %}">«</a>
                     </li>
 
                     {% set prev = 0 %}
                     {% for i in range(0, (total_page)|int) %}
-                        {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %}{% set prev=i %}
-                            <li
-                                    class="page-item {% if i == current_page %}active{% endif %}">
-                                <a class="page-link"
-                                   href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
-                                    {{ i + 1 }}
-                                </a>
-                            </li>
+                    {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %}{% set prev=i %} <li
+                        class="page-item {% if i == current_page %}active{% endif %}">
+                        <a class="page-link"
+                            href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
+                            {{ i + 1 }}
+                        </a>
+                        </li>
 
                         {% elif prev == i-1 %}
-                            <li class="page-item disabled"><a class="page-link" href="">...</a></li>
+                        <li class="page-item disabled"><a class="page-link" href="">...</a></li>
 
                         {% endif %}
-                    {% endfor %}
-                    <li class="page-item {{ ' disabled' if current_page + 1>= total_page else '' }}">
-                        <a class="page-link"
-                           href="{% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
-                    </li>
+                        {% endfor %}
+                        <li class="page-item {{ ' disabled' if current_page + 1>= total_page else '' }}">
+                            <a class="page-link"
+                                href="{% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
+                        </li>
                 </ul>
             </nav>
         </div>
     </div>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <script>
-                var messages = {{ messages | safe }};
-                for (var i = 0; i < messages.length; i++) {
-                    alert(messages[i]);
-                }
-            </script>
-        {% endif %}
-    {% endwith %}
+</div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<script>
+    var messages = {{ messages | safe }};
+    for (var i = 0; i < messages.length; i++) {
+        alert(messages[i]);
+    }
+</script>
+{% endif %}
+{% endwith %}
 {% endblock %}

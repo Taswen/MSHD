@@ -1,6 +1,4 @@
 {% extends 'base.html' %}
-{% from 'nav.html' import nav %}
-
 {% block other_head %}
     <link rel="stylesheet" href="../static/css/common.css">
     <script>
@@ -15,7 +13,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid mt-3">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
                 <div class="panel">
@@ -33,12 +31,11 @@
                         </ul>
                     </div>
                 </div>
-                <!--panel end-->
             </div>
             <div class="col-md-10">
                 <div class="col-md-12 table-responsive">
 
-                    <table class="table table-hover table-effect" cellspacing="1" bgcolor="#f0f8ff" align="center">
+                    <table class="table table-hover table-effect" cellspacing="1" align="center">
                         <thead>
                         <tr>
                             <td width="10%" class="font1">序号(I)</td>
@@ -65,7 +62,7 @@
                         </tbody>
                     </table>
                 </div>
-                <nav style="text-align: center;">
+                <div class="col-md-12" >
                     <ul class="pagination">
                         {% set offset = (offset)|int %}
                         {% set limit = (limit)|int %}
@@ -100,7 +97,7 @@
                                href=" {% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
                         </li>
                     </ul>
-                </nav>
+                </div>
             </div>
         </div>
     </div>

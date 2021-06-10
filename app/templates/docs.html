@@ -1,48 +1,84 @@
 {% extends 'base.html' %}
 
+{% block other_head %}
+<script src="../static/js/marked.min.js"></script>
+{% endblock %}
+
+
 {% block content %}
+{{ nav() }}
 
-
-<div class="container-fluid mt-3">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <div class="panel-group table-responsive" role="tablist">
-                <div class="panel  panel-default leftMenu">
-                    <!-- 利用data-target指定要折叠的分组列表 -->
-                    <div class="panel-heading " id="collapseListGroupHeading1" data-toggle="collapse"
-                        data-target="#collapseListGroup1" role="tab">
-                        <h4 class="panel-title ">
-                            快捷操作
-                        </h4>
-                    </div>
-                    <div id="collapseListGroup1" class="collapse show" role="tabpanel"
-                        aria-labelledby="collapseListGroupHeading1">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <a href="/earthquakes">返回</a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="panel">
+                <div class="card">
+                    <h4 class="card-header" data-toggle="collapse" data-target="#docsList">
+                        文档列表
+                    </h4>
+                    <ul class="list-group" id="docsList">
+                        <li class="list-group-item" role="tab" id="DataDescription_">
+                            <a href="#">数据说明</a>
+                        </li>
+                        <li class="list-group-item" role="tab" id="AboutUpdload_">
+                            <a href="#">数据上传</a>
+                        </li>
+                    </ul>
                 </div>
-                <!--panel end-->
             </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10 tab-content">
+            <div role="tabpanel" class="tab-pane in active " id="DataDescription">
+                <h2>数据说明</h2>
+                <div class="panel panel-default">
+                    <div class="panel-body" id="description" >
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane " id="AboutUpdload">
+                <h2>数据上传</h2>
+                <div class="panel panel-default">
+                    <div class="panel-body" id="updload" >
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
-    const nav = document.getElementById("navOptions")
-    console.log(nav.children.length)
-    for (let i = 0; i < nav.children.length;i++) {
-        if (nav.children[i].firstChild.innerHTML == "震情") {
-            nav.children[i].classList.add("active");
-        }
-        else{
-            nav.children[i].classList.remove("active");
+    // 点击切换
+    const docsList = document.getElementById("docsList").getElementsByClassName("list-group-item")
+    Array.prototype.forEach.call(docsList, function (p) {
+        p.addEventListener('click', function (ev) {
+            Array.prototype.forEach.call(document.getElementsByClassName("tab-pane"), function (t) {
+                t.classList.remove("active", "in")
+            });
+            const id_ = this.getAttribute("id").slice(0, -1);
+            document.getElementById(id_).classList.add("active")
+        });
+    });
+</script>
+<script>
+    function showFile(element,filename,type="md") {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open("POST", "/docs", true);
+        httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        httpRequest.send("docName=" + filename + "&type=" + type);
+        httpRequest.onreadystatechange = () => {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                // var data = JSON.parse(httpRequest.responseText);
+                element.innerHTML = marked(
+                    httpRequest.responseText
+                );
+                return 
+                // console.log();
+            }
         }
     }
+    window.onload = function(){
+        showFile(document.getElementById('description'),"aboutData.md")
+        showFile(document.getElementById('updload'),"aboutUpload.md")
+    }
 </script>
-
 {% endblock %}

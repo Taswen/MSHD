@@ -1,7 +1,8 @@
 import os
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect,send_from_directory
 from flask.helpers import flash, url_for
+from jinja2.exceptions import TemplateNotFound
 
 from app.models import Earthquake,InjuredStatistics,HouseDamaged
 from app.ext import db
@@ -56,6 +57,7 @@ def earthquakesInfoPage(id):
     return render_template("earthquakeInfo.html", eq=eq, hoDs=HoD, ijSs=IjS)
 
 
+
 @app.route('/uploader', methods=['POST', 'GET'])
 def uploader():
     if request.method == 'POST':
@@ -70,7 +72,20 @@ def uploader():
 
 @app.route('/docs', methods=['POST', 'GET'])
 def getDocs():
-    return render_template("docs.html")
+    if request.method == 'POST':
+        docName = request.values.get('docName')
+        type = request.values.get('type')
+        try:
+            if type=="md" :
+                print(docName)
+                print(os.path.realpath(''))
+                return send_from_directory('./doc/md',docName)
+            else:
+                return ""
+        except TemplateNotFound as e:
+            return "File Not Found"
+    elif request.method == 'GET':
+        return render_template("docs.html")
 
 
 
