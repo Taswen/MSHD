@@ -6,7 +6,7 @@ import schedule
 
 from flask_sqlalchemy import SQLAlchemy
 
-from app.app import app
+from app.main_app import app
 from app.config.settings import UPLOAD_FOLDER, SCANNED_FOLDER, ERROR_FOLDER
 from app.models import Earthquake
 

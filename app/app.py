@@ -122,6 +122,28 @@ def disasterListPage():
                            limit=limit)
 
 
+@app.route('/injuredStatistics')
+def InjuredStatisticsListPage():
+    result = request.args.get("result", 'ALL', str)
+    offset = request.args.get('offset', 0, int)
+    limit = request.args.get('limit', 20, int)
+    count = get_InjuredStatistics_num()
+    injuredStatistics = get_all_InjuredStatistics_data(limit=limit, offset=offset)
+
+    return render_template("InjuredStatistics.html", count=count, result=result, injuredStatistics=injuredStatistics, offset=offset,
+                           limit=limit)
+
+
+@app.route('/houseDamaged')
+def HouseDamagedListPage():
+    result = request.args.get("result", 'ALL', str)
+    offset = request.args.get('offset', 0, int)
+    limit = request.args.get('limit', 20, int)
+    count = get_HouseDamaged_num()
+    houseDamaged = get_all_HouseDamaged_data(limit=limit, offset=offset)
+
+    return render_template("houseDamaged.html", count=count, result=result, houseDamaged=houseDamaged, offset=offset,
+                           limit=limit)
 
 
 @app.route('/test',methods=['POST','GET'])
