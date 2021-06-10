@@ -47,6 +47,7 @@ def earthquakesInfoPage(id):
         eq = Earthquake.query.get(id)
     # 房屋损害情况
     HoD = HouseDamaged.query.filter_by(EarthquakeId=id).all()
+    # 人员伤亡情况
     IjS = InjuredStatistics.query.filter_by(EarthquakeId=id).all()
     # result = request.args.get("result", 'ALL', str)
     # offset = request.args.get('offset', 0, int)

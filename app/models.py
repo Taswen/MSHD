@@ -68,6 +68,7 @@ class HouseDamaged(db.Model):
     Date = db.Column(db.DateTime)
     Location = db.Column(db.String(255))
     BasicallyIntactSquare = db.Column(db.Float)
+    Level = db.Column(db.String(255))
     DamagedSquare = db.Column(db.Float)
     DestroyedSquare = db.Column(db.Float)
     ReportingUnit = db.Column(db.String(255))
