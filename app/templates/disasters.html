@@ -18,11 +18,11 @@
     <div class="row">
         <div class="col-md-2">
             <div class="panel">
-                <div class="card">
-                    <h4 class="card-header">
+                <div class="card" >
+                    <h4 class="card-header" data-toggle="collapse"  data-target="#tables">
                         各灾情表
                     </h4>
-                    <ul class="list-group">
+                    <ul class="list-group" id="tables">
                         <li class="list-group-item">
                             <a href="/earthquakes">房屋破坏表</a>
                         </li>
@@ -62,43 +62,42 @@
                     </tbody>
                 </table>
             </div>
-            <nav class="text-center" style="text-align: center;">
-                <ul class="pagination">
-                    {% set offset = (offset)|int %}
-                    {% set limit = (limit)|int %}
-                    {% set count = (count)|int %}
+            <ul class="pagination justify-content-center">
+                {% set offset = (offset)|int %}
+                {% set limit = (limit)|int %}
+                {% set count = (count)|int %}
 
-                    {% set current_page = (offset/limit)|int + (1 if offset%limit else 0) %}
-                    {% set total_page = (count/limit)|int + (1 if count%limit else 0) %}
+                {% set current_page = (offset/limit)|int + (1 if offset%limit else 0) %}
+                {% set total_page = (count/limit)|int + (1 if count%limit else 0) %}
 
-                    <li class="page-item {{ 'disabled' if current_page - 1 <0 else '' }}">
-                        <a class="page-link"
-                            href="
+                <li class="page-item {{ 'disabled' if current_page - 1 <0 else '' }}">
+                    <a class="page-link"
+                       href="
 
-                               {% if current_page>1 %}{{ url_for('earthquakesListPage',  result=result,offset=(current_page-1)*limit, limit=limit) }}{% endif %}">«</a>
-                    </li>
+                           {% if current_page>1 %}{{ url_for('earthquakesListPage',  result=result,offset=(current_page-1)*limit, limit=limit) }}{% endif %}">«</a>
+                </li>
 
-                    {% set prev = 0 %}
-                    {% for i in range(0, (total_page)|int) %}
-                    {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %}{% set prev=i %} <li
-                        class="page-item {% if i == current_page %}active{% endif %}">
-                        <a class="page-link"
-                            href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
-                            {{ i + 1 }}
-                        </a>
+                {% set prev = 0 %}
+                {% for i in range(0, (total_page)|int) %}
+                    {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %}{% set prev=i %}
+                        <li
+                                class="page-item {% if i == current_page %}active{% endif %}">
+                            <a class="page-link"
+                               href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
+                                {{ i + 1 }}
+                            </a>
                         </li>
 
-                        {% elif prev == i-1 %}
+                    {% elif prev == i-1 %}
                         <li class="page-item disabled"><a class="page-link" href="">...</a></li>
 
-                        {% endif %}
-                        {% endfor %}
-                        <li class="page-item {{ ' disabled' if current_page + 1>= total_page else '' }}">
-                            <a class="page-link"
-                                href="{% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
-                        </li>
-                </ul>
-            </nav>
+                    {% endif %}
+                {% endfor %}
+                <li class="page-item {{ ' disabled' if current_page + 1>= total_page else '' }}">
+                    <a class="page-link"
+                       href="{% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
@@ -110,6 +109,22 @@
         alert(messages[i]);
     }
 </script>
+
 {% endif %}
 {% endwith %}
+
+<script>
+    const nav = document.getElementById("navOptions")
+    console.log(nav.children.length)
+    for (let i = 0; i < nav.children.length; i++) {
+        if (nav.children[i].firstChild.innerHTML == "灾情") {
+            nav.children[i].classList.add("active");
+
+        }
+        else {
+            nav.children[i].classList.remove("active");
+
+        }
+    }
+</script>
 {% endblock %}

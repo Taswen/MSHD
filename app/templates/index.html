@@ -1,46 +1,46 @@
 {% extends 'base.html' %}
 
 {% block other_head %}
-    <link rel="stylesheet" href="../static/css/index.css">
+<link rel="stylesheet" href="../static/css/index.css">
 {% endblock %}
 
 {% block header %}
-    {{ nav(bg_light=False) }}
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon class="svg--sm" fill="white" points="0,0 30,100 65,21 90,100 100,75 100,100 0,100"></polygon>
-        <polygon class="svg--lg" fill="white"
-                 points="0,0 15,100 33,21 45,100 50,75 55,100 72,20 85,100 95,50 100,80 100,100 0,100"></polygon>
-        <div class="col-md-12">
-            <div class="container-fluid">
-                <div class="row-fluid">
-                    <div class="span12">
-                        <div class="jumbotron">
-                            <h1>
-                                欢迎使用
-                            </h1>
-                            <p>
-                                本网站为《多源异构灾情数据》站，旨在收集灾情数据并统一编码储存，以及对外提供灾情数据服务。
-                            </p>
-                        </div>
+{{ nav(bg_light=False) }}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <polygon class="svg--sm" fill="white" points="0,0 30,100 65,21 90,100 100,75 100,100 0,100"></polygon>
+    <polygon class="svg--lg" fill="white"
+        points="0,0 15,100 33,21 45,100 50,75 55,100 72,20 85,100 95,50 100,80 100,100 0,100"></polygon>
+    <div class="col-md-12">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="jumbotron">
+                        <h1>
+                            欢迎使用
+                        </h1>
+                        <p>
+                            本网站为《多源异构灾情数据》站，旨在收集灾情数据并统一编码储存，以及对外提供灾情数据服务。
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-    </svg>
+</svg>
 {% endblock %}
 
 {% block content %}
-    <div class="col-md-12">
-        <div class="container col-lg-12">
-            <div class="text-center">
-                <h2>
-                    也许你想️
-                </h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-2">
+<div class="col-md-12">
+    <div class="container col-lg-12">
+        <div class="text-center">
+            <h2>
+                也许你想️
+            </h2>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card-deck">
                     <div class="card">
                         <img class="card-img-top" src="../static/ico/4.webp" alt="Card image cap">
                         <div class="card-body">
@@ -49,8 +49,7 @@
                             <a class="btn btn-primary btn-lg" href="ftp://47.93.229.92">上传数据 »</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-2">
+
                     <div class="card">
                         <img class="card-img-top" src="../static/ico/1.webp" alt="Card image cap">
                         <div class="card-body">
@@ -59,8 +58,6 @@
                             <a class="btn btn-primary btn-lg" href="/earthquakes">查看震情 »</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-2">
                     <div class="card">
                         <img class="card-img-top" src="../static/ico/2.webp" alt="Card image cap">
                         <div class="card-body">
@@ -69,8 +66,6 @@
                             <a class="btn btn-primary btn-lg" href="/disasters">查看灾情 »</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-2">
                     <div class="card">
                         <img class="card-img-top" src="../static/ico/3.webp" alt="Card image cap">
                         <div class="card-body">
@@ -80,20 +75,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2"></div>
             </div>
-
         </div>
-    </div>
 
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <script>
-                var messages = {{ messages | safe }};
-                for (var i = 0; i < messages.length; i++) {
-                    alert(messages[i]);
-                }
-            </script>
-        {% endif %}
-    {% endwith %}
+    </div>
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<script>
+    var messages = {{ messages | safe }};
+    for (var i = 0; i < messages.length; i++) {
+        alert(messages[i]);
+    }
+</script>
+{% endif %}
+{% endwith %}
 {% endblock %}

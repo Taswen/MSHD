@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block other_head %}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
 <script src="../static/js/marked.min.js"></script>
 {% endblock %}
 
@@ -31,14 +33,14 @@
             <div role="tabpanel" class="tab-pane in active " id="DataDescription">
                 <h2>数据说明</h2>
                 <div class="panel panel-default">
-                    <div class="panel-body" id="description" >
+                    <div class="panel-body" id="description">
                     </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane " id="AboutUpdload">
                 <h2>数据上传</h2>
                 <div class="panel panel-default">
-                    <div class="panel-body" id="updload" >
+                    <div class="panel-body" id="updload">
                     </div>
                 </div>
             </div>
@@ -60,7 +62,28 @@
     });
 </script>
 <script>
-    function showFile(element,filename,type="md") {
+    // Create reference instance
+    // const marked = require('marked');
+
+    // Set options
+    // `highlight` example uses https://highlightjs.org
+    // marked.setOptions({
+    //     renderer: new marked.Renderer(),
+    //     highlight: function (code, lang) {
+    //         const hljs = require('highlight.js');
+    //         const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+    //         return hljs.highlight(code, { language }).value;
+    //     },
+    //     pedantic: false,
+    //     gfm: true,
+    //     breaks: false,
+    //     sanitize: false,
+    //     smartLists: true,
+    //     smartypants: false,
+    //     xhtml: false
+    // });
+
+    function showFile(element, filename, type = "md") {
         var httpRequest = new XMLHttpRequest();
         httpRequest.open("POST", "/docs", true);
         httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -71,14 +94,14 @@
                 element.innerHTML = marked(
                     httpRequest.responseText
                 );
-                return 
+                return
                 // console.log();
             }
         }
     }
-    window.onload = function(){
-        showFile(document.getElementById('description'),"aboutData.md")
-        showFile(document.getElementById('updload'),"aboutUpload.md")
+    window.onload = function () {
+        showFile(document.getElementById('description'), "aboutData.md")
+        showFile(document.getElementById('updload'), "aboutUpload.md")
     }
 </script>
 {% endblock %}
