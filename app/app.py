@@ -62,7 +62,6 @@ def earthquakesInfoPage(id):
 @app.route('/upload', methods=['POST', 'GET'])
 def uploader():
     if request.method == 'POST':
-        pass
         f = request.files['file']
         f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
         flash('file uploaded successfully')

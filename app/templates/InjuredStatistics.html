@@ -35,18 +35,19 @@
         </div>
         <div class="col-md-10">
             <div class="col-md-12 table-responsive">
-                <table class="table table-hover table-effect" cellspacing="1" bgcolor="#f0f8ff"
+                <table class="table table-hover table-sm table-effect" cellspacing="1"
                        align="center">
-                    <thead>
+                       <h2 style="text-align: center;">人员伤亡总表 <small> {{ count }} 条数据</small></h2>
+                    <thead class="table-header">
                     <tr>
-                        <td width="8%" class="font1">序号</td>
-                        <td width="10%" class="font1">时间</td>
-                        <td width="10%" class="font1">位置</td>
-                        <td width="15%" class="font1">死亡人数</td>
-                        <td width="10%" class="font1">受伤人数</td>
-                        <td width="10%" class="font1">失踪人数</td>
-                        <td width="15%" class="font1">上报单位</td>
-                        <td width="12%" class="font1">对应的震情序号</td>
+                        <td width="8%">序号</td>
+                        <td width="15%">时间</td>
+                        <td width="20%">位置</td>
+                        <td width="15%">死亡人数</td>
+                        <td width="10%">受伤人数</td>
+                        <td width="10%">失踪人数</td>
+                        <td width="10%">上报单位</td>
+                        <td width="12%">对应的震情</td>
                     </tr>
                     </thead>
                     {% for iss in injuredStatistics %}
@@ -115,4 +116,17 @@
             </script>
         {% endif %}
     {% endwith %}
+    <script>
+        const nav = document.getElementById("navOptions")
+        console.log(nav.children.length)
+        for (let i = 0; i < nav.children.length; i++) {
+            if (nav.children[i].firstChild.innerHTML == "灾情") {
+                nav.children[i].classList.add("active");
+    
+            }
+            else {
+                nav.children[i].classList.remove("active");
+            }
+        }
+    </script>
 {% endblock %}

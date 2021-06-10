@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid mt-3">
     <div class="row">
         <div class="col-md-2">
             <div class="panel">
@@ -38,13 +38,13 @@
                 <table class="table table-striped table-effect" cellspacing="1" align="center">
                     <thead>
                         <tr>
-                            <td width="10%" class="font1">序号(I)</td>
-                            <td width="10%" class="font1">震级(M)</td>
-                            <td width="15%" class="font1">发震时刻(UTC+8)</td>
-                            <td width="10%" class="font1">纬度(°)</td>
-                            <td width="10%" class="font1">经度(°)</td>
-                            <td width="14%" class="font1">深度(千米)</td>
-                            <td width="20%" class="font1">参考位置</td>
+                            <td width="10%" >序号(I)</td>
+                            <td width="10%" >震级(M)</td>
+                            <td width="15%" >发震时刻(UTC+8)</td>
+                            <td width="10%" >纬度(°)</td>
+                            <td width="10%" >经度(°)</td>
+                            <td width="14%" >深度(千米)</td>
+                            <td width="20%" >参考位置</td>
                         </tr>
                     </thead>
                     {% for eqs in earthquakes %}
