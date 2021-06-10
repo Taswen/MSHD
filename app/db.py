@@ -35,14 +35,14 @@ def readCsv(file):
             ref_start_id += 1
 
 
-def get_all_HouseDamaged_data():
-    hds = HouseDamaged.query.all()
+def get_all_HouseDamaged_data(limit=None, offset=None):
+    hds = HouseDamaged.query.order_by(text("id")).limit(limit).offset(offset).all()
     house_damaged = [hd.enable_print() for hd in hds]
     return house_damaged
 
 
-def get_all_InjuredStatistics_data():
-    ists = InjuredStatistics.query.all()
+def get_all_InjuredStatistics_data(limit=None, offset=None):
+    ists = InjuredStatistics.query.order_by(text("id")).limit(limit).offset(offset).all()
     injured_data = [ist.enable_print() for ist in ists]
     return injured_data
 
@@ -57,3 +57,11 @@ def delete_one_InjuredStatistics_by_id(id):
     injured_data = InjuredStatistics.query.filter(InjuredStatistics.Id == id).first()
     db.session.delete(injured_data)
     db.session.commit()
+
+
+def get_HouseDamaged_num():
+    return HouseDamaged.query.count()
+
+
+def get_InjuredStatistics_num():
+    return InjuredStatistics.query.count()
