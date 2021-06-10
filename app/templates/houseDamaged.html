@@ -68,7 +68,7 @@
                 </table>
             </div>
             <nav class="text-center" style="text-align: center;">
-                <ul class="pagination">
+                <ul class="pagination justify-content-center">
                     {% set offset = (offset)|int %}
                     {% set limit = (limit)|int %}
                     {% set count = (count)|int %}
@@ -80,7 +80,7 @@
                         <a class="page-link"
                            href="
 
-                               {% if current_page>1 %}{{ url_for('earthquakesListPage',  result=result,offset=(current_page-1)*limit, limit=limit) }}{% endif %}">«</a>
+                               {% if current_page>1 %}{{ url_for('HouseDamagedListPage',  result=result,offset=(current_page-1)*limit, limit=limit) }}{% endif %}">«</a>
                     </li>
 
                     {% set prev = 0 %}
@@ -89,7 +89,7 @@
                             <li
                                     class="page-item {% if i == current_page %}active{% endif %}">
                                 <a class="page-link"
-                                   href="{{ url_for('earthquakesListPage',  result=result, offset=i*limit, limit=limit) }}">
+                                   href="{{ url_for('HouseDamagedListPage',  result=result, offset=i*limit, limit=limit) }}">
                                     {{ i + 1 }}
                                 </a>
                             </li>
@@ -101,7 +101,7 @@
                     {% endfor %}
                     <li class="page-item {{ ' disabled' if current_page + 1>= total_page else '' }}">
                         <a class="page-link"
-                           href="{% if current_page + 1<total_page %}{{ url_for('earthquakesListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
+                           href="{% if current_page + 1<total_page %}{{ url_for('HouseDamagedListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
                     </li>
                 </ul>
             </nav>
