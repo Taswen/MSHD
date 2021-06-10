@@ -31,15 +31,20 @@
         </div>
         <div class="col-md-10 tab-content">
             <div role="tabpanel" class="tab-pane in active " id="DataDescription">
-                <h2>数据说明</h2>
                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        数据说明
+                    </div>
                     <div class="panel-body" id="description">
                     </div>
                 </div>
+
             </div>
             <div role="tabpanel" class="tab-pane " id="AboutUpdload">
-                <h2>数据上传</h2>
                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        数据上传
+                    </div>
                     <div class="panel-body" id="updload">
                     </div>
                 </div>
@@ -62,27 +67,21 @@
     });
 </script>
 <script>
-    // Create reference instance
-    // const marked = require('marked');
-
-    // Set options
-    // `highlight` example uses https://highlightjs.org
-    // marked.setOptions({
-    //     renderer: new marked.Renderer(),
-    //     highlight: function (code, lang) {
-    //         const hljs = require('highlight.js');
-    //         const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-    //         return hljs.highlight(code, { language }).value;
-    //     },
-    //     pedantic: false,
-    //     gfm: true,
-    //     breaks: false,
-    //     sanitize: false,
-    //     smartLists: true,
-    //     smartypants: false,
-    //     xhtml: false
-    // });
-
+    hljs.highlightAll();
+	var rendererMD = new marked.Renderer();
+    marked.setOptions({
+      renderer: rendererMD,
+      gfm: true,
+      tables: true,
+      breaks: false,
+      pedantic: false,
+      sanitize: false,
+      smartLists: true,
+      smartypants: false,
+      highlight: function (code) {
+        return hljs.highlightAuto(code).value;
+      }
+    });//基本设置
     function showFile(element, filename, type = "md") {
         var httpRequest = new XMLHttpRequest();
         httpRequest.open("POST", "/docs", true);

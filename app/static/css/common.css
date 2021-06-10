@@ -9,3 +9,9 @@
 .table-effect {
     cursor: hand;
 }
+.table-header {
+    color: #255e95;
+    background: #e9faff !important;
+    cursor:default ;
+    font-weight: bold;
+}
