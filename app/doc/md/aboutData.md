@@ -43,8 +43,44 @@
 
 # 数据存储
 
+- Earthquake表（字段）
+    - ID                 地震数据的id
+    - OccurrenceTime     地震发生时间
+    - Longitude          地震发生经度
+    - Latitude           地震发生纬度
+    - Depth              震源深度
+    - Location           地震地点
+    - Level              地震等级
+    - EarthquakeEncode   地震编码
+    - Source             数据来源
+    - ReportingUnit      报告单位
 
+- HouseDamaged表（字段）
+    - ID                 房屋破坏数据的id
+    - Category           房屋破坏种类
+    - Date               破坏发生时间
+    - Location           破坏发生位置
+    - BasicallyIntactSquare   基本完好面积
+    - DamagedSquare      破坏面积            
+    - DestroyedSquare    毁坏面积
+    - ReportingUnit      报告单位
+    - EarthquakeId       对应的地震数据ID
+    - Level              破坏等级
+    
+- InjuredStatistics表（字段）
+    - Id                 人员伤亡数据id
+    - Date               人员伤亡时间
+    - Location           伤亡发生位置
+    - DeathNumber        死亡人数
+    - InjuredNumber      受伤人数            
+    - MissingNumber      失踪人数
+    - ReportingUnit      报告单位
+    - EarthquakeId       对应的地震数据ID
+    
+三个表关系：  
+Earthquake表与HouseDamaged表和InjuredStatistics表为一对多关系，通过外键EarthquakeId联系，一条地震数据会包含多个房屋毁坏数据和多个人员伤亡数据。
 
+    
 
 
 
