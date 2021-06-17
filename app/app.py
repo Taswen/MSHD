@@ -1,15 +1,12 @@
-from app.blueprint.api.api import api
-from app import create_app
 import os
 
-from flask import Flask, render_template, request, redirect,send_from_directory
-from flask.helpers import flash, url_for
+from flask import render_template, request, redirect, send_from_directory
+from flask.helpers import url_for
 from jinja2.exceptions import TemplateNotFound
 
-from app.models import Earthquake,InjuredStatistics,HouseDamaged
-from app.ext import db
+from app import create_app
+from app.blueprint.api.api import api
 from app.db import *
-from app.custom.converter import RegexConverter
 
 # from scanner.scanner import Scanner
 
@@ -25,28 +22,18 @@ from app.custom.converter import RegexConverter
 
 app = create_app("development")
 
-app.register_blueprint(api,url_prefix='/api')
+app.register_blueprint(api, url_prefix='/api')
+
 
 @app.route('/')
 def mapPage():
     return render_template("index.html")
 
 
-# @app.route('/earthquakes')
-# def earthquakesListPage():
-#     result = request.args.get("result", 'ALL', str)
-#     offset = request.args.get('offset', 0, int)
-#     limit = request.args.get('limit', 20, int)
-#     count = get_earthquakes_num()
-#     earthquakes = get_earthquakes_data(limit=limit, offset=offset)
-
-#     return render_template("earthquakes.html", count=count, result=result, earthquakes=earthquakes, offset=offset,
-#                            limit=limit)
-
 @app.route('/earthquakes')
 def earthquakesListPage():
     count = get_earthquakes_num()
-    return render_template("earthquakes1.html",count=count)
+    return render_template("earthquakes1.html", count=count)
 
 
 @app.route('/earthquakes/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST', 'DELETE'])
@@ -67,40 +54,22 @@ def earthquakesInfoPage(id):
 
 
 
-@app.route('/upload', methods=['POST', 'GET'])
-def uploader():
-    if request.method == 'POST':
-        if not request.data is None:
-            print("Not QE")
-            return redirect(url_for("mainPage"))
-        print(type(request.date))
-        # f = request.files['file']
-        # f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
-        # flash('file uploaded successfully')
-    else:
-        print("GET")
-        pass
-    print("OUT ")
-    # return redirect(url_for("earthquakesListPage"))
-
-
 @app.route('/docs', methods=['POST', 'GET'])
 def getDocs():
     if request.method == 'POST':
         docName = request.values.get('docName')
         type = request.values.get('type')
         try:
-            if type=="md" :
+            if type == "md":
                 print(docName)
                 print(os.path.realpath(''))
-                return send_from_directory('./doc/md',docName)
+                return send_from_directory('./doc/md', docName)
             else:
                 return ""
         except TemplateNotFound as e:
             return "File Not Found"
     elif request.method == 'GET':
         return render_template("docs.html")
-
 
 
 @app.route('/earthquakes/map')
@@ -111,8 +80,9 @@ def mainPage():
 @app.route('/baiduMap')
 def baiduMapPage():
     data = {}
-    data.update({"eqs":get_all_earthquakes_data()})
-    return render_template("baidu.html",data=data)
+    data.update({"eqs": get_all_earthquakes_data()})
+    return render_template("baidu.html", data=data)
+
 
 @app.route('/baiduMap/<int:id>')
 def earthMapPage(id):
@@ -120,8 +90,8 @@ def earthMapPage(id):
     if request.method == 'GET':
         eq = Earthquake.query.get(id)
     data = {}
-    data.update({"eqs":[eq]})
-    return render_template("baidu.html",data=data)
+    data.update({"eqs": [eq]})
+    return render_template("baidu.html", data=data)
 
 
 @app.route('/disasters')
@@ -144,7 +114,8 @@ def InjuredStatisticsListPage():
     count = get_InjuredStatistics_num()
     injuredStatistics = get_all_InjuredStatistics_data(limit=limit, offset=offset)
 
-    return render_template("InjuredStatistics.html", count=count, result=result, injuredStatistics=injuredStatistics, offset=offset,
+    return render_template("InjuredStatistics.html", count=count, result=result, injuredStatistics=injuredStatistics,
+                           offset=offset,
                            limit=limit)
 
 
@@ -160,11 +131,11 @@ def HouseDamagedListPage():
                            limit=limit)
 
 
-@app.route('/test',methods=['POST','GET'])
+@app.route('/test', methods=['POST', 'GET'])
 def test():
     ## 测试
 
-    return  render_template("indexP.html")
+    return render_template("indexP.html")
 
 
 if __name__ == '__main__':
