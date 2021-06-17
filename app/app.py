@@ -1,3 +1,5 @@
+from app.blueprint.api.api import api
+from app import create_app
 import os
 
 from flask import Flask, render_template, request, redirect,send_from_directory
@@ -12,17 +14,18 @@ from app.custom.converter import RegexConverter
 # from scanner.scanner import Scanner
 
 
-def create_app():
-    app = Flask(__name__)
-    app.config.from_pyfile("config/settings.py")
-    app.url_map.converters['regex']=RegexConverter
-    db.init_app(app)
-    # Scanner(app).run()
-    return app
+# def create_app():
+#     app = Flask(__name__)
+#     app.config.from_pyfile("config/settings.py")
+#     app.url_map.converters['regex']=RegexConverter
+#     db.init_app(app)
+#     # Scanner(app).run()
+#     return app
 
 
-app = create_app()
+app = create_app("development")
 
+app.register_blueprint(api,url_prefix='/admin')
 
 @app.route('/')
 def mapPage():

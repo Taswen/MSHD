@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # filename api.py
-from crypt import methods
 from flask import Blueprint,render_template, request
 from app.db import *
 
