@@ -1,22 +1,27 @@
 import os
-from flask import  render_template, request, redirect,send_from_directory
+
+from flask import Flask, render_template, request, redirect,send_from_directory
 from flask.helpers import flash, url_for
 from jinja2.exceptions import TemplateNotFound
 
-from app import create_app
 from app.models import Earthquake,InjuredStatistics,HouseDamaged
+from app.ext import db
 from app.db import *
+from app.custom.converter import RegexConverter
+
+# from scanner.scanner import Scanner
 
 
+def create_app():
+    app = Flask(__name__)
+    app.config.from_pyfile("config/settings.py")
+    app.url_map.converters['regex']=RegexConverter
+    db.init_app(app)
+    # Scanner(app).run()
+    return app
 
-app = create_app("development")
 
-
-
-@app.errorhandler(404)
-def Not_FOUND_404(e):
-    return render_template('error/404.html'),404
-
+app = create_app()
 
 
 @app.route('/')
@@ -36,7 +41,7 @@ def earthquakesListPage():
                            limit=limit)
 
 
-@app.route('/earthquakes/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST'])
+@app.route('/earthquakes/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST', 'DELETE'])
 def earthquakesInfoPage(id):
     if request.method == 'GET':
         eq = Earthquake.query.get(id)

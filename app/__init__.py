@@ -1,7 +1,7 @@
 import os 
 from flask import Flask
-from custom.converter import RegexConverter
-from ext import db
+from app.custom.converter import RegexConverter
+from app.ext import db as database
 
 config_mode = {
     'development': "dev.py",
@@ -18,12 +18,12 @@ def create_app(config_mode_name:str):
     """
 
     app = Flask(__name__)
-    config_file_abspath = "config/settings"+ config_mode[config_mode_name]
+    config_file_abspath = "config/settings_"+ config_mode[config_mode_name]
     config_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),config_file_abspath)
     if not os.path.exists(config_file_path):
         raise Exception(f"{config_file_path} 不存在. 请添加该配置文件或是更换配置")
     app.config.from_pyfile(config_file_path)
     app.url_map.converters['regex']=RegexConverter
-    db.init_app(app)
+    database.init_app(app)
     # Scanner(app).run()
     return app
