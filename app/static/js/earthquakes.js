@@ -172,7 +172,7 @@ $('#earthquakesTable').bootstrapTable({
     onDblClickRow: function (row, $element) {
         // $("#taskNameForCheck").val(row.taskName)
         // $("#taskDetails_").click()
-        window.location.href=baseUrl+"earthquake/"+row.Id
+        window.location.href=baseUrl+"earthquakes/"+row.Id
     },
     //得到查询的参数
     queryParams : function (params) {
@@ -202,7 +202,7 @@ function deleteEq(id){
 function submitDel() {
     var id = $('#delModal #delContext').val();
     $.ajax({
-        url: baseUrl + "api/earthquake/"+id,
+        url: baseUrl + "api/earthquakes/"+id,
         type: "DELETE",
         success: function (data, textStatus) {
             $('#delModal').modal('hide');
