@@ -1,122 +1,125 @@
 {% extends 'base.html' %}
 
 {% block other_head %}
-<link rel="stylesheet" href="../static/css/index.css">
-<link rel="stylesheet" href="../static/css/fileinput.min.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+{#    <link rel="stylesheet" href="../static/css/fileinput.min.css">#}
+    <link href="../static/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block header %}
-{{ nav(bg_light=False) }}
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <polygon class="svg--sm" fill="white" points="0,0 30,100 65,21 90,100 100,75 100,100 0,100"></polygon>
-    <polygon class="svg--lg" fill="white"
-        points="0,0 15,100 33,21 45,100 50,75 55,100 72,20 85,100 95,50 100,80 100,100 0,100"></polygon>
-    <div class="col-md-12">
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span12">
-                    <div class="jumbotron">
-                        <h1>
-                            欢迎使用
-                        </h1>
-                        <p>
-                            本网站为《多源异构灾情数据》站，旨在收集灾情数据并统一编码储存，以及对外提供灾情数据服务。
-                        </p>
+    {{ nav(bg_light=False) }}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon class="svg--sm" fill="white" points="0,0 30,100 65,21 90,100 100,75 100,100 0,100"></polygon>
+        <polygon class="svg--lg" fill="white"
+                 points="0,0 15,100 33,21 45,100 50,75 55,100 72,20 85,100 95,50 100,80 100,100 0,100"></polygon>
+        <div class="col-md-12">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="jumbotron">
+                            <h1>
+                                欢迎使用
+                            </h1>
+                            <p>
+                                本网站为《多源异构灾情数据》站，旨在收集灾情数据并统一编码储存，以及对外提供灾情数据服务。
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</svg>
+    </svg>
 {% endblock %}
 
 {% block content %}
-<div class="col-md-12">
-    <div class="container col-lg-12" style="rotate:translateY(-1000px);">
-        <div class="text-center">
-            <h2>
-                也许你想️
-            </h2>
-        </div>
-        <div class="row mt-3">
-            <div class="col-lg-8 offset-lg-2" >
-                <div class="card-deck">
-                    <div class="card">
-                        <img class="card-img-top" src="../static/ico/4.webp" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">上传数据</h5>
-                            <p class="card-text">向FTP服务器上传最新震情与灾情数据，包括多种数据格式以及图片</p>
-                            <button class="btn btn-primary btn-lg" href="#" onClick="Upload()" >上传数据 »</button>
+    <div class="col-md-12">
+        <div class="container col-lg-12" style="rotate:translateY(-1000px);">
+            <div class="text-center">
+                <h2>
+                    也许你想️
+                </h2>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="card-deck">
+                        <div class="card">
+                            <img class="card-img-top" src="../static/ico/4.webp" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">上传数据</h5>
+                                <p class="card-text">向FTP服务器上传最新震情与灾情数据，包括多种数据格式以及图片</p>
+                                <button class="btn btn-primary btn-lg" href="#" onClick="Upload()">上传数据 »</button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="card">
-                        <img class="card-img-top" src="../static/ico/1.webp" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">查看震情</h5>
-                            <p class="card-text">通过网页方便地在线查看已整理妥当的、结构化的震情数据</p>
-                            <a class="btn btn-primary btn-lg" href="/earthquakes">查看震情 »</a>
+                        <div class="card">
+                            <img class="card-img-top" src="../static/ico/1.webp" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">查看震情</h5>
+                                <p class="card-text">通过网页方便地在线查看已整理妥当的、结构化的震情数据</p>
+                                <a class="btn btn-primary btn-lg" href="/earthquakes">查看震情 »</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="../static/ico/2.webp" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">查看灾情</h5>
-                            <p class="card-text">通过网页方便地在线查看与每一次震情相关联的灾情数据</p>
-                            <a class="btn btn-primary btn-lg" href="/houseDamaged">查看灾情 »</a>
+                        <div class="card">
+                            <img class="card-img-top" src="../static/ico/2.webp" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">查看灾情</h5>
+                                <p class="card-text">通过网页方便地在线查看与每一次震情相关联的灾情数据</p>
+                                <a class="btn btn-primary btn-lg" href="/houseDamaged">查看灾情 »</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="../static/ico/3.webp" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">学习使用</h5>
-                            <p class="card-text">阅读文档，学习包括提交数据的规范与方法，查看数据的方式</p>
-                            <a class="btn btn-primary btn-lg" href="/docs">学习使用 »</a>
+                        <div class="card">
+                            <img class="card-img-top" src="../static/ico/3.webp" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">学习使用</h5>
+                                <p class="card-text">阅读文档，学习包括提交数据的规范与方法，查看数据的方式</p>
+                                <a class="btn btn-primary btn-lg" href="/docs">学习使用 »</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-
     </div>
-</div>
 
 
 
-<!-- 文件上传 -->
-<form>
-    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
+    <!-- 文件上传 -->
+    <form>
+        <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg modal-content" role="document">
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel">请选择想要上传的文件</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <a href="/templates" class="form-control" style="border:none;">下载文件模板</a>
-                    <input type="file" name="txt_file" id="txt_file" multiple class="file-loading" />
-                <!-- </div></div> -->
+                    <input type="file" name="file_uploader" id="file_uploader" multiple class="file-loading"/>
+                </div>
+            </div>
         </div>
-    </div>
-</form>
+        {#    </div>#}
+    </form>
 
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<script>
-    var messages = {{ messages | safe }};
-    for (var i = 0; i < messages.length; i++) {
-        alert(messages[i]);
-    }
-</script>
-{% endif %}
-{% endwith %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <script>
+                var messages = {{ messages | safe }};
+                for (var i = 0; i < messages.length; i++) {
+                    alert(messages[i]);
+                }
+            </script>
+        {% endif %}
+    {% endwith %}
 {% endblock %}
 
 {% block moreScript %}
-<script src="../static/js/fileinput.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.1/themes/fa/theme.js"></script>
-<!-- optionally if you need translation for your language then include  locale file as mentioned below (replace LANG.js with your locale file) -->
-<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.1/js/locales/LANG.js"></script>
-<script src="../static/js/input.js"></script>
+    <script src="../static/js/fileinput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.1/themes/fa/theme.js"></script>
+    <!-- optionally if you need translation for your language then include  locale file as mentioned below (replace LANG.js with your locale file) -->
+    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.2.1/js/locales/LANG.js"></script>
+    <script src="../static/js/input.js"></script>
+
 {% endblock %}

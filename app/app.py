@@ -1,7 +1,8 @@
+import hashlib
 import os
+import time
 
-from flask import render_template, request, redirect, send_from_directory
-from flask.helpers import url_for
+from flask import render_template, request, send_from_directory, jsonify
 from jinja2.exceptions import TemplateNotFound
 
 from app import create_app
@@ -51,7 +52,6 @@ def earthquakesInfoPage(id):
     # earthquakes = get_earthquakes_data(limit=limit, offset=offset)
 
     return render_template("earthquakeInfo.html", eq=eq, hoDs=HoD, ijSs=IjS)
-
 
 
 @app.route('/docs', methods=['POST', 'GET'])
@@ -120,7 +120,7 @@ def InjuredStatisticsListPage():
 
 
 @app.route('/houseDamaged')
-def HouseDamagedListPage():
+def house_damaged_list_page():
     result = request.args.get("result", 'ALL', str)
     offset = request.args.get('offset', 0, int)
     limit = request.args.get('limit', 20, int)
@@ -131,11 +131,15 @@ def HouseDamagedListPage():
                            limit=limit)
 
 
-@app.route('/test', methods=['POST', 'GET'])
-def test():
-    ## 测试
-
-    return render_template("indexP.html")
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    files = request.files.getlist('file_uploader')
+    for file in files:
+        ext = file.filename.rsplit('.')[-1]
+        filename = hashlib.md5(str(time.time()).encode('utf-8')).hexdigest()[:15] + ext
+        # filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    return jsonify({'msg': 'upload success'})
 
 
 if __name__ == '__main__':
