@@ -3,7 +3,6 @@ from app import create_app
 from flask import current_app
 
 
-
 class APITestCase(unittest.TestCase):
     def setUp(self) -> None:
         self.app = create_app('testing')
