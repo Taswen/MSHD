@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # filename api.py
 import json
+from datetime import datetime
 from typing import Dict
 
 from flask import Blueprint, request, jsonify
@@ -80,6 +81,6 @@ def earthquake(table, id):
 def to_dict(obj: object) -> Dict:
     d = {}
     for key, val in obj.__dict__.items():
-        if type(val) in [str, int, float]:
+        if type(val) in [str, int, float, datetime]:
             d[key] = val
     return d
