@@ -35,77 +35,11 @@
         </div>
         <div class="col-md-10">
             <div class="col-md-12 table-responsive">
-                <table class="table table-hover table-sm table-effect" cellspacing="1"
-                       align="center">
-                       <h2 style="text-align: center;font-weight: bold;">房屋破坏总表 <small> {{ count }} 条数据</small></h2>
-                    <thead class="table-header">
-                    <tr>
-                        <td width="8%" >序号(I)</td>
-                        <td width="10%">破坏种类</td>
-                        <td width="16%">时间(UTC+8)</td>
-                        <td width="15%">位置</td>
-                        <td width="12%">完好面积(m<sup>2</sup>)</td>
-                        <td width="12%">破坏面积(m<sup>2</sup>)</td>
-                        <td width="12%">毁灭面积(m<sup>2</sup>)</td>
-                        <td width="10%">上报单位</td>
-                        <!-- <td width="10%" class="font1">对应的震情</td> -->
-                    </tr>
-                    </thead>
-                    {% for hds in houseDamaged %}
-                        <tbody>
-{#                        <tr onclick="click_tb({{ eqs.Id }});">#}
-                            <td>{{ hds.Id }}</td>
-                            <td>{{ hds.Category }}</td>
-                            <td>{{ hds.Date }}</td>
-                            <td>{{ hds.Location }}</td>
-                            <td>{{ hds.BasicallyIntactSquare }}</td>
-                            <td>{{ hds.DamagedSquare }}</td>
-                            <td>{{ hds.DestroyedSquare }}</td>
-                            <td>{{ hds.ReportingUnit }}</td>
-                            <!-- <td>{{ hds.EarthquakeId }}</td> -->
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                <h2 style="text-align: center;font-weight: bold;">房屋破坏总表 <small style="font-size:x-small; color: gray;"> <span id="count"></span> 条数据</small></h2>
+
+                <table id="houseDamagedTable" data-show-refresh="true"></table>
             </div>
-            <nav class="text-center" style="text-align: center;">
-                <ul class="pagination justify-content-center">
-                    {% set offset = (offset)|int %}
-                    {% set limit = (limit)|int %}
-                    {% set count = (count)|int %}
 
-                    {% set current_page = (offset/limit)|int + (1 if offset%limit else 0) %}
-                    {% set total_page = (count/limit)|int + (1 if count%limit else 0) %}
-
-                    <li class="page-item {{ 'disabled' if current_page - 1 <0 else '' }}">
-                        <a class="page-link"
-                           href="
-
-                               {% if current_page>1 %}{{ url_for('HouseDamagedListPage',  result=result,offset=(current_page-1)*limit, limit=limit) }}{% endif %}">«</a>
-                    </li>
-
-                    {% set prev = 0 %}
-                    {% for i in range(0, (total_page)|int) %}
-                        {% if (i-0)|abs < 2 or (i-total_page)|abs < 3 or -2 < i-current_page < 5 %}{% set prev=i %}
-                            <li
-                                    class="page-item {% if i == current_page %}active{% endif %}">
-                                <a class="page-link"
-                                   href="{{ url_for('HouseDamagedListPage',  result=result, offset=i*limit, limit=limit) }}">
-                                    {{ i + 1 }}
-                                </a>
-                            </li>
-
-                        {% elif prev == i-1 %}
-                            <li class="page-item disabled"><a class="page-link" href="">...</a></li>
-
-                        {% endif %}
-                    {% endfor %}
-                    <li class="page-item {{ ' disabled' if current_page + 1>= total_page else '' }}">
-                        <a class="page-link"
-                           href="{% if current_page + 1<total_page %}{{ url_for('HouseDamagedListPage', result=result, offset=(current_page + 1)*limit, limit=limit) }}{% endif %}">»</a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </div>
     {% with messages = get_flashed_messages() %}
@@ -131,4 +65,11 @@
         }
     }
 </script>
+{% endblock %}
+
+{% block moreScript %}
+<script src="./static/js/bootstrap-table.min.js"></script>
+<script src="./static/js/bootstrap-table-locale-all.min.js"></script>
+<script src="./static/js/bootstrap-table.min.js"></script>
+<script src="../static/js/houseDamaged.js"></script>
 {% endblock %}

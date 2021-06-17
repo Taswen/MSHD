@@ -35,36 +35,9 @@
         </div>
         <div class="col-md-10">
             <div class="col-md-12 table-responsive">
-                <table class="table table-hover table-sm table-effect" cellspacing="1"
-                       align="center">
-                       <h2 style="text-align: center;font-weight: bold;">人员伤亡总表 <small> {{ count }} 条数据</small></h2>
-                    <thead class="table-header">
-                    <tr>
-                        <td width="8%">序号</td>
-                        <td width="15%">时间</td>
-                        <td width="20%">位置</td>
-                        <td width="15%">死亡人数</td>
-                        <td width="10%">受伤人数</td>
-                        <td width="10%">失踪人数</td>
-                        <td width="10%">上报单位</td>
-                        <td width="12%">对应的震情</td>
-                    </tr>
-                    </thead>
-                    {% for iss in injuredStatistics %}
-                        <tbody>
-{#                        <tr onclick="click_tb({{ eqs.Id }});">#}
-                            <td>{{ iss.Id }}</td>
-                            <td>{{ iss.Date }}</td>
-                            <td>{{ iss.Location }}</td>
-                            <td>{{ iss.DeathNumber }}</td>
-                            <td>{{ iss.InjuredNumber }}</td>
-                            <td>{{ iss.MissingNumber }}</td>
-                            <td>{{ iss.ReportingUnit }}</td>
-                            <td>{{ iss.EarthquakeId }}</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                <h2 style="text-align: center;font-weight: bold;">人员伤亡总表 <small style="font-size:x-small; color: gray;"> <span id="count"></span> 条数据</small></h2>
+
+                <table id="InjuredStatisticsTable" data-show-refresh="true"></table>
             </div>
             <nav class="text-center" style="text-align: center;">
                 <ul class="pagination justify-content-center">
@@ -129,4 +102,12 @@
             }
         }
     </script>
+{% endblock %}
+
+
+{% block moreScript %}
+<script src="./static/js/bootstrap-table.min.js"></script>
+<script src="./static/js/bootstrap-table-locale-all.min.js"></script>
+<script src="./static/js/bootstrap-table.min.js"></script>
+<script src="../static/js/injuredStatistics.js"></script>
 {% endblock %}

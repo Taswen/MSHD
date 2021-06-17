@@ -1,14 +1,14 @@
 const baseUrl = "http://127.0.0.1:5123/"
 
 // 生成表格
-$('#earthquakesTable').bootstrapTable({
-    url: baseUrl + 'api/earthquakes/list', //请求后台的URL（*）
+$('#InjuredStatisticsTable').bootstrapTable({
+    url: baseUrl + 'api/InjuredStatistics/', //请求后台的URL（*）
     method: 'get', //请求方式（*）
     toolbar: '#toolbar',
     buttons:function(){
         return {
             btnAdd: {
-                text: 'Add new earthquaks',
+                text: 'Add new InjuredStatistics',
                 icon: 'fa-plus',
                 event: function () {
                   alert('Do some stuff to e.g. add a new row')
@@ -75,68 +75,25 @@ $('#earthquakesTable').bootstrapTable({
         sortable : true 
     },
     {
-        field: 'Level',
-        title: '震级(M)',
-        sortable : true ,
-        formatter:function(value, row, index, field){
-            let des = ""
-            if(value<1){
-                des = ' <sup style="color:#f3f1fe">超微震</sup>'
-            }else if(value<3){
-                des = ' <sup style="color:#b2eaed">弱震</sup>'
-            }else if(value<4.5){
-                des = ' <sup style="color:#0142fc">有感地震</sup>'
-            }else if(value<6){
-                des = ' <sup style="color:#fce794">中强震</sup>'
-            }else if(value<7){
-                des = ' <sup style="color:#fee600">强震</sup>'
-            }else if(value<8){
-                des = ' <sup style="color:#fd2901">大地震</sup>'
-            }else{
-                des = ' <sup style="color:#b9006d">巨大地震</sup>'
-            }
-            return value + des
-        }
-    },
-    {
-        field: 'OccurrenceTime',
+        field: 'Date',
         title: '发震时刻(UTC+8)',
         sortable : true 
     },
     {
-        field: 'Longitude',
-        title: '经度(°)'
-    },
-    {
-        field: 'Latitude',
-        title: '纬度(°)'
-    },
-    {
-        field: 'Depth',
-        title: '深度(km)',
-        sortable : true 
-        // formatter: function (value, row, index) {
-
-        //     return value + " 小时"
-        // }
-    },
-
-    {
         field: 'Location',
         title: '参考位置',
-        // align: "center",
-        // formatter: function (value, row, index) {
-        //     var state = new Map([
-        //         ["运行", "info"],
-        //         ["完成", "success"],
-        //         ["挂起", "warning"],
-        //         ["错误", "danger"],
-        //         ["终止", "default"]
-        //     ]);
-        //     var result = '<span class="label label-' + state.get(value) + '">' + value + '</span>'
-        //     return result
-        // }
+    },
+     {
+        field: 'DeathNumber',
+        title: '死亡人数',
+    },{
+        field: 'InjuredNumber',
+        title: '受伤人数',
     }, {
+        field: 'MissingNumber',
+        title: '失踪人数',
+    },
+        {
         title: '操作',
         align: "center",
         formatter: function (value, row, index) {
@@ -153,7 +110,7 @@ $('#earthquakesTable').bootstrapTable({
     onDblClickRow: function (row, $element) {
         // $("#taskNameForCheck").val(row.taskName)
         // $("#taskDetails_").click()
-        window.location.href=baseUrl+"earthquakes/"+row.Id
+        window.location.href=baseUrl+"InjuredStatistics/"+row.Id
     },
     //得到查询的参数
     queryParams : function (params) {
@@ -183,7 +140,7 @@ function deleteEq(id){
 function submitDel() {
     var id = $('#delModal #delContext').val();
     $.ajax({
-        url: baseUrl + "api/earthquakes/"+id,
+        url: baseUrl + "api/InjuredStatistics/"+id,
         type: "DELETE",
         success: function (data, textStatus) {
             $('#delModal').modal('hide');

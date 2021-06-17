@@ -63,7 +63,7 @@ class Earthquake(db.Model):
         for attr in earthquake_minimal_attr:
             if not getattr(self, attr, ''):
                 return False
-        return 
+        return True
         
 
     def toMap(self)->Dict:
@@ -114,6 +114,20 @@ class HouseDamaged(db.Model):
                 return False
         return True
 
+    def toMap(self)->Dict:
+        return {
+            'Id': self.Id,
+            'Category': self.Category,
+            'Date': self.Date.strftime(r'%Y.%m.%d %H:%M:%S') if self.Date else "",
+            'Location': self.Location,
+            'BasicallyIntactSquare': self.BasicallyIntactSquare,
+            'DamagedSquare': self.DamagedSquare,
+            'DestroyedSquare': self.DestroyedSquare,
+            'ReportingUnit': self.ReportingUnit,
+            'EarthquakeId': self.EarthquakeId,
+            'Level': self.Level
+        }
+
 
 class InjuredStatistics(db.Model):
     __tablename__ = "InjuredStatistics"
@@ -145,3 +159,13 @@ class InjuredStatistics(db.Model):
             if not getattr(self, attr, ''):
                 return False
         return True
+
+    def toMap(self)->Dict:
+        return {
+            'Id': self.Id,
+            'Date': self.Date.strftime(r'%Y.%m.%d %H:%M:%S') if self.Date else "",
+            'Location': self.Location,
+            'DeathNumber': self.DeathNumber,
+            'InjuredNumber': self.InjuredNumber,
+            'MissingNumber': self.MissingNumber
+        }

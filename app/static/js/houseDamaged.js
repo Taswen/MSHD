@@ -1,28 +1,28 @@
 const baseUrl = "http://127.0.0.1:5123/"
 
 // 生成表格
-$('#earthquakesTable').bootstrapTable({
-    url: baseUrl + 'api/earthquakes/list', //请求后台的URL（*）
+$('#houseDamagedTable').bootstrapTable({
+    url: baseUrl + 'api/houseDamaged/', //请求后台的URL（*）
     method: 'get', //请求方式（*）
     toolbar: '#toolbar',
-    buttons:function(){
+    buttons: function () {
         return {
             btnAdd: {
-                text: 'Add new earthquaks',
+                text: 'Add new houseDamaged',
                 icon: 'fa-plus',
                 event: function () {
-                  alert('Do some stuff to e.g. add a new row')
+                    alert('Do some stuff to e.g. add a new row')
                 },
                 attributes: {
-                  title: 'Add a new row to the table'
+                    title: 'Add a new row to the table'
                 }
-              }
+            }
         }
     },
     // data:baseUrl+"query",
     // showFullscreen: true,
     pagination: true, //是否显示分页（*）
-    sortable:true,
+    sortable: true,
     sortName: 'Id',
     sortOrder: 'asc',
     // search: true, //开启搜索文本框
@@ -39,7 +39,7 @@ $('#earthquakesTable').bootstrapTable({
 
 
     // height:"",
-    paginationLoop:false, 				//设置为 true 启用分页条无限循环的功能。
+    paginationLoop: false, 				//设置为 true 启用分页条无限循环的功能。
     sidePagination: "server", //分页方式：client客户端分页，server服务端分页（*）
     // pageNumber:1,                       //初始化加载第一页，默认第一页
     // pageSize: 10,                       //每页的记录行数（*）
@@ -69,83 +69,47 @@ $('#earthquakesTable').bootstrapTable({
     //     return { classes: strclass };
     // },
     columns: [
-    {
-        field: 'Id',
-        title: '序号(I)',
-        sortable : true 
-    },
-    {
-        field: 'Level',
-        title: '震级(M)',
-        sortable : true ,
-        formatter:function(value, row, index, field){
-            let des = ""
-            if(value<1){
-                des = ' <sup style="color:#f3f1fe">超微震</sup>'
-            }else if(value<3){
-                des = ' <sup style="color:#b2eaed">弱震</sup>'
-            }else if(value<4.5){
-                des = ' <sup style="color:#0142fc">有感地震</sup>'
-            }else if(value<6){
-                des = ' <sup style="color:#fce794">中强震</sup>'
-            }else if(value<7){
-                des = ' <sup style="color:#fee600">强震</sup>'
-            }else if(value<8){
-                des = ' <sup style="color:#fd2901">大地震</sup>'
-            }else{
-                des = ' <sup style="color:#b9006d">巨大地震</sup>'
+        {
+            field: 'Id',
+            title: '序号(I)',
+            sortable: true
+        }, {
+            field: 'Category',
+            title: '破坏类型',
+        }, {
+            field: 'Date',
+            title: '破坏时刻(UTC+8)',
+            sortable: true
+        }, {
+            field: 'Location',
+            title: '参考位置'
+        }, {
+            field: 'BasicallyIntactSquare',
+            title: '基本完好面积(m<sup>2</sup>)',
+            sortable: true
+        }, {
+            field: 'DamagedSquare',
+            title: '破坏面积(m<sup>2</sup>)',
+            sortable: true
+        }, {
+            field: 'DestroyedSquare',
+            title: '毁灭面积(m<sup>2</sup>)',
+            sortable: true
+        }, {
+            field: 'Level',
+            title: '破坏等级',
+            sortable: true
+        },
+        {
+            title: '操作',
+            align: "center",
+            formatter: function (value, row, index) {
+                // switch (row.taskState) {
+                return '<div><button type="button" class="btn btn-sm btn-outline-warning" onclick="editEq(' + row.Id + ')">修改</button>&nbsp;&nbsp;' +
+                    '<button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteEq(' + row.Id + ')">删除</button></div>'
+                // }
             }
-            return value + des
         }
-    },
-    {
-        field: 'OccurrenceTime',
-        title: '发震时刻(UTC+8)',
-        sortable : true 
-    },
-    {
-        field: 'Longitude',
-        title: '经度(°)'
-    },
-    {
-        field: 'Latitude',
-        title: '纬度(°)'
-    },
-    {
-        field: 'Depth',
-        title: '深度(km)',
-        sortable : true 
-        // formatter: function (value, row, index) {
-
-        //     return value + " 小时"
-        // }
-    },
-
-    {
-        field: 'Location',
-        title: '参考位置',
-        // align: "center",
-        // formatter: function (value, row, index) {
-        //     var state = new Map([
-        //         ["运行", "info"],
-        //         ["完成", "success"],
-        //         ["挂起", "warning"],
-        //         ["错误", "danger"],
-        //         ["终止", "default"]
-        //     ]);
-        //     var result = '<span class="label label-' + state.get(value) + '">' + value + '</span>'
-        //     return result
-        // }
-    }, {
-        title: '操作',
-        align: "center",
-        formatter: function (value, row, index) {
-            // switch (row.taskState) {
-                return '<div><button type="button" class="btn btn-sm btn-outline-warning" onclick="editEq(' + row.Id + ')">修改</button>&nbsp;&nbsp;'+
-                            '<button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteEq(' + row.Id + ')">删除</button></div>'
-            // }
-        }
-    }
     ],
     // onLoadError: function() {
     //     showTips("数据加载失败！");
@@ -153,29 +117,29 @@ $('#earthquakesTable').bootstrapTable({
     onDblClickRow: function (row, $element) {
         // $("#taskNameForCheck").val(row.taskName)
         // $("#taskDetails_").click()
-        window.location.href=baseUrl+"earthquakes/"+row.Id
+        window.location.href = baseUrl + "houseDamaged/" + row.Id
     },
     //得到查询的参数
-    queryParams : function (params) {
+    queryParams: function (params) {
         //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
         var temp = {
             "limit": params.limit, //页面大小
             "offset": params.offset, //页码
             "orderBy": params.sort,
-            "order":params.order, //排序列名
+            "order": params.order, //排序列名
 
         };
         return temp;
     },
     locale: "zh-CN",
-    responseHandler: function (res,jqXHRs) {
+    responseHandler: function (res, jqXHRs) {
         $('#count').html(res["total"])
         return res
     }
 });
 
 // 删除数据
-function deleteEq(id){
+function deleteEq(id) {
     $('#delModal #delContext').val(id)
     $('#delModal').modal('show');
 }
@@ -183,7 +147,7 @@ function deleteEq(id){
 function submitDel() {
     var id = $('#delModal #delContext').val();
     $.ajax({
-        url: baseUrl + "api/earthquakes/"+id,
+        url: baseUrl + "api/houseDamaged/" + id,
         type: "DELETE",
         success: function (data, textStatus) {
             $('#delModal').modal('hide');
