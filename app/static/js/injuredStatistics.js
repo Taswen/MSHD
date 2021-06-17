@@ -2,9 +2,9 @@ const baseUrl = "http://127.0.0.1:5123/"
 
 // 生成表格
 $('#InjuredStatisticsTable').bootstrapTable({
-    url: baseUrl + 'api/InjuredStatistics/', //请求后台的URL（*）
+    url: baseUrl + 'api/InjuredStatistics/list', //请求后台的URL（*）
     method: 'get', //请求方式（*）
-    toolbar: '#toolbar',
+    // toolbar: '#toolbar',
     buttons:function(){
         return {
             btnAdd: {

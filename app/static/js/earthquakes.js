@@ -4,7 +4,7 @@ const baseUrl = "http://127.0.0.1:5123/"
 $('#earthquakesTable').bootstrapTable({
     url: baseUrl + 'api/earthquakes/list', //请求后台的URL（*）
     method: 'get', //请求方式（*）
-    toolbar: '#toolbar',
+    // toolbar: '#toolbar',
     buttons:function(){
         return {
             btnAdd: {

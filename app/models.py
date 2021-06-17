@@ -42,7 +42,7 @@ class Earthquake(db.Model):
         return f'<Earthquake> {self.Location}:{self.Level}'
 
     def enable_print(self):
-        self.Str_ot = self.OccurrenceTime.strptime(r'%Y-%m-%d %H:%M:%S')
+        self.Str_ot = self.OccurrenceTime.strftime(r'%Y-%m-%d %H:%M:%S') if self.OccurrenceTime else ""
         return self
 
     @classmethod
@@ -70,7 +70,7 @@ class Earthquake(db.Model):
         return {
             'Id': self.Id, 
             'Level': self.Level, 
-            'OccurrenceTime': self.OccurrenceTime.strftime(r'%Y.%m.%d %H:%M:%S') if self.OccurrenceTime else "", 
+            'OccurrenceTime': self.OccurrenceTime.strftime(r'%Y-%m-%d %H:%M:%S') if self.OccurrenceTime else "", 
             'Longitude': self.Longitude, 
             'Latitude': self.Latitude, 
             'Depth': self.Depth, 
@@ -99,7 +99,7 @@ class HouseDamaged(db.Model):
     Earthqu = db.relationship("Earthquake", backref="HouseDamageds")
 
     def enable_print(self):
-        self.Str_ot = str(self.Date)
+        self.Str_ot = self.Date.strftime(r'%Y-%m-%d %H:%M:%S') if self.Date else ""
         return self
 
     def __init__(self, data: Dict):
@@ -118,7 +118,7 @@ class HouseDamaged(db.Model):
         return {
             'Id': self.Id,
             'Category': self.Category,
-            'Date': self.Date.strftime(r'%Y.%m.%d %H:%M:%S') if self.Date else "",
+            'Date': self.Date.strftime(r'%Y-%m-%d %H:%M:%S') if self.Date else "",
             'Location': self.Location,
             'BasicallyIntactSquare': self.BasicallyIntactSquare,
             'DamagedSquare': self.DamagedSquare,
@@ -145,7 +145,7 @@ class InjuredStatistics(db.Model):
     Earthqu = db.relationship("Earthquake", backref="InjuredStatistics")
 
     def enable_print(self):
-        self.Str_ot = str(self.Date)
+        self.Str_ot = self.Date.strftime(r'%Y-%m-%d %H:%M:%S') if self.Date else ""
         return self
 
     def __init__(self, data: Dict):
@@ -163,7 +163,7 @@ class InjuredStatistics(db.Model):
     def toMap(self)->Dict:
         return {
             'Id': self.Id,
-            'Date': self.Date.strftime(r'%Y.%m.%d %H:%M:%S') if self.Date else "",
+            'Date': self.Date.strftime(r'%Y-%m-%d %H:%M:%S') if self.Date else "",
             'Location': self.Location,
             'DeathNumber': self.DeathNumber,
             'InjuredNumber': self.InjuredNumber,

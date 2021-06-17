@@ -2,9 +2,9 @@ const baseUrl = "http://127.0.0.1:5123/"
 
 // 生成表格
 $('#houseDamagedTable').bootstrapTable({
-    url: baseUrl + 'api/houseDamaged/', //请求后台的URL（*）
+    url: baseUrl + 'api/houseDamaged/list', //请求后台的URL（*）
     method: 'get', //请求方式（*）
-    toolbar: '#toolbar',
+    // toolbar: '#toolbar',
     buttons: function () {
         return {
             btnAdd: {
@@ -137,6 +137,8 @@ $('#houseDamagedTable').bootstrapTable({
         return res
     }
 });
+
+$('#houseDamagedTable').bootstrapTable("hideColumn","BasicallyIntactSquare")
 
 // 删除数据
 function deleteEq(id) {
