@@ -3,13 +3,16 @@ from sqlalchemy import text
 from app.models import *
 
 
+
+
 def get_all_earthquakes_data():
     eqs = Earthquake.query.all()
     process_eqs = [e.enable_print() for e in eqs]
     return process_eqs
 
 
-def get_earthquakes_data(limit=None, offset=None):
+def get_earthquakes_data(limit=None, offset=None,orderBy="id",order="asc"):
+    print(Earthquake.Depth)
     eqs = Earthquake.query.order_by(text("id")).limit(limit).offset(offset).all()
     process_eqs = [e.enable_print() for e in eqs]
     return process_eqs
@@ -65,3 +68,8 @@ def get_HouseDamaged_num():
 
 def get_InjuredStatistics_num():
     return InjuredStatistics.query.count()
+
+
+
+if __name__ == "__main__":
+    get_earthquakes_data()
