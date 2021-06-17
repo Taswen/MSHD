@@ -42,7 +42,7 @@ class Earthquake(db.Model):
         return f'<Earthquake> {self.Location}:{self.Level}'
 
     def enable_print(self):
-        self.Str_ot = str(self.OccurrenceTime)
+        self.Str_ot = self.OccurrenceTime.strptime(r'%Y-%m-%d %H:%M:%S')
         return self
 
     @classmethod
@@ -70,7 +70,7 @@ class Earthquake(db.Model):
         return {
             'Id': self.Id, 
             'Level': self.Level, 
-            'OccurrenceTime': self.OccurrenceTime, 
+            'OccurrenceTime': self.OccurrenceTime.strftime(r'%Y.%m.%d %H:%M:%S') if self.OccurrenceTime else "", 
             'Longitude': self.Longitude, 
             'Latitude': self.Latitude, 
             'Depth': self.Depth, 

@@ -4,13 +4,28 @@ const baseUrl = "http://127.0.0.1:5123/"
 $('#earthquakesTable').bootstrapTable({
     url: baseUrl + 'api/earthquakes/', //请求后台的URL（*）
     method: 'get', //请求方式（*）
-    // toolbar: '#toolbar',
+    toolbar: '#toolbar',
+    buttons:function(){
+        return {
+            btnAdd: {
+                text: 'Add new earthquaks',
+                icon: 'fa-plus',
+                event: function () {
+                  alert('Do some stuff to e.g. add a new row')
+                },
+                attributes: {
+                  title: 'Add a new row to the table'
+                }
+              }
+        }
+    },
     // data:baseUrl+"query",
     // showFullscreen: true,
-    // striped: true, //是否显示行间隔色
     pagination: true, //是否显示分页（*）
-
-    search: true, //开启搜索文本框
+    sortable:true,
+    sortName: 'Id',
+    sortOrder: 'asc',
+    // search: true, //开启搜索文本框
     // searchText:"流浪地球",
     // searchOnEnterKey:true, //回车后执行搜索
     // strictSearch: true, //完全匹配
@@ -53,21 +68,44 @@ $('#earthquakesTable').bootstrapTable({
     //     // console.log(strclass);
     //     return { classes: strclass };
     // },
-    columns: [{
-        checkbox: true,
-        align: "center",
-    },
+    columns: [
+    //     {
+    //     checkbox: true,
+    //     align: "center",
+    // },
     {
         field: 'Id',
-        title: '序号(I)'
+        title: '序号(I)',
+        sortable : true 
     },
     {
         field: 'Level',
-        title: '震级(M)'
+        title: '震级(M)',
+        sortable : true ,
+        formatter:function(value, row, index, field){
+            let des = ""
+            if(value<1){
+                des = ' <sup style="color:#f3f1fe">超微震</sup>'
+            }else if(value<3){
+                des = ' <sup style="color:#b2eaed">弱震</sup>'
+            }else if(value<4.5){
+                des = ' <sup style="color:#0142fc">有感地震</sup>'
+            }else if(value<6){
+                des = ' <sup style="color:#fce794">中强震</sup>'
+            }else if(value<7){
+                des = ' <sup style="color:#fee600">强震</sup>'
+            }else if(value<8){
+                des = ' <sup style="color:#fd2901">大地震</sup>'
+            }else{
+                des = ' <sup style="color:#b9006d">巨大地震</sup>'
+            }
+            return value + des
+        }
     },
     {
         field: 'OccurrenceTime',
-        title: '发震时刻(UTC+8)'
+        title: '发震时刻(UTC+8)',
+        sortable : true 
     },
     {
         field: 'Longitude',
@@ -80,6 +118,7 @@ $('#earthquakesTable').bootstrapTable({
     {
         field: 'Depth',
         title: '深度(km)',
+        sortable : true 
         // formatter: function (value, row, index) {
 
         //     return value + " 小时"
@@ -104,24 +143,27 @@ $('#earthquakesTable').bootstrapTable({
     }, {
         title: '操作',
         align: "center",
-        // formatter: function (value, row, index) {
-        //     switch (row.taskState) {
-        //         case "运行":
-        //             return '<button id="btn_edit" type="button" class="btn btn-sm" onclick="editTask(' + index + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改</button>&nbsp;'+
-        //                     '<button id="btn_delete" type="button" class="btn btn-sm" onclick="deleteOneTask(' + index + ')"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> 终止</button>'
+        formatter: function (value, row, index) {
+            // switch (row.taskState) {
+                return '<div><button type="button" class="btn btn-sm btn-outline-warning" onclick="editEq(' + row.Id + ')">修改</button>&nbsp;&nbsp;'+
+                            '<button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteEq(' + row.Id + ')">删除</button></div>'
 
-        //         case "挂起":
-        //             return '<button id="btn_edit" type="button" class="btn btn-sm" onclick="editTask(' + index +')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改</button>&nbsp;'+
-        //                     '<button id="btn_delete" type="button" class="btn btn-sm" onclick="deleteOneTask(' + index + ')"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> 终止</button>'
-        //         case "错误":
-        //             return '<button id="btn_edit" type="button" class="btn btn-sm" onclick="editTask(' + index + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改</button>&nbsp;'+
-        //                     '<button id="btn_delete" type="button" class="btn btn-sm" onclick="deleteOneTask(' + index + ')"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> 终止</button>'
-        //         case "完成":
-        //         case "终止":
-        //         default:
-        //             return "-"
-        //     }
-        // }
+                // case "运行":
+                //     return '<button id="btn_edit" type="button" class="btn btn-sm" onclick="editTask(' + index + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改</button>&nbsp;'+
+                //             '<button id="btn_delete" type="button" class="btn btn-sm" onclick="deleteOneTask(' + index + ')"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> 终止</button>'
+
+                // case "挂起":
+                //     return '<button id="btn_edit" type="button" class="btn btn-sm" onclick="editTask(' + index +')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改</button>&nbsp;'+
+                //             '<button id="btn_delete" type="button" class="btn btn-sm" onclick="deleteOneTask(' + index + ')"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> 终止</button>'
+                // case "错误":
+                //     return '<button id="btn_edit" type="button" class="btn btn-sm" onclick="editTask(' + index + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改</button>&nbsp;'+
+                //             '<button id="btn_delete" type="button" class="btn btn-sm" onclick="deleteOneTask(' + index + ')"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> 终止</button>'
+                // case "完成":
+                // case "终止":
+                // default:
+                //     return "-"
+            // }
+        }
     }
     ],
     // onLoadError: function() {
@@ -133,13 +175,41 @@ $('#earthquakesTable').bootstrapTable({
         window.location.href=baseUrl+"earthquakes/"+row.Id
     },
     //得到查询的参数
-    queryParams: function (params) {
+    queryParams : function (params) {
         //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
         var temp = {
-            limit: params.limit, //页面大小
-            offset: params.offset, //页码
-            order: params.order, //排序列名
+            "limit": params.limit, //页面大小
+            "offset": params.offset, //页码
+            "orderBy": params.sort,
+            "order":params.order, //排序列名
+
         };
         return temp;
     },
+    locale: "zh-CN",
+    responseHandler: function (res,jqXHRs) {
+        $('#count').html(res["total"])
+        return res
+    }
 });
+
+// 删除数据
+function deleteEq(id){
+    $('#delModal #delContext').val(id)
+    $('#delModal').modal('show');
+}
+
+function submitDel() {
+    var id = $('#delModal #delContext').val();
+    $.ajax({
+        url: baseUrl + "api/earthquakes/"+id,
+        type: "DELETE",
+        success: function (data, textStatus) {
+            $('#delModal').modal('hide');
+            $('#earthquakesTable').bootstrapTable('refresh'); //刷新  
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $('#delModal .modal-body').html("" + XMLHttpRequest.status + " " + errorThrown + "<hr/>发生错误, 是否重试")
+        }
+    });
+}
