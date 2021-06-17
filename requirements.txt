@@ -1,9 +1,9 @@
 pyftpdlib==1.5.6
-SQLAlchemy==1.4.17
-Flask==2.0.1
-Werkzeug==2.0.1
-PyMySQL==1.0.2
-schedule==1.1.0
-Flask_SQLAlchemy==2.5.1
 Jinja2==3.0.1
+SQLAlchemy==1.4.17
+Flask_SQLAlchemy==2.5.1
+PyMySQL==1.0.2
+Werkzeug==2.0.1
+Flask==2.0.1
+schedule==1.1.0
 dataclasses==0.8
