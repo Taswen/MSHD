@@ -26,7 +26,7 @@ var FileInput = function () {
             maxFileCount: 1, //表示允许同时上传的最大文件个数
             enctype: 'multipart/form-data',
             validateInitialCount: true,
-            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            previewFileIcon: "<i class='fa fa-king'></i>",
             msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的上传{m}个文件！",
         });
 
