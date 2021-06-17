@@ -2,7 +2,7 @@ const baseUrl = "http://127.0.0.1:5123/"
 
 // 生成表格
 $('#earthquakesTable').bootstrapTable({
-    url: baseUrl + 'api/earthquakes/', //请求后台的URL（*）
+    url: baseUrl + 'api/earthquakes/list', //请求后台的URL（*）
     method: 'get', //请求方式（*）
     toolbar: '#toolbar',
     buttons:function(){
@@ -172,7 +172,7 @@ $('#earthquakesTable').bootstrapTable({
     onDblClickRow: function (row, $element) {
         // $("#taskNameForCheck").val(row.taskName)
         // $("#taskDetails_").click()
-        window.location.href=baseUrl+"earthquakes/"+row.Id
+        window.location.href=baseUrl+"earthquake/"+row.Id
     },
     //得到查询的参数
     queryParams : function (params) {
@@ -202,7 +202,7 @@ function deleteEq(id){
 function submitDel() {
     var id = $('#delModal #delContext').val();
     $.ajax({
-        url: baseUrl + "api/earthquakes/"+id,
+        url: baseUrl + "api/earthquake/"+id,
         type: "DELETE",
         success: function (data, textStatus) {
             $('#delModal').modal('hide');
