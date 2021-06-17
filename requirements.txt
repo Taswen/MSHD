@@ -6,4 +6,3 @@ PyMySQL==1.0.2
 Werkzeug==2.0.1
 Flask==2.0.1
 schedule==1.1.0
-dataclasses==0.8

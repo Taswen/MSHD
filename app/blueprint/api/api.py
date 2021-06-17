@@ -14,7 +14,7 @@ name_model_map = {
     'earthquakes': Earthquake,
     'disaster': Disaster,
     'house_damaged': HouseDamaged,
-    'InjuredStatistics': InjuredStatistics,
+    'injured_statistics': InjuredStatistics,
 }
 
 
