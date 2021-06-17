@@ -20,5 +20,5 @@ GET /api/earchquaskes
 2. 可带 `orderBy` 和 `order` 来获取按照指定字段顺序排序的Json。
 
 
-3. 可带 `dateSart` 和 `dateEnd` 来指定时间段范围内的Json数据
+3. 可带 `dateStart` 和 `dateEnd` 来指定时间段范围内的Json数据
 
