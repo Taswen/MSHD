@@ -1,27 +1,28 @@
 # -*- coding: utf-8 -*-
 # filename api.py
-from flask import Blueprint,render_template, request
+from flask import Blueprint,render_template, request,jsonify
 from app.db import *
 
 api = Blueprint('api',__name__)
 
-@api.route('/earthquakes', methods=['GET', 'PUT', 'DELETE', 'POST'])
+@api.route('/earthquakes/', methods=['GET', 'PUT', 'DELETE', 'POST'])
 def earthquakes():
     if request.method == 'GET':
         try:
             offset = request.args.get('offset', None, int)
             limit = request.args.get('limit', None, int)
-            s = request.args.get("orderBy")
-            s = request.args.get("order")
-            s = request.args.get("orderBy")
-            s = request.args.get("order")
+            orderBy = request.args.get("orderBy")
+            order = request.args.get("order")
         except ValueError as e :
             return {""}
         # if()
-        # Earthquake.query.order_by(text("id")).limit(limit).offset(offset).all()
-
-
-
+        datas = Earthquake.query.order_by(text("id"))
+        eqs=  datas.limit(limit).offset(offset).all()
+        res = {"limit":limit if limit!= None else 0 ,"rows":[],"total":datas.count()}
+        for eq in eqs:
+            res["rows"].append(eq.toMap())
+        print(res)
+        return jsonify(res)
     elif request.method == "PUT":
         pass 
     elif request.method == 'DELETE':

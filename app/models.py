@@ -63,7 +63,22 @@ class Earthquake(db.Model):
         for attr in earthquake_minimal_attr:
             if not getattr(self, attr, ''):
                 return False
-        return True
+        return 
+        
+
+    def toMap(self)->Dict:
+        return {
+            'Id': self.Id, 
+            'Level': self.Level, 
+            'OccurrenceTime': self.OccurrenceTime, 
+            'Longitude': self.Longitude, 
+            'Latitude': self.Latitude, 
+            'Depth': self.Depth, 
+            'Location': self.Location, 
+            'ReportingUnit': self.ReportingUnit, 
+            'EarthquakeEncode': self.EarthquakeEncode, 
+            'Source': self.Source
+        }
 
 
 class HouseDamaged(db.Model):

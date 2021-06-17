@@ -25,23 +25,28 @@ from app.custom.converter import RegexConverter
 
 app = create_app("development")
 
-app.register_blueprint(api,url_prefix='/admin')
+app.register_blueprint(api,url_prefix='/api')
 
 @app.route('/')
 def mapPage():
     return render_template("index.html")
 
 
+# @app.route('/earthquakes')
+# def earthquakesListPage():
+#     result = request.args.get("result", 'ALL', str)
+#     offset = request.args.get('offset', 0, int)
+#     limit = request.args.get('limit', 20, int)
+#     count = get_earthquakes_num()
+#     earthquakes = get_earthquakes_data(limit=limit, offset=offset)
+
+#     return render_template("earthquakes.html", count=count, result=result, earthquakes=earthquakes, offset=offset,
+#                            limit=limit)
+
 @app.route('/earthquakes')
 def earthquakesListPage():
-    result = request.args.get("result", 'ALL', str)
-    offset = request.args.get('offset', 0, int)
-    limit = request.args.get('limit', 20, int)
     count = get_earthquakes_num()
-    earthquakes = get_earthquakes_data(limit=limit, offset=offset)
-
-    return render_template("earthquakes.html", count=count, result=result, earthquakes=earthquakes, offset=offset,
-                           limit=limit)
+    return render_template("earthquakes1.html",count=count)
 
 
 @app.route('/earthquakes/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST', 'DELETE'])

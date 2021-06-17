@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block other_head %}
+<link rel="stylesheet" href="../static/css/common.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link href="./static/css/bootstrap-table.min.css" rel="stylesheet" type="text/css">
+<script>
+    function click_tb(id) {
+        window.location.href = "/earthquakes/" + id
+    }
+</script>
+{% endblock %}
+
+{% block header %}
+{{ nav() }}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="panel">
+                <div class="card">
+                    <h4 class="card-header" style="cursor: default;" data-toggle="collapse"  data-target="#views">
+                        数据视角
+                    </h4>
+                    <ul class="list-group" id="views">
+                        <li class="list-group-item">
+                            <a href="/earthquakes">数据表格</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="/earthquakes/map">地图可视化</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="col-md-12 table-responsive">
+                <h2 style="text-align: center;font-weight: bold;">震情总表 <small style="font-size:x-small; color: gray;"> {{ count }} 条数据</small></h2>
+                <table id="earthquakesTable" data-show-refresh="true">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<script>
+    var messages = {{ messages | safe }};
+    for (var i = 0; i < messages.length; i++) {
+        alert(messages[i]);
+    }
+</script>
+
+{% endif %}
+{% endwith %}
+
+<script>
+    const nav = document.getElementById("navOptions")
+    console.log(nav.children.length)
+    for (let i = 0; i < nav.children.length; i++) {
+        if (nav.children[i].firstChild.innerHTML == "震情") {
+            nav.children[i].classList.add("active");
+
+        }
+        else {
+            nav.children[i].classList.remove("active");
+        }
+    }
+</script>
+
+{% endblock %}
+
+
+
+{% block moreScript %}
+<script src="./static/js/bootstrap-table.min.js"></script>
+<script src="./static/js/bootstrap-table-locale-all.min.js"></script>
+<script src="./static/js/bootstrap-table.min.js"></script>
+<script src="../static/js/earthquakes.js"></script>
+{% endblock %}
