@@ -1,12 +1,12 @@
+from app.models import Earthquake, HouseDamaged, InjuredStatistics
+from app.db import *
 import os
 
-from flask import render_template, request, redirect, send_from_directory
-from flask.helpers import url_for
+from flask import render_template, request, send_from_directory
 from jinja2.exceptions import TemplateNotFound
 
 from app import create_app
 from app.blueprint.api.api import api
-from app.db import *
 
 # from scanner.scanner import Scanner
 
@@ -15,7 +15,7 @@ from app.db import *
 #     app = Flask(__name__)
 #     app.config.from_pyfile("config/settings.py")
 #     app.url_map.converters['regex']=RegexConverter
-#     db.init_app(app)
+#     db.init_app(app)x
 #     # Scanner(app).run()
 #     return app
 
@@ -33,10 +33,10 @@ def mapPage():
 @app.route('/earthquakes')
 def earthquakesListPage():
     count = get_earthquakes_num()
-    return render_template("earthquakes1.html", count=count)
+    return render_template("earthquakes.html", count=count)
 
 
-@app.route('/earthquakes/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST', 'DELETE'])
+@app.route('/earthquakes/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST'])
 def earthquakesInfoPage(id):
     if request.method == 'GET':
         eq = Earthquake.query.get(id)
@@ -53,7 +53,6 @@ def earthquakesInfoPage(id):
     return render_template("earthquakeInfo.html", eq=eq, hoDs=HoD, ijSs=IjS)
 
 
-
 @app.route('/docs', methods=['POST', 'GET'])
 def getDocs():
     if request.method == 'POST':
@@ -66,7 +65,7 @@ def getDocs():
                 return send_from_directory('./doc/md', docName)
             else:
                 return ""
-        except TemplateNotFound as e:
+        except TemplateNotFound:
             return "File Not Found"
     elif request.method == 'GET':
         return render_template("docs.html")
@@ -112,7 +111,8 @@ def InjuredStatisticsListPage():
     offset = request.args.get('offset', 0, int)
     limit = request.args.get('limit', 20, int)
     count = get_InjuredStatistics_num()
-    injuredStatistics = get_all_InjuredStatistics_data(limit=limit, offset=offset)
+    injuredStatistics = get_all_InjuredStatistics_data(
+        limit=limit, offset=offset)
 
     return render_template("InjuredStatistics.html", count=count, result=result, injuredStatistics=injuredStatistics,
                            offset=offset,
@@ -133,7 +133,7 @@ def HouseDamagedListPage():
 
 @app.route('/test', methods=['POST', 'GET'])
 def test():
-    ## 测试
+    # 测试
 
     return render_template("indexP.html")
 

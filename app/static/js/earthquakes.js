@@ -5,20 +5,20 @@ $('#earthquakesTable').bootstrapTable({
     url: baseUrl + 'api/earthquakes/', //请求后台的URL（*）
     method: 'get', //请求方式（*）
     toolbar: '#toolbar',
-    buttons:function(){
-        return {
-            btnAdd: {
-                text: 'Add new earthquaks',
-                icon: 'fa-plus',
-                event: function () {
-                  alert('Do some stuff to e.g. add a new row')
-                },
-                attributes: {
-                  title: 'Add a new row to the table'
-                }
-              }
-        }
-    },
+    // buttons:function(){
+    //     return {
+    //         btnAdd: {
+    //             text: 'Add new earthquaks',
+    //             icon: 'fa-plus',
+    //             event: function () {
+    //               alert('Do some stuff to e.g. add a new row')
+    //             },
+    //             attributes: {
+    //               title: 'Add a new row to the table'
+    //             }
+    //           }
+    //     }
+    // },
     // data:baseUrl+"query",
     // showFullscreen: true,
     pagination: true, //是否显示分页（*）
@@ -69,10 +69,6 @@ $('#earthquakesTable').bootstrapTable({
     //     return { classes: strclass };
     // },
     columns: [
-    //     {
-    //     checkbox: true,
-    //     align: "center",
-    // },
     {
         field: 'Id',
         title: '序号(I)',
@@ -119,50 +115,17 @@ $('#earthquakesTable').bootstrapTable({
         field: 'Depth',
         title: '深度(km)',
         sortable : true 
-        // formatter: function (value, row, index) {
-
-        //     return value + " 小时"
-        // }
     },
 
     {
         field: 'Location',
         title: '参考位置',
-        // align: "center",
-        // formatter: function (value, row, index) {
-        //     var state = new Map([
-        //         ["运行", "info"],
-        //         ["完成", "success"],
-        //         ["挂起", "warning"],
-        //         ["错误", "danger"],
-        //         ["终止", "default"]
-        //     ]);
-        //     var result = '<span class="label label-' + state.get(value) + '">' + value + '</span>'
-        //     return result
-        // }
     }, {
         title: '操作',
         align: "center",
         formatter: function (value, row, index) {
-            // switch (row.taskState) {
                 return '<div><button type="button" class="btn btn-sm btn-outline-warning" onclick="editEq(' + row.Id + ')">修改</button>&nbsp;&nbsp;'+
                             '<button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteEq(' + row.Id + ')">删除</button></div>'
-
-                // case "运行":
-                //     return '<button id="btn_edit" type="button" class="btn btn-sm" onclick="editTask(' + index + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改</button>&nbsp;'+
-                //             '<button id="btn_delete" type="button" class="btn btn-sm" onclick="deleteOneTask(' + index + ')"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> 终止</button>'
-
-                // case "挂起":
-                //     return '<button id="btn_edit" type="button" class="btn btn-sm" onclick="editTask(' + index +')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改</button>&nbsp;'+
-                //             '<button id="btn_delete" type="button" class="btn btn-sm" onclick="deleteOneTask(' + index + ')"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> 终止</button>'
-                // case "错误":
-                //     return '<button id="btn_edit" type="button" class="btn btn-sm" onclick="editTask(' + index + ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改</button>&nbsp;'+
-                //             '<button id="btn_delete" type="button" class="btn btn-sm" onclick="deleteOneTask(' + index + ')"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> 终止</button>'
-                // case "完成":
-                // case "终止":
-                // default:
-                //     return "-"
-            // }
         }
     }
     ],
@@ -213,3 +176,53 @@ function submitDel() {
         }
     });
 }
+
+
+// 编辑地震信息
+function editEq(index) {
+    var jobj = $('#earthquakesTable').bootstrapTable('getData')[index];
+    if (jobj == undefined) {
+        alert("错误！数据不存在！")
+        return false;
+    } else {
+        // 不可更改
+        // $('#movieName').val(jobj.movieName).prop('disabled', true);
+        // $('#taskStartTime').val(jobj.taskStartTime).prop('disabled', true);
+        // $('#taskName').val(jobj.taskName).prop('disabled', true);
+        // // 隐藏
+        // $('#taskState').hide();
+        // // 可更改
+        // $('#taskInterval').val(jobj.taskInterval);
+        // endpicker.data('DateTimePicker').minDate(new Date());
+
+        // $('#taskEndTime').val(jobj.taskEndTime)
+
+        // $('#editId').val(jobj.id);
+        // $('#flag').val("edit");
+
+        $('#myModalLabel').html("编辑震情数据");
+        $('#editModal').modal('show');
+    }
+
+}
+
+// 初始化时间选择器
+var picker1 = $('#eqTimePicker').datetimepicker({
+    
+    format: 'YYYY-MM-DD HH:mm:ss',
+    locale: moment.locale('zh-cn')
+});
+
+$.extend(true, $.fn.datetimepicker.defaults, {
+    icons: {
+      time: 'far fa-clock',
+      date: 'far fa-calendar',
+      up: 'fas fa-arrow-up',
+      down: 'fas fa-arrow-down',
+      previous: 'fas fa-chevron-left',
+      next: 'fas fa-chevron-right',
+      today: 'fas fa-calendar-check',
+      clear: 'far fa-trash-alt',
+      close: 'far fa-times-circle'
+    }
+  });
