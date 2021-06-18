@@ -1,6 +1,7 @@
 import csv
 from sqlalchemy import text
-from app.models import *
+from app.models import Earthquake, HouseDamaged, InjuredStatistics
+from app.ext import db
 
 
 def get_all_earthquakes_data():
@@ -10,7 +11,8 @@ def get_all_earthquakes_data():
 
 
 def get_earthquakes_data(limit=None, offset=None, orderBy="id", order="asc"):
-    eqs = Earthquake.query.order_by(text("id")).limit(limit).offset(offset).all()
+    eqs = Earthquake.query.order_by(
+        text(orderBy)).limit(limit).offset(offset).all()
     process_eqs = [e.enable_print() for e in eqs]
     return process_eqs
 
@@ -38,13 +40,15 @@ def readCsv(file):
 
 
 def get_all_HouseDamaged_data(limit=None, offset=None):
-    hds = HouseDamaged.query.order_by(text("id")).limit(limit).offset(offset).all()
+    hds = HouseDamaged.query.order_by(
+        text("id")).limit(limit).offset(offset).all()
     house_damaged = [hd.enable_print() for hd in hds]
     return house_damaged
 
 
 def get_all_InjuredStatistics_data(limit=None, offset=None):
-    ists = InjuredStatistics.query.order_by(text("id")).limit(limit).offset(offset).all()
+    ists = InjuredStatistics.query.order_by(
+        text("id")).limit(limit).offset(offset).all()
     injured_data = [ist.enable_print() for ist in ists]
     return injured_data
 
@@ -56,7 +60,8 @@ def delete_one_HouseDamaged_by_id(id):
 
 
 def delete_one_InjuredStatistics_by_id(id):
-    injured_data = InjuredStatistics.query.filter(InjuredStatistics.Id == id).first()
+    injured_data = InjuredStatistics.query.filter(
+        InjuredStatistics.Id == id).first()
     db.session.delete(injured_data)
     db.session.commit()
 

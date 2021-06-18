@@ -5,20 +5,20 @@ $('#houseDamagedTable').bootstrapTable({
     url: baseUrl + 'api/houseDamaged/list', //请求后台的URL（*）
     method: 'get', //请求方式（*）
     // toolbar: '#toolbar',
-    buttons: function () {
-        return {
-            btnAdd: {
-                text: 'Add new houseDamaged',
-                icon: 'fa-plus',
-                event: function () {
-                    alert('Do some stuff to e.g. add a new row')
-                },
-                attributes: {
-                    title: 'Add a new row to the table'
-                }
-            }
-        }
-    },
+    // buttons: function () {
+    //     return {
+    //         btnAdd: {
+    //             text: 'Add new houseDamaged',
+    //             icon: 'fa-plus',
+    //             event: function () {
+    //                 alert('Do some stuff to e.g. add a new row')
+    //             },
+    //             attributes: {
+    //                 title: 'Add a new row to the table'
+    //             }
+    //         }
+    //     }
+    // },
     // data:baseUrl+"query",
     // showFullscreen: true,
     pagination: true, //是否显示分页（*）
@@ -142,6 +142,7 @@ $('#houseDamagedTable').bootstrapTable("hideColumn","BasicallyIntactSquare")
 
 // 删除数据
 function deleteEq(id) {
+
     $('#delModal #delContext').val(id)
     $('#delModal').modal('show');
 }

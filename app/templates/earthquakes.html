@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% block other_head %}
+<link rel="stylesheet" href="../static/css/common.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link href="../static/css/bootstrap-table.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.min.css">
+
+<script>
+    function click_tb(id) {
+        window.location.href = "/earthquakes/" + id
+    }
+</script>
+{% endblock %}
+
+{% block header %}
+{{ nav() }}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="panel">
+                <div class="card">
+                    <h4 class="card-header" style="cursor: default;" data-toggle="collapse" data-target="#views">
+                        数据视角
+                    </h4>
+                    <ul class="list-group" id="views">
+                        <li class="list-group-item">
+                            <a href="/earthquakes">数据表格</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="/earthquakes/map">地图可视化</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="col-md-12 table-responsive">
+                <h2 style="text-align: center;font-weight: bold;">震情总表 <small style="font-size:x-small; color: gray;">
+                        <span id="count"></span> 条数据</small></h2>
+                <!-- <div id="toolbar" style="float:right;">
+                    <div class="btn-group">
+                        <button id="btn_add" type="button" class="btn btn-default" onclick="addTask()">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+                        </button>
+                        <button id="btn_delete" type="button" class="btn btn-default" onclick="deleteTasks()">
+                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>终止
+                        </button>
+                    </div>
+                </div> -->
+                <table id="earthquakesTable" data-show-refresh="true">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 新增/修改 弹出框  -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="..." aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- header -->
+            <div class="modal-header">
+                <h4 class="modal-title" id="editModalLabel">编辑震情数据</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <!-- body -->
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+
+                    <div class="form-group" id="editEqId">
+                        <label for="eqId" class="col-form-label">序号(I)</label>
+                        <input class="form-control" id="eqId" type="text" value="" onblur="onblurEqIdEvent()" />
+                    </div>
+                    <div class="form-group" id="editEqLevel">
+                        <label for="eqLevel" class="col-form-label">震级(M)</label>
+                        <input class="form-control" id="eqLevel" type="text" value="" onblur="onblurEqLevelEvent()" />
+                    </div>
+                    <div class="form-group" id="editEqTime">
+                        <label for="eqTime" class="col-form-label">发震时刻(UTC+8)</label>
+                        <div class="input-group date" id='eqTimePicker' data-target-input="nearest">
+                            <input id="eqTime" class="form-control datetimepicker-input" type="text" data-target="#eqTimePicker" />
+                            <div class="input-group-append"  data-target="#eqTimePicker" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group" id="editEqLongitude">
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="eqLongitude" class="col-form-label">经度(°)</label>
+                                <input class="form-control" id="eqLongitude" type="text" value="" />
+                            </div>
+                            <div class="col">
+                                <label for="eqLatitude" class="col-form-label">经度(°)</label>
+                                <input class="form-control" id="eqLatitude" type="text" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="editEqDepth">
+                        <label for="eqDepth" class="col-form-label">深度(km)</label>
+                        <input class="form-control" id="eqDepth" type="text" value=""
+                            oninput="value=value.replace(/[^\d]/g,'')" />
+                    </div>
+                    <div class="form-group" id="editEqLocation">
+                        <label for="eqLocation" class="col-form-label">参考位置</label>
+                        <input class="form-control" id="eqLocation" onchange="selectChange()"></input>
+                    </div>
+
+                </form>
+            </div>
+            <!-- button bar -->
+            <div class="modal-footer">
+                <input id="editId" name="editId" style="display:none" />
+                <input id="flag" style="display:none" />
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button " type=" button" class="btn btn-primary" onclick="submitEdit()">保存</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+
+
+
+</div>
+
+<!-- 删除模态框 -->
+<div class="modal fade" id="delModal" tabindex="-1" aria-labelledby="..." aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">删除</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+                确认删除ID为 <span></span> 的地震数据？
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <input type="hidden" id="delContext" />
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" onclick="submitDel()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<script>
+    var messages = {{ messages | safe }};
+    for (var i = 0; i < messages.length; i++) {
+        alert(messages[i]);
+    }
+</script>
+
+{% endif %}
+{% endwith %}
+
+<script>
+    const nav = document.getElementById("navOptions")
+    console.log(nav.children.length)
+    for (let i = 0; i < nav.children.length; i++) {
+        if (nav.children[i].firstChild.innerHTML === "震情") {
+            nav.children[i].classList.add("active");
+
+        }
+        else {
+            nav.children[i].classList.remove("active");
+        }
+    }
+</script>
+
+{% endblock %}
+
+
+
+{% block moreScript %}
+<script src="./static/js/bootstrap-table.min.js"></script>
+<script src="./static/js/bootstrap-table-locale-all.min.js"></script>
+<script src="./static/js/bootstrap-table.min.js"></script>
+<script src="./static/js/moment-with-locales.min.js"></script>
+<script src="./static/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../static/js/earthquakes.js"></script>
+
+
+
+{% endblock %}

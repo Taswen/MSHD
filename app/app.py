@@ -1,3 +1,9 @@
+from app.db import get_InjuredStatistics_num, get_all_HouseDamaged_data
+from app.db import get_earthquakes_num, get_all_earthquakes_data
+from app.db import get_earthquakes_data, get_HouseDamaged_num
+from app.db import get_HouseDamaged_num
+from app.db import get_all_InjuredStatistics_data
+from app.models import Earthquake, HouseDamaged, InjuredStatistics
 import hashlib
 import os
 import time
@@ -7,19 +13,6 @@ from jinja2.exceptions import TemplateNotFound
 
 from app import create_app
 from app.blueprint.api.api import api
-from app.db import *
-
-# from scanner.scanner import Scanner
-
-
-# def create_app():
-#     app = Flask(__name__)
-#     app.config.from_pyfile("config/settings.py")
-#     app.url_map.converters['regex']=RegexConverter
-#     db.init_app(app)
-#     # Scanner(app).run()
-#     return app
-
 
 app = create_app("development")
 
@@ -34,10 +27,10 @@ def mapPage():
 @app.route('/earthquakes')
 def earthquakesListPage():
     count = get_earthquakes_num()
-    return render_template("earthquakes1.html", count=count)
+    return render_template("earthquakes.html", count=count)
 
 
-@app.route('/earthquakes/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST', 'DELETE'])
+@app.route('/earthquakes/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST'])
 def earthquakesInfoPage(id):
     if request.method == 'GET':
         eq = Earthquake.query.get(id)
@@ -45,13 +38,23 @@ def earthquakesInfoPage(id):
     HoD = HouseDamaged.query.filter_by(EarthquakeId=id).all()
     # 人员伤亡情况
     IjS = InjuredStatistics.query.filter_by(EarthquakeId=id).all()
-    # result = request.args.get("result", 'ALL', str)
-    # offset = request.args.get('offset', 0, int)
-    # limit = request.args.get('limit', 20, int)
-    # count = get_earthquakes_num()
-    # earthquakes = get_earthquakes_data(limit=limit, offset=offset)
 
     return render_template("earthquakeInfo.html", eq=eq, hoDs=HoD, ijSs=IjS)
+
+@app.route('/houseDamaged/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST'])
+def houseDamagedInfoPage(id):
+    if request.method == 'GET':
+        hd = HouseDamaged.query.get(id)
+    # 编码
+    
+    # 房屋损害情况
+    eqs = Earthquake.query.filter_by(Id= hd.EarthquakeId).all()
+    # 人员伤亡情况
+    # IjS = InjuredStatistics.query.filter_by(EarthquakeId=id).all()
+
+    return render_template("houseDamagedInfo.html", hd=hd, eqs=eqs)
+
+
 
 
 @app.route('/docs', methods=['POST', 'GET'])
@@ -66,7 +69,7 @@ def getDocs():
                 return send_from_directory('./doc/md', docName)
             else:
                 return ""
-        except TemplateNotFound as e:
+        except TemplateNotFound:
             return "File Not Found"
     elif request.method == 'GET':
         return render_template("docs.html")
@@ -112,11 +115,19 @@ def InjuredStatisticsListPage():
     offset = request.args.get('offset', 0, int)
     limit = request.args.get('limit', 20, int)
     count = get_InjuredStatistics_num()
-    injuredStatistics = get_all_InjuredStatistics_data(limit=limit, offset=offset)
+    injuredStatistics = get_all_InjuredStatistics_data(
+        limit=limit, offset=offset)
 
     return render_template("InjuredStatistics.html", count=count, result=result, injuredStatistics=injuredStatistics,
                            offset=offset,
                            limit=limit)
+
+
+@app.route('/injuredStatistics/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST', 'DELETE'])
+def injuredStatisticsInfoPage(id):
+    if request.method == 'GET':
+        eq = InjuredStatistics.query.get(id)
+    return render_template("InjuredStatisticsInfo.html", eq=eq)
 
 
 @app.route('/houseDamaged')
@@ -131,15 +142,20 @@ def house_damaged_list_page():
                            limit=limit)
 
 
+
+
 @app.route('/upload', methods=['POST'])
 def upload_file():
     files = request.files.getlist('file_uploader')
     for file in files:
         ext = file.filename.rsplit('.')[-1]
-        filename = hashlib.md5(str(time.time()).encode('utf-8')).hexdigest()[:15] + ext
+        filename = hashlib.md5(str(time.time()).encode(
+            'utf-8')).hexdigest()[:15] + ext
         # filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     return jsonify({'msg': 'upload success'})
+
+
 
 
 if __name__ == '__main__':
