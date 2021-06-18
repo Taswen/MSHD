@@ -2721,19 +2721,19 @@
 
   var CONSTANTS = {
     3: {
-      iconsPrefix: 'glyphicon',
+      iconsPrefix: 'fa',
       icons: {
-        paginationSwitchDown: 'glyphicon-collapse-down icon-chevron-down',
-        paginationSwitchUp: 'glyphicon-collapse-up icon-chevron-up',
-        refresh: 'glyphicon-refresh icon-refresh',
-        toggleOff: 'glyphicon-list-alt icon-list-alt',
-        toggleOn: 'glyphicon-list-alt icon-list-alt',
-        columns: 'glyphicon-th icon-th',
-        detailOpen: 'glyphicon-plus icon-plus',
-        detailClose: 'glyphicon-minus icon-minus',
-        fullscreen: 'glyphicon-fullscreen',
-        search: 'glyphicon-search',
-        clearSearch: 'glyphicon-trash'
+        paginationSwitchDown: 'fa-collapse-down icon-chevron-down',
+        paginationSwitchUp: 'fa-collapse-up icon-chevron-up',
+        refresh: 'fa-refresh icon-refresh',
+        toggleOff: 'fa-list-alt icon-list-alt',
+        toggleOn: 'fa-list-alt icon-list-alt',
+        columns: 'fa-th icon-th',
+        detailOpen: 'fa-plus icon-plus',
+        detailClose: 'fa-minus icon-minus',
+        fullscreen: 'fa-arrows-alt',
+        search: 'fa-search',
+        clearSearch: 'fa-trash'
       },
       classes: {
         buttonsPrefix: 'btn',
@@ -3001,7 +3001,7 @@
     icons: CONSTANTS.icons,
     iconSize: undefined,
     iconsPrefix: CONSTANTS.iconsPrefix,
-    // glyphicon or fa(font-awesome)
+    // fa or fa(font-awesome)
     loadingFontSize: 'auto',
     loadingTemplate: function loadingTemplate(loadingMessage) {
       return "<span class=\"loading-wrap\">\n      <span class=\"loading-text\">".concat(loadingMessage, "</span>\n      <span class=\"animation-wrap\"><span class=\"animation-dot\"></span></span>\n      </span>\n    ");

@@ -42,7 +42,7 @@ class Earthquake(db.Model):
         return f'<Earthquake> {self.Location}:{self.Level}'
 
     def enable_print(self):
-        self.Str_ot = self.OccurrenceTime.strptime(r'%Y-%m-%d %H:%M:%S')
+        self.Str_ot = self.OccurrenceTime.strftime(r'%Y-%m-%d %H:%M:%S') if self.OccurrenceTime else ""
         return self
 
     @classmethod
@@ -63,14 +63,14 @@ class Earthquake(db.Model):
         for attr in earthquake_minimal_attr:
             if not getattr(self, attr, ''):
                 return False
-        return 
+        return True
         
 
     def toMap(self)->Dict:
         return {
             'Id': self.Id, 
             'Level': self.Level, 
-            'OccurrenceTime': self.OccurrenceTime.strftime(r'%Y.%m.%d %H:%M:%S') if self.OccurrenceTime else "", 
+            'OccurrenceTime': self.OccurrenceTime.strftime(r'%Y-%m-%d %H:%M:%S') if self.OccurrenceTime else "", 
             'Longitude': self.Longitude, 
             'Latitude': self.Latitude, 
             'Depth': self.Depth, 
@@ -99,7 +99,7 @@ class HouseDamaged(db.Model):
     Earthqu = db.relationship("Earthquake", backref="HouseDamageds")
 
     def enable_print(self):
-        self.Str_ot = str(self.Date)
+        self.Str_ot = self.Date.strftime(r'%Y-%m-%d %H:%M:%S') if self.Date else ""
         return self
 
     def __init__(self, data: Dict):
@@ -113,6 +113,20 @@ class HouseDamaged(db.Model):
             if not getattr(self, attr, ''):
                 return False
         return True
+
+    def toMap(self)->Dict:
+        return {
+            'Id': self.Id,
+            'Category': self.Category,
+            'Date': self.Date.strftime(r'%Y-%m-%d %H:%M:%S') if self.Date else "",
+            'Location': self.Location,
+            'BasicallyIntactSquare': self.BasicallyIntactSquare,
+            'DamagedSquare': self.DamagedSquare,
+            'DestroyedSquare': self.DestroyedSquare,
+            'ReportingUnit': self.ReportingUnit,
+            'EarthquakeId': self.EarthquakeId,
+            'Level': self.Level
+        }
 
 
 class InjuredStatistics(db.Model):
@@ -131,7 +145,7 @@ class InjuredStatistics(db.Model):
     Earthqu = db.relationship("Earthquake", backref="InjuredStatistics")
 
     def enable_print(self):
-        self.Str_ot = str(self.Date)
+        self.Str_ot = self.Date.strftime(r'%Y-%m-%d %H:%M:%S') if self.Date else ""
         return self
 
     def __init__(self, data: Dict):
@@ -145,3 +159,13 @@ class InjuredStatistics(db.Model):
             if not getattr(self, attr, ''):
                 return False
         return True
+
+    def toMap(self)->Dict:
+        return {
+            'Id': self.Id,
+            'Date': self.Date.strftime(r'%Y-%m-%d %H:%M:%S') if self.Date else "",
+            'Location': self.Location,
+            'DeathNumber': self.DeathNumber,
+            'InjuredNumber': self.InjuredNumber,
+            'MissingNumber': self.MissingNumber
+        }

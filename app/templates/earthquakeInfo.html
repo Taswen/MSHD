@@ -67,14 +67,14 @@
                                 <th> 房屋损坏数据ID</th>
                             </tr>
                         </thead>
-                        {% for hoD in hoDs %}
                         <tbody>
-                            <tr>
+                        {% for hoD in hoDs %}
+                            <tr onclick="click_hd({{hoD.Id}})">
                                 <td>{{loop.index - 1}} </td>
                                 <td>{{hoD.Id}}</td>
                             </tr>
+                            {% endfor %}
                         </tbody>
-                        {% endfor %}
                     </table>
                     <h4> 人员伤亡记录 </h4>
                     <table class="table table-hover table-condensed">
@@ -84,14 +84,14 @@
                                 <th> 人员伤亡记录ID </th>
                             </tr>
                         </thead>
-                        {% for ijS in ijSs %}
                         <tbody>
+                        {% for ijS in ijSs %}
                             <tr>
                                 <td>{{loop.index - 1}} </td>
                                 <td>{{ijS.Id}}</td>
                             </tr>
+                            {% endfor %}
                         </tbody>
-                        {% endfor %}
                     </table>
                 </div>
             </div>
@@ -110,5 +110,16 @@
             nav.children[i].classList.remove("active");
         }
     }
+
+    function click_hd(id){
+        console.log("IN")
+        window.location.href = "/houseDamaged/"+id
+    }
+
+    function click_is(id){
+        window.location.href = "/earthquakes/"+id
+    }
+
 </script>
+
 {% endblock %}

@@ -12,7 +12,7 @@ def get_all_earthquakes_data():
 
 def get_earthquakes_data(limit=None, offset=None, orderBy="id", order="asc"):
     eqs = Earthquake.query.order_by(
-        text("id")).limit(limit).offset(offset).all()
+        text(orderBy)).limit(limit).offset(offset).all()
     process_eqs = [e.enable_print() for e in eqs]
     return process_eqs
 
@@ -28,7 +28,7 @@ def get_earthquakes_num():
 def readCsv(file):
     start_id = Earthquake.get_max_id()
     ref_start_id = 1
-    with open("file", "r") as csv_file:
+    with open(file, "r") as csv_file:
         reader = csv.DictReader(csv_file)
         for row in reader:
             row['Id'] = str(start_id)

@@ -1,36 +1,47 @@
 from sqlalchemy.sql.expression import text
-from app.models import Earthquake
 from flask import Blueprint, request, jsonify
-from sqlalchemy import desc
-from app.db import db
+
+import json
+from datetime import datetime
+from typing import Dict
+
+from sqlalchemy import desc, text
+
+from app.ext import db
+from app.models import Earthquake, Disaster, HouseDamaged, InjuredStatistics
 
 api = Blueprint('api', __name__)
+name_model_map = {
+    'earthquakes': Earthquake,
+    'disaster': Disaster,
+    'houseDamaged': HouseDamaged,
+    'InjuredStatistics': InjuredStatistics,
+}
 
 
-@api.route('/earthquakes/', methods=['GET', 'PUT', 'DELETE', 'POST'])
-def earthquakes():
+@api.route('/<string:table>/list', methods=['GET', 'PUT', 'DELETE', 'POST'])
+def models(table: str):
+    model = name_model_map[table]
     if request.method == 'GET':
         try:
             offset = request.args.get('offset', None, int)
             limit = request.args.get('limit', None, int)
-            orderBy = request.args.get("orderBy")
-            order = request.args.get("order")
-        except ValueError:
+            order_by = request.args.get("orderBy", "Id")
+            order = request.args.get("order", "asc")
+        except ValueError as e:
             return {""}
-        if orderBy != "":
+        if order_by != "":
             if order == "desc":
-                datas = Earthquake.query.order_by(desc(orderBy))
+                data = model.query.order_by(desc(order_by))
             else:
-                datas = Earthquake.query.order_by(text(orderBy))
+                data = model.query.order_by(text(order_by))
         else:
-            datas = Earthquake.query
-        eqs = datas.limit(limit).offset(offset).all()
-        res = {
-            "limit": limit if limit != None else 0,
-            "rows": [], "total": datas.count()
-        }
+            data = model.query
+        eqs = data.limit(limit).offset(offset).all()
+        res = {"limit": limit if limit else 0,
+               "rows": [], "total": data.count()}
         for eq in eqs:
-            res["rows"].append(eq.toMap())
+            res["rows"].append(to_dict(eq))
         return jsonify(res)
     elif request.method == "PUT":
         pass
@@ -42,20 +53,38 @@ def earthquakes():
         return '', 412
 
 
-@api.route('/earthquakes/<id>',
+@api.route('/<string:table>/<int:id>',
            methods=['GET', 'PUT', 'DELETE', 'POST', "PATCH"])
-def earthquake(id):
+def model(table, id):
+    model = name_model_map[table]
     if request.method == 'GET':
-        pass
+        obj = model.query.filter(model.Id == id).first()
+        return jsonify(to_dict(obj))
     elif request.method == "PUT":
         pass
     elif request.method == 'DELETE':
-        db.session.delete(Earthquake.query.get(id))
+        db.session.delete(model.query.get(id))
         db.session.commit()
         return '', 204
     elif request.method == 'POST':
         pass
     elif request.method == "PATCH":
-        pass
+        row = model.query.get(id)
+        if not row:
+            return '', 404
+        patch_dict = json.loads(request.data)
+        for key, val in patch_dict.items():
+            setattr(row, key, val)
+        db.session.commit()
+        return '', 200
     else:
         return '', 412
+
+
+def to_dict(obj: object) -> Dict:
+    d = {}
+    for key, val in obj.__dict__.items():
+        if type(val) in [str, int, float, datetime]:
+            d[key] = val if type(val) != datetime else (
+                val.strftime(r'%Y-%m-%d %H:%M:%S') if val else "")
+    return d

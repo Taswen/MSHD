@@ -1,24 +1,18 @@
+from app.db import get_InjuredStatistics_num, get_all_HouseDamaged_data
+from app.db import get_earthquakes_num, get_all_earthquakes_data
+from app.db import get_earthquakes_data, get_HouseDamaged_num
+from app.db import get_HouseDamaged_num
+from app.db import get_all_InjuredStatistics_data
 from app.models import Earthquake, HouseDamaged, InjuredStatistics
-from app.db import *
+import hashlib
 import os
+import time
 
-from flask import render_template, request, send_from_directory
+from flask import render_template, request, send_from_directory, jsonify
 from jinja2.exceptions import TemplateNotFound
 
 from app import create_app
 from app.blueprint.api.api import api
-
-# from scanner.scanner import Scanner
-
-
-# def create_app():
-#     app = Flask(__name__)
-#     app.config.from_pyfile("config/settings.py")
-#     app.url_map.converters['regex']=RegexConverter
-#     db.init_app(app)x
-#     # Scanner(app).run()
-#     return app
-
 
 app = create_app("development")
 
@@ -44,13 +38,23 @@ def earthquakesInfoPage(id):
     HoD = HouseDamaged.query.filter_by(EarthquakeId=id).all()
     # 人员伤亡情况
     IjS = InjuredStatistics.query.filter_by(EarthquakeId=id).all()
-    # result = request.args.get("result", 'ALL', str)
-    # offset = request.args.get('offset', 0, int)
-    # limit = request.args.get('limit', 20, int)
-    # count = get_earthquakes_num()
-    # earthquakes = get_earthquakes_data(limit=limit, offset=offset)
 
     return render_template("earthquakeInfo.html", eq=eq, hoDs=HoD, ijSs=IjS)
+
+@app.route('/houseDamaged/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST'])
+def houseDamagedInfoPage(id):
+    if request.method == 'GET':
+        hd = HouseDamaged.query.get(id)
+    # 编码
+    
+    # 房屋损害情况
+    eqs = Earthquake.query.filter_by(Id= hd.EarthquakeId).all()
+    # 人员伤亡情况
+    # IjS = InjuredStatistics.query.filter_by(EarthquakeId=id).all()
+
+    return render_template("houseDamagedInfo.html", hd=hd, eqs=eqs)
+
+
 
 
 @app.route('/docs', methods=['POST', 'GET'])
@@ -120,7 +124,7 @@ def InjuredStatisticsListPage():
 
 
 @app.route('/houseDamaged')
-def HouseDamagedListPage():
+def house_damaged_list_page():
     result = request.args.get("result", 'ALL', str)
     offset = request.args.get('offset', 0, int)
     limit = request.args.get('limit', 20, int)
@@ -131,11 +135,20 @@ def HouseDamagedListPage():
                            limit=limit)
 
 
-@app.route('/test', methods=['POST', 'GET'])
-def test():
-    # 测试
 
-    return render_template("indexP.html")
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    files = request.files.getlist('file_uploader')
+    for file in files:
+        ext = file.filename.rsplit('.')[-1]
+        filename = hashlib.md5(str(time.time()).encode(
+            'utf-8')).hexdigest()[:15] + ext
+        # filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    return jsonify({'msg': 'upload success'})
+
+
 
 
 if __name__ == '__main__':
