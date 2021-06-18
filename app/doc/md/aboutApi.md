@@ -37,7 +37,7 @@ GET /api/earchquaskes
 }
 ```
 
-##接口说明2
+## 接口说明2
 - 方法描述：多条数据查询
 - URL地址：/api/earthquakes/list
 - 请求方式：get
