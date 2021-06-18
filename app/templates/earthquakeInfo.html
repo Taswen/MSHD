@@ -19,10 +19,10 @@
                     </h4>
                     <ul class="list-group" id="quick">
                         <li class="list-group-item">
-                            <a href="/earthquakes">返回</a>
+                            <a href="/earthquakes">返回总表</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="/earthquakes">下载Json文件</a>
+                            <a href="javascript:downJson();">下载Json文件</a>
                         </li>
                     </ul>
                 </div>
@@ -109,6 +109,13 @@
         else {
             nav.children[i].classList.remove("active");
         }
+    }
+
+    function downJson(){
+        var url = "/api/earthquakes/"+ "{{ eq.Id }}"
+        var form = $("<form></form>").attr("action", url).attr("method", "get");
+        form.append($("<input></input>").attr("type", "hidden").attr("name", "type").attr("value", "json"));
+        form.appendTo('body').submit().remove();
     }
 
     function click_hd(id){

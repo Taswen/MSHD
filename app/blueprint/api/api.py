@@ -1,11 +1,12 @@
 from sqlalchemy.sql.expression import text
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, stream_with_context
 
 import json
 from datetime import datetime
 from typing import Dict
 
 from sqlalchemy import desc, text
+from werkzeug import Response
 
 from app.ext import db
 from app.models import Earthquake, Disaster, HouseDamaged, InjuredStatistics
@@ -59,7 +60,18 @@ def model(table, id):
     model = name_model_map[table]
     if request.method == 'GET':
         obj = model.query.filter(model.Id == id).first()
-        return jsonify(to_dict(obj))
+        type = request.args.get("type")
+        if type:
+            if type == "json":
+                response = jsonify(to_dict(obj))
+                response.headers.set("Content-Disposition", "attachment",
+                                     filename=f"{model.__tablename__}_{id}.json")
+                # 将 response 返回
+                return response
+            else:
+                return "", 200
+        else:
+            return jsonify(to_dict(obj))
     elif request.method == "PUT":
         pass
     elif request.method == 'DELETE':

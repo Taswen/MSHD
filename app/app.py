@@ -41,20 +41,19 @@ def earthquakesInfoPage(id):
 
     return render_template("earthquakeInfo.html", eq=eq, hoDs=HoD, ijSs=IjS)
 
+
 @app.route('/houseDamaged/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST'])
 def houseDamagedInfoPage(id):
     if request.method == 'GET':
         hd = HouseDamaged.query.get(id)
     # 编码
-    
+
     # 房屋损害情况
-    eqs = Earthquake.query.filter_by(Id= hd.EarthquakeId).all()
+    eqs = Earthquake.query.filter_by(Id=hd.EarthquakeId).all()
     # 人员伤亡情况
     # IjS = InjuredStatistics.query.filter_by(EarthquakeId=id).all()
 
     return render_template("houseDamagedInfo.html", hd=hd, eqs=eqs)
-
-
 
 
 @app.route('/docs', methods=['POST', 'GET'])
@@ -126,8 +125,8 @@ def InjuredStatisticsListPage():
 @app.route('/injuredStatistics/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST', 'DELETE'])
 def injuredStatisticsInfoPage(id):
     if request.method == 'GET':
-        eq = InjuredStatistics.query.get(id)
-    return render_template("InjuredStatisticsInfo.html", eq=eq)
+        ij = InjuredStatistics.query.get(id)
+    return render_template("InjuredStatisticsInfo.html", ij=ij)
 
 
 @app.route('/houseDamaged')
@@ -142,8 +141,6 @@ def house_damaged_list_page():
                            limit=limit)
 
 
-
-
 @app.route('/upload', methods=['POST'])
 def upload_file():
     files = request.files.getlist('file_uploader')
@@ -154,8 +151,6 @@ def upload_file():
         # filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     return jsonify({'msg': 'upload success'})
-
-
 
 
 if __name__ == '__main__':

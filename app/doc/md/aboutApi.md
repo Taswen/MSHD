@@ -13,15 +13,12 @@ GET /api/earchquaskes
 
 1. 可带 `offset` 和 `limit` 来截取特定偏移量和数量的Json数据。
 
-
 2. 可带 `orderBy` 和 `order` 来获取按照指定字段顺序排序的Json。
 
 
-3. 可带 `dateStart` 和 `dateEnd` 来指定时间段范围内的Json数据
-
 # API接口
-## 接口说明1
-- 方法描述：单条震情数据查询
+## 震情
+### 单条震情数据查询
 - URL地址：/api/earthquakes/<<int:id>>
 - 请求方式：get
 - 返回结果示例：
@@ -37,15 +34,32 @@ GET /api/earchquaskes
 }
 ```
 
-## 接口说明2
-- 方法描述：多条数据查询
+## 修改某一条震情数据
+- URL地址：/api/earthquakes/<<int:id>>
+- 请求方式：patch
+- 请求参数：
+  携带如下json格式的文件，其中每一字段都是可选的。对json中有的字段，就修改对应数据的字段值为新的值。
+
+```json
+{
+    "Depth": 9.0,
+    "Latitude": 39.46, 
+    "Level": 4.6, 
+    "Location": "\u5409\u5c14\u5409\u65af\u65af\u5766", 
+    "Longitude": 73.15
+}
+```
+
+
+
+### 多条震情数据查询
 - URL地址：/api/earthquakes/list
 - 请求方式：get,patch
 - 返回结果示例：
 
 ```json
 {
-  "limit": 0, 
+  "limit": 6, 
   "rows": [
     {
       "Depth": 5.0, 
@@ -108,64 +122,13 @@ GET /api/earchquaskes
       "OccurrenceTime": "2021-05-12 22:37:06"
     }
   ], 
-  "total": 6
+  "total": 20
 }
 ```
 
-## 接口说明3
-- 方法描述：单条灾情数据查询
-- URL地址：/api/disaster/<<int:id>>
-- 请求方式：get
-- 返回结果示例：
 
-```json
-{
-  "Id": 1, 
-  "TypeCode": 1
-}
-```
-
-## 接口说明4
-- 方法描述：多条灾情数据查询
-- URL地址：/api/disaster/list
-- 请求方式：get,patch
-- 返回结果示例：
-
-```json
-{
-  "limit": 0, 
-  "rows": [
-    {
-      "Id": 1, 
-      "TypeCode": 1
-    }, 
-    {
-      "Id": 2, 
-      "TypeCode": 1
-    }, 
-    {
-      "Id": 3, 
-      "TypeCode": 1
-    }, 
-    {
-      "Id": 4, 
-      "TypeCode": 1
-    }, 
-    {
-      "Id": 5, 
-      "TypeCode": 1
-    }, 
-    {
-      "Id": 6, 
-      "TypeCode": 1
-    }
-  ], 
-  "total": 6
-}
-```
-
-## 接口说明5
-- 方法描述：单条房屋破坏数据查询
+## 房屋破坏
+### 单条房屋破坏数据查询
 - URL地址：/api/houseDamaged/<<int:id>>
 - 请求方式：get
 - 返回结果示例：
@@ -185,15 +148,14 @@ GET /api/earchquaskes
 }
 ```
 
-## 接口说明6
-- 方法描述：多条房屋破坏数据查询
+### 多条房屋破坏数据查询
 - URL地址：/api/houseDamaged/list
-- 请求方式：get,patch
+- 请求方式：get
 - 返回结果示例：
 
 ```json
 {
-  "limit": 0, 
+  "limit": 6, 
   "rows": [
     {
       "BasicallyIntactSquare": 61.0, 
@@ -268,12 +230,11 @@ GET /api/earchquaskes
       "ReportingUnit": "\u56fd\u5bb6\u5730\u9707\u5c40"
     }
   ], 
-  "total": 6
+  "total": 20
 }
 ```
-
-## 接口说明7
-- 方法描述：单条人员伤亡数据查询
+## 人员伤亡
+### 单条人员伤亡数据查询
 - URL地址：/api/InjuredStatistics/<<int:id>>
 - 请求方式：get
 - 返回结果示例：
@@ -291,15 +252,14 @@ GET /api/earchquaskes
 }
 ```
 
-## 接口说明8
-- 方法描述：多条人员伤亡数据查询
+### 多条人员伤亡数据查询
 - URL地址：/api/InjuredStatistics/list
-- 请求方式：get,patch
+- 请求方式：get
 - 返回结果示例：
 
 ```json
 {
-  "limit": 0, 
+  "limit": 6, 
   "rows": [
     {
       "Date": "2021-06-10 20:40:48", 
@@ -362,6 +322,6 @@ GET /api/earchquaskes
       "ReportingUnit": "\u56fd\u5bb6\u5730\u9707\u5c40"
     }
   ], 
-  "total": 6
+  "total": 20
 }
 ```

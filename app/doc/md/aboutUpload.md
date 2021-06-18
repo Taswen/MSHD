@@ -5,30 +5,25 @@
 ## FTP相关
 
 FTP地址：`ftp://47.93.229.92/`
-
-
 账户名：`dataput` 密码：`114514`
 
 
+### FTP文件结构
 
-## FTP文件结构
-
-用户能够登录
+用户能够登录FTP系统直接上传文件，其中upload是其放置上传文件的地方
 
 ```bash
-$ ftp 47.93.229.92
+├─error      # 非法文件放在这里
+├─scanned
+│  └─...     # 扫描后的文件放在这里
+└─upload     # 上传文件夹，定时对其扫描
+
 ```
 
 
+## 上传文件格式
 
-
-
-
-
-
-# 上传文件格式
-
-## 震情数据
+### 震情数据
 
 ```json
 {
@@ -74,9 +69,9 @@ TypeCode, Category, OccurrenceTime, Longitude, Latitude, Depth, Level, Location,
 25, 1, 2021-04-21 10:15:57, 116.63, 40.16, 15, 7.0, China, 北京地震局, 1.png;2.png
 ```
 
-## 灾情数据
+### 灾情数据
 
-### 房屋损伤
+#### 房屋损伤
 ```json
 {
 "disasters": [
@@ -111,7 +106,7 @@ TypeCode, Category, Date, Location, BasicallyIntactSquare, DamagedSquare, Destro
 
 
 
-### 人员伤亡
+#### 人员伤亡
 ```json
 {
 "disasters": [
@@ -142,3 +137,8 @@ TypeCode, Category, Date, Location, DeathNumber, InjuredNumber, MissingNumber, R
 
 11, 人员伤亡, 2021-04-21 10:15:57, 北京市东城区东华门街道多福巷社区居委会, 0, 150, 0, 多福巷社区居委会,CHN0102000055002021042110155734, 1.png;2.png
 ```
+
+
+## 通过网站直接上传
+
+提供了上传的快捷方式。不用登录FTP系统，用户可以通过网站直接上传文件，这些文件也会被放入FTP系统内的upload文件夹内以供扫描。
