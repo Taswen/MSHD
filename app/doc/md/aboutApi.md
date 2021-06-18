@@ -26,16 +26,16 @@ GET /api/earchquaskes
 - 请求方式：get
 - 返回结果示例：
 
+```json
 {
-
     "Depth": 9.0,
     "Id": 1,
     "Latitude": 39.46, 
     "Level": 4.6, 
     "Location": "\u5409\u5c14\u5409\u65af\u65af\u5766", 
     "Longitude": 73.15
-
 }
+```
 
 ##接口说明2
 - 方法描述：多条数据查询
@@ -43,59 +43,65 @@ GET /api/earchquaskes
 - 请求方式：get
 - 返回结果示例：
 
+```json
 {
-
-    “限制”：0， 
-    “行”：[
+    "limit": 0, 
+    "rows": [
     {
-      “深度”：9.0， 
-      “身份证”：1， 
-      “纬度”：39.46， 
-      “等级”：4.6， 
-      "位置": "\u5409\u5c14\u5409\u65af\u65af\u5766", 
-      “经度”：73.15
+      "Depth": 9.0, 
+      "EarthquakeEncode": "0000394600731502021051417540446", 
+      "Id": 1, 
+      "Latitude": 39.46, 
+      "Level": 4.6, 
+      "Location": "\u5409\u5c14\u5409\u65af\u65af\u5766", 
+      "Longitude": 73.15
     }, 
     {
-      “深度”：9.0， 
-      “身份证”：2， 
-      “纬度”：32.57， 
-      “等级”：2.9， 
-      "位置": "\u56db\u5ddd\u5e7f\u5143\u5e02\u9752\u5ddd\u53bf", 
-      “经度”：105.24
+      "Depth": 9.0, 
+      "EarthquakeEncode": "CHN0325701052402021051401254929", 
+      "Id": 2, 
+      "Latitude": 32.57, 
+      "Level": 2.9, 
+      "Location": "\u56db\u5ddd\u5e7f\u5143\u5e02\u9752\u5ddd\u53bf", 
+      "Longitude": 105.24
     }, 
     {
-      “深度”：420.0， 
-      “身份证”：3， 
-      “纬度”：-16.05， 
-      “等级”：5.6， 
-      "位置": "\u6590\u6d4e\u7fa4\u5c9b\u5730\u533a", 
-      “经度”：-177.25
+      "Depth": 420.0, 
+      "EarthquakeEncode": "000-16050-1772502021051321313356", 
+      "Id": 3, 
+      "Latitude": -16.05, 
+      "Level": 5.6, 
+      "Location": "\u6590\u6d4e\u7fa4\u5c9b\u5730\u533a", 
+      "Longitude": -177.25
     }, 
     {
-      “深度”：10.0， 
-      “身份证”：4， 
-      “纬度”：6.8， 
-      “等级”：5.7， 
-      "位置": "\u5df4\u62ff\u9a6c\u4ee5\u5357\u6d77\u57df", 
-      “经度”：-82.35
+      "Depth": 10.0, 
+      "EarthquakeEncode": "000006800-823502021051317421157", 
+      "Id": 4, 
+      "Latitude": 6.8, 
+      "Level": 5.7, 
+      "Location": "\u5df4\u62ff\u9a6c\u4ee5\u5357\u6d77\u57df", 
+      "Longitude": -82.35
     }, 
     {
-      “深度”：8.0， 
-      “身份证”：5， 
-      “纬度”：24.43， 
-      “等级”：4.7， 
-      "位置": "\u4e91\u5357\u4fdd\u5c71\u5e02\u65bd\u7538\u53bf", 
-      “经度”：99.24
+      "Depth": 8.0, 
+      "EarthquakeEncode": "CHN0244300992402021051311423647", 
+      "Id": 5, 
+      "Latitude": 24.43, 
+      "Level": 4.7, 
+      "Location": "\u4e91\u5357\u4fdd\u5c71\u5e02\u65bd\u7538\u53bf", 
+      "Longitude": 99.24
     }, 
     {
-      “深度”：10.0， 
-      “身份证”：6， 
-      “纬度”：37.12， 
-      “等级”：4.1， 
-      "位置": "\u65b0\u7586\u5df4\u97f3\u90ed\u695e\u5dde\u4e14\u672b\u53bf", 
-      “经度”：85.08
-    }
+      "Depth": 10.0, 
+      "EarthquakeEncode": "CHN0371200850802021051222370641", 
+      "Id": 6, 
+      "Latitude": 37.12, 
+      "Level": 4.1, 
+      "Location": "\u65b0\u7586\u5df4\u97f3\u90ed\u695e\u5dde\u4e14\u672b\u53bf", 
+      "Longitude": 85.08
+    }, 
     ],
-    “总计”：6
-
+    "total":6
 }
+```

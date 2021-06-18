@@ -21,6 +21,11 @@ jobs:
         id: sha-var
         run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
+      - name: Change to prod environment
+        run: |
+          echo $(grep "127.0.0.1:5123" -rl ./app) will change
+          sed -i "s/127.0.0.1:5123/47.93.229.92/g" $(grep "127.0.0.1:5123" -rl ./app)
+
       - name: Check SHA
         run: echo ${{ steps.sha-var.outputs.sha_short }}
 
