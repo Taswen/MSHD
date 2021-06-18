@@ -125,7 +125,7 @@ GET /api/earchquaskes
 }
 ```
 
-##接口说明4
+## 接口说明4
 - 方法描述：多条灾情数据查询
 - URL地址：/api/disaster/list
 - 请求方式：get,patch
@@ -185,7 +185,7 @@ GET /api/earchquaskes
 }
 ```
 
-##接口说明6
+## 接口说明6
 - 方法描述：多条房屋破坏数据查询
 - URL地址：/api/houseDamaged/list
 - 请求方式：get,patch
@@ -291,7 +291,7 @@ GET /api/earchquaskes
 }
 ```
 
-##接口说明8
+## 接口说明8
 - 方法描述：多条人员伤亡数据查询
 - URL地址：/api/InjuredStatistics/list
 - 请求方式：get,patch
