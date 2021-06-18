@@ -29,16 +29,16 @@ GET /api/earchquaskes
 - 请求方式：get
 - 返回结果示例：
 
+```json
 {
-
     "Depth": 9.0,
     "Id": 1,
     "Latitude": 39.46, 
     "Level": 4.6, 
     "Location": "\u5409\u5c14\u5409\u65af\u65af\u5766", 
     "Longitude": 73.15
-
 }
+```
 
 ##接口说明2
 - 方法描述：多条数据查询
@@ -46,8 +46,8 @@ GET /api/earchquaskes
 - 请求方式：get
 - 返回结果示例：
 
+```json
 {
-
     "limit": 0, 
     "rows": [
     {
@@ -105,6 +105,6 @@ GET /api/earchquaskes
       "Longitude": 85.08
     }, 
     ],
-    “总计”：6
-
+    "total":6
 }
+```
