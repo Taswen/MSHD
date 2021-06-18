@@ -110,7 +110,7 @@ $('#InjuredStatisticsTable').bootstrapTable({
     onDblClickRow: function (row, $element) {
         // $("#taskNameForCheck").val(row.taskName)
         // $("#taskDetails_").click()
-        window.location.href=baseUrl+"InjuredStatistics/"+row.Id
+        window.location.href=baseUrl+"injuredStatistics/"+row.Id
     },
     //得到查询的参数
     queryParams : function (params) {

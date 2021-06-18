@@ -123,6 +123,13 @@ def InjuredStatisticsListPage():
                            limit=limit)
 
 
+@app.route('/injuredStatistics/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST', 'DELETE'])
+def injuredStatisticsInfoPage(id):
+    if request.method == 'GET':
+        eq = InjuredStatistics.query.get(id)
+    return render_template("InjuredStatisticsInfo.html", eq=eq)
+
+
 @app.route('/houseDamaged')
 def house_damaged_list_page():
     result = request.args.get("result", 'ALL', str)
