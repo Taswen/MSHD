@@ -26,7 +26,10 @@ def mapPage():
 
 @app.route('/earthquakes')
 def earthquakesListPage():
-    count = get_earthquakes_num()
+    try:
+        count = get_earthquakes_num()
+    except Exception as e:
+        return render_template("error.html",errorinfo=str(e))
     return render_template("earthquakes.html", count=count)
 
 
@@ -34,11 +37,13 @@ def earthquakesListPage():
 def earthquakesInfoPage(id):
     if request.method == 'GET':
         eq = Earthquake.query.get(id)
-    # 房屋损害情况
-    HoD = HouseDamaged.query.filter_by(EarthquakeId=id).all()
-    # 人员伤亡情况
-    IjS = InjuredStatistics.query.filter_by(EarthquakeId=id).all()
-
+    try:
+        # 房屋损害情况
+        HoD = HouseDamaged.query.filter_by(EarthquakeId=id).all()
+        # 人员伤亡情况
+        IjS = InjuredStatistics.query.filter_by(EarthquakeId=id).all()
+    except Exception as e:
+        return render_template("error.html",errorinfo=str(e))
     return render_template("earthquakeInfo.html", eq=eq, hoDs=HoD, ijSs=IjS)
 
 
@@ -46,13 +51,13 @@ def earthquakesInfoPage(id):
 def houseDamagedInfoPage(id):
     if request.method == 'GET':
         hd = HouseDamaged.query.get(id)
-    # 编码
-
-    # 房屋损害情况
-    eqs = Earthquake.query.filter_by(Id=hd.EarthquakeId).all()
-    # 人员伤亡情况
-    # IjS = InjuredStatistics.query.filter_by(EarthquakeId=id).all()
-
+    try:
+        # 房屋损害情况
+        eqs = Earthquake.query.filter_by(Id=hd.EarthquakeId).all()
+        # 人员伤亡情况
+        # IjS = InjuredStatistics.query.filter_by(EarthquakeId=id).all()
+    except Exception as e:
+        return render_template("error.html",errorinfo=str(e))
     return render_template("houseDamagedInfo.html", hd=hd, eqs=eqs)
 
 
@@ -101,9 +106,11 @@ def disasterListPage():
     result = request.args.get("result", 'ALL', str)
     offset = request.args.get('offset', 0, int)
     limit = request.args.get('limit', 20, int)
-    count = get_earthquakes_num()
-    earthquakes = get_earthquakes_data(limit=limit, offset=offset)
-
+    try:
+        count = get_earthquakes_num()
+        earthquakes = get_earthquakes_data(limit=limit, offset=offset)
+    except Exception as e:
+        return render_template("error.html",errorinfo=str(e))
     return render_template("disasters.html", count=count, result=result, earthquakes=earthquakes, offset=offset,
                            limit=limit)
 
@@ -113,10 +120,12 @@ def InjuredStatisticsListPage():
     result = request.args.get("result", 'ALL', str)
     offset = request.args.get('offset', 0, int)
     limit = request.args.get('limit', 20, int)
-    count = get_InjuredStatistics_num()
-    injuredStatistics = get_all_InjuredStatistics_data(
-        limit=limit, offset=offset)
-
+    try:
+        count = get_InjuredStatistics_num()
+        injuredStatistics = get_all_InjuredStatistics_data(
+            limit=limit, offset=offset)
+    except Exception as e:
+        return render_template("error.html",errorinfo=str(e))
     return render_template("InjuredStatistics.html", count=count, result=result, injuredStatistics=injuredStatistics,
                            offset=offset,
                            limit=limit)
@@ -124,8 +133,11 @@ def InjuredStatisticsListPage():
 
 @app.route('/injuredStatistics/<int:id>', methods=['GET', 'PUT', 'DELETE', 'POST', 'DELETE'])
 def injuredStatisticsInfoPage(id):
-    if request.method == 'GET':
-        ij = InjuredStatistics.query.get(id)
+    try:
+        if request.method == 'GET':
+            ij = InjuredStatistics.query.get(id)
+    except Exception as e:
+        return render_template("error.html",errorinfo=str(e))
     return render_template("InjuredStatisticsInfo.html", ij=ij)
 
 
@@ -134,9 +146,11 @@ def house_damaged_list_page():
     result = request.args.get("result", 'ALL', str)
     offset = request.args.get('offset', 0, int)
     limit = request.args.get('limit', 20, int)
-    count = get_HouseDamaged_num()
-    houseDamaged = get_all_HouseDamaged_data(limit=limit, offset=offset)
-
+    try:
+        count = get_HouseDamaged_num()
+        houseDamaged = get_all_HouseDamaged_data(limit=limit, offset=offset)
+    except Exception as e:
+        return render_template("error.html",errorinfo=str(e))
     return render_template("houseDamaged.html", count=count, result=result, houseDamaged=houseDamaged, offset=offset,
                            limit=limit)
 

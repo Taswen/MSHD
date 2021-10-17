@@ -1,5 +1,5 @@
 import csv
-from sqlalchemy import text
+from sqlalchemy import text,exc
 from app.models import Earthquake, HouseDamaged, InjuredStatistics
 from app.ext import db
 
